@@ -510,7 +510,7 @@
 		AD6049BA19245CD200A59798 /* ForthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthViewController.h; sourceTree = "<group>"; };
 		AD6049BB19245CD200A59798 /* ForthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthViewController.m; sourceTree = "<group>"; };
 		AD6049BC19245CD200A59798 /* ForthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForthViewController.xib; sourceTree = "<group>"; };
-		ADAA5DCC192341090040ED10 /* Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAA5DCC192341090040ED10 /* 健康宝.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "健康宝.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAA5DCF192341090040ED10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ADAA5DD1192341090040ED10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		ADAA5DD3192341090040ED10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -948,7 +948,7 @@
 		ADAA5DCD192341090040ED10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADAA5DCC192341090040ED10 /* Health.app */,
+				ADAA5DCC192341090040ED10 /* 健康宝.app */,
 				ADAA5DE7192341090040ED10 /* HealthTests.xctest */,
 			);
 			name = Products;
@@ -1217,7 +1217,7 @@
 			);
 			name = Health;
 			productName = Health;
-			productReference = ADAA5DCC192341090040ED10 /* Health.app */;
+			productReference = ADAA5DCC192341090040ED10 /* 健康宝.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ADAA5DE6192341090040ED10 /* HealthTests */ = {
@@ -1663,7 +1663,7 @@
 					"$(PROJECT_DIR)/Health",
 					"$(PROJECT_DIR)/Health/SDKExport",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "健康宝";
 				PROVISIONING_PROFILE = "6EE43E9A-0653-4AE2-8510-77B4F6205197";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1683,7 +1683,7 @@
 					"$(PROJECT_DIR)/Health",
 					"$(PROJECT_DIR)/Health/SDKExport",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "健康宝";
 				PROVISIONING_PROFILE = "6EE43E9A-0653-4AE2-8510-77B4F6205197";
 				WRAPPER_EXTENSION = app;
 			};
