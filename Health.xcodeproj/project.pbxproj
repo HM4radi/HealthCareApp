@@ -185,6 +185,10 @@
 		AD4810611924BFC10081DAFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810601924BFC10081DAFA /* OpenGLES.framework */; };
 		AD4810631924BFC90081DAFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810621924BFC90081DAFA /* SystemConfiguration.framework */; };
 		AD4810671924C0930081DAFA /* RTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4810661924C0930081DAFA /* RTMapView.m */; };
+		AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC132192C53D1006E6898 /* PICircularProgressView.m */; };
+		AD4AC138192CCF9D006E6898 /* RTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC136192CCF9D006E6898 /* RTTableViewCell.m */; };
+		AD4AC139192CCF9D006E6898 /* RTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AC137192CCF9D006E6898 /* RTTableViewCell.xib */; };
+		AD4AC13D192CEE98006E6898 /* walking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD4AC13C192CEE98006E6898 /* walking.jpg */; };
 		AD6049B819245C2500A59798 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6049B619245C2500A59798 /* ThirdViewController.m */; };
 		AD6049B919245C2500A59798 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6049B719245C2500A59798 /* ThirdViewController.xib */; };
 		AD6049BD19245CD200A59798 /* ForthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6049BB19245CD200A59798 /* ForthViewController.m */; };
@@ -269,6 +273,10 @@
 		ADE39B8D1923A78600E4278B /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE39B841923A78600E4278B /* github.png */; };
 		ADE39B921923A81700E4278B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE39B911923A81700E4278B /* Accelerate.framework */; };
 		ADE39B941923A82000E4278B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE39B931923A82000E4278B /* QuartzCore.framework */; };
+		ADEF87D8192DF8F20057DCB0 /* BEMAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEF87D1192DF8F20057DCB0 /* BEMAnimations.m */; };
+		ADEF87D9192DF8F20057DCB0 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEF87D3192DF8F20057DCB0 /* BEMCircle.m */; };
+		ADEF87DA192DF8F20057DCB0 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEF87D5192DF8F20057DCB0 /* BEMLine.m */; };
+		ADEF87DB192DF8F20057DCB0 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEF87D7192DF8F20057DCB0 /* BEMSimpleLineGraphView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -504,6 +512,12 @@
 		AD4810621924BFC90081DAFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AD4810651924C0930081DAFA /* RTMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMapView.h; sourceTree = "<group>"; };
 		AD4810661924C0930081DAFA /* RTMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMapView.m; sourceTree = "<group>"; };
+		AD4AC131192C53D1006E6898 /* PICircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PICircularProgressView.h; sourceTree = "<group>"; };
+		AD4AC132192C53D1006E6898 /* PICircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PICircularProgressView.m; sourceTree = "<group>"; };
+		AD4AC135192CCF9D006E6898 /* RTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTableViewCell.h; sourceTree = "<group>"; };
+		AD4AC136192CCF9D006E6898 /* RTTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTableViewCell.m; sourceTree = "<group>"; };
+		AD4AC137192CCF9D006E6898 /* RTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTTableViewCell.xib; sourceTree = "<group>"; };
+		AD4AC13C192CEE98006E6898 /* walking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = walking.jpg; sourceTree = "<group>"; };
 		AD6049B519245C2500A59798 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		AD6049B619245C2500A59798 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		AD6049B719245C2500A59798 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
@@ -603,6 +617,14 @@
 		ADE39B841923A78600E4278B /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		ADE39B911923A81700E4278B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		ADE39B931923A82000E4278B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ADEF87D0192DF8F20057DCB0 /* BEMAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimations.h; sourceTree = "<group>"; };
+		ADEF87D1192DF8F20057DCB0 /* BEMAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimations.m; sourceTree = "<group>"; };
+		ADEF87D2192DF8F20057DCB0 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
+		ADEF87D3192DF8F20057DCB0 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
+		ADEF87D4192DF8F20057DCB0 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
+		ADEF87D5192DF8F20057DCB0 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
+		ADEF87D6192DF8F20057DCB0 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		ADEF87D7192DF8F20057DCB0 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,6 +709,7 @@
 		0469EB72192886FF00388022 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				AD4AC13C192CEE98006E6898 /* walking.jpg */,
 				ADCC7A5B1929DC87005B00B4 /* Icon_58x58.png */,
 				ADCC7A5C1929DC87005B00B4 /* Icon_80x80.png */,
 				ADCC7A5D1929DC87005B00B4 /* Icon_120x120.png */,
@@ -934,6 +957,25 @@
 			name = MapView;
 			sourceTree = "<group>";
 		};
+		AD4AC130192C53D1006E6898 /* PICircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AC131192C53D1006E6898 /* PICircularProgressView.h */,
+				AD4AC132192C53D1006E6898 /* PICircularProgressView.m */,
+			);
+			path = PICircularProgressView;
+			sourceTree = "<group>";
+		};
+		AD4AC134192CCF5D006E6898 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD4AC135192CCF9D006E6898 /* RTTableViewCell.h */,
+				AD4AC136192CCF9D006E6898 /* RTTableViewCell.m */,
+				AD4AC137192CCF9D006E6898 /* RTTableViewCell.xib */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
 		ADAA5DC3192341090040ED10 = {
 			isa = PBXGroup;
 			children = (
@@ -1063,6 +1105,9 @@
 		ADAA5E2A192355BE0040ED10 /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
+				ADEF87CE192DF87F0057DCB0 /* ChartView */,
+				AD4AC134192CCF5D006E6898 /* TableViewCell */,
+				AD4AC130192C53D1006E6898 /* PICircularProgressView */,
 				ADAA5E03192343590040ED10 /* FirstViewController.h */,
 				ADAA5E04192343590040ED10 /* FirstViewController.m */,
 				ADAA5E05192343590040ED10 /* FirstViewController.xib */,
@@ -1198,6 +1243,29 @@
 				ADE39B841923A78600E4278B /* github.png */,
 			);
 			path = icons;
+			sourceTree = "<group>";
+		};
+		ADEF87CE192DF87F0057DCB0 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				ADEF87CF192DF8F20057DCB0 /* Classes */,
+			);
+			name = ChartView;
+			sourceTree = "<group>";
+		};
+		ADEF87CF192DF8F20057DCB0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ADEF87D0192DF8F20057DCB0 /* BEMAnimations.h */,
+				ADEF87D1192DF8F20057DCB0 /* BEMAnimations.m */,
+				ADEF87D2192DF8F20057DCB0 /* BEMCircle.h */,
+				ADEF87D3192DF8F20057DCB0 /* BEMCircle.m */,
+				ADEF87D4192DF8F20057DCB0 /* BEMLine.h */,
+				ADEF87D5192DF8F20057DCB0 /* BEMLine.m */,
+				ADEF87D6192DF8F20057DCB0 /* BEMSimpleLineGraphView.h */,
+				ADEF87D7192DF8F20057DCB0 /* BEMSimpleLineGraphView.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1427,6 +1495,7 @@
 				AD12F678192634B400921894 /* navigationbar_compose.png in Resources */,
 				ADCC7A3B1929AF64005B00B4 /* login_avatar_default.png in Resources */,
 				AD12F6CB192634B400921894 /* userinfo_relationship_editprofilebutton_background.png in Resources */,
+				AD4AC13D192CEE98006E6898 /* walking.jpg in Resources */,
 				AD12F88F1926516D00921894 /* Images.xcassets in Resources */,
 				AD12F654192634B400921894 /* compose_split.png in Resources */,
 				AD12F686192634B400921894 /* navigationbar_time_group.png in Resources */,
@@ -1481,6 +1550,7 @@
 				AD12F6AC192634B400921894 /* tabbar_profile_selected.png in Resources */,
 				AD12F653192634B400921894 /* compose_publicbutton_background_highligted.png in Resources */,
 				ADCC7A5F1929DC87005B00B4 /* Icon_80x80.png in Resources */,
+				AD4AC139192CCF9D006E6898 /* RTTableViewCell.xib in Resources */,
 				AD480F771924A64F0081DAFA /* profile.png in Resources */,
 				AD12F68C192634B400921894 /* popover_button_highlighted.png in Resources */,
 				AD480F711924A64F0081DAFA /* burger.png in Resources */,
@@ -1517,6 +1587,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD4AC138192CCF9D006E6898 /* RTTableViewCell.m in Sources */,
+				ADEF87D8192DF8F20057DCB0 /* BEMAnimations.m in Sources */,
 				AD4810671924C0930081DAFA /* RTMapView.m in Sources */,
 				ADCC7A181929ACDC005B00B4 /* RTLoginViewController.m in Sources */,
 				ADAA5E0B192343700040ED10 /* SecondViewController.m in Sources */,
@@ -1525,14 +1597,18 @@
 				0469EB70192886F600388022 /* DPMeterView.m in Sources */,
 				AD6049B819245C2500A59798 /* ThirdViewController.m in Sources */,
 				0469EB5E192885A500388022 /* GYBDetialView.m in Sources */,
+				ADEF87D9192DF8F20057DCB0 /* BEMCircle.m in Sources */,
+				ADEF87DB192DF8F20057DCB0 /* BEMSimpleLineGraphView.m in Sources */,
 				0469EB5C192885A500388022 /* GYBDetailViewController.m in Sources */,
 				ADCC7A751929F875005B00B4 /* RTShareMsg.m in Sources */,
 				0469EB671928862300388022 /* GYBTableViewCell.m in Sources */,
+				AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */,
 				04FE00751928AADD002FB4E1 /* RTGYBNaviViewController.m in Sources */,
 				ADCC7A691929E5A5005B00B4 /* RTRegisterViewController.m in Sources */,
 				ADAA5DE0192341090040ED10 /* RTAppDelegate.m in Sources */,
 				ADAA5E01192341200040ED10 /* RTMainViewController.m in Sources */,
 				AD48102A1924BDFC0081DAFA /* RNGridMenu.m in Sources */,
+				ADEF87DA192DF8F20057DCB0 /* BEMLine.m in Sources */,
 				0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */,
 				AD48102D1924BE690081DAFA /* RNFrostedSidebar.m in Sources */,
 				ADAA5DDC192341090040ED10 /* main.m in Sources */,

@@ -119,8 +119,6 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
     //初始化key Array
      self.key = [[NSArray alloc] initWithObjects:@"father",@"mother",@"son",nil];
     NSLog(@"%@",[self.key objectAtIndex:0]);
-
-    
     
 }
 
@@ -207,7 +205,7 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
     GYBTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
     NSUInteger row=[indexPath row];
   
-     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     cell.nameLabel.text=[self.key objectAtIndex:row];
 
