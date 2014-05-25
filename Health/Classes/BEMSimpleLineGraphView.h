@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Boris Emorine. All rights reserved.
 //
 
-@import UIKit;
+//@import UIKit;
+#import <UIKit/UIKit.h>
 #import "BEMCircle.h"
 #import "BEMLine.h"
 #import "BEMAnimations.h"

@@ -35,8 +35,6 @@
     self.navigationbar.translucent=YES;
     self.navigationItem.title=@"今日运动";
     
-    
-    
     UIScrollView* scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
     [self.view addSubview:scrollView];
     progressView=[[PICircularProgressView alloc]initWithFrame:CGRectMake(60, 6, 200, 200)];
@@ -71,6 +69,9 @@
     }
     [self loadChartView];
     self.labelValues.hidden=YES;
+    
+    currentAnno=[[QPointAnnotation alloc]init];
+    [self addLineAnno];
 }
 
 
@@ -266,7 +267,12 @@
     self.labelValues.frame=CGRectMake(self.labelValues.frame.origin.x, 320, self.labelValues.frame.size.width, self.labelValues.frame.size.height);
     self.labelValues.hidden=NO;
     self.labelValues.text = [NSString stringWithFormat:@"%@KCal", [self.ArrayOfValues objectAtIndex:index]];
-//    self.labelDates.text = [NSString stringWithFormat:@"in %@", [self.ArrayOfDates objectAtIndex:index]];
+    
+    if (index!=currentIndex) {
+        [_mapView removePointAnno:currentAnno];
+        [self addPointAnno:route[index]];
+    }
+    currentIndex=index;
 }
 
 - (void)didReleaseGraphWithClosestIndex:(float)index {
@@ -285,6 +291,50 @@
 //        } completion:nil];
     }];
     
+}
+
+-(void)addLineAnno{
+ 
+    [self initRouteCount];
+    [_mapView addPolyline:route withcount:routeCount];
+}
+
+- (void)initRouteCount{
+    routeCount=24;
+    route=new CLLocationCoordinate2D[routeCount];
+    route[0]=CLLocationCoordinate2DMake(40.0002778,116.3741667);
+    route[1]=CLLocationCoordinate2DMake(40.0033333,116.3745833);
+    route[2]=CLLocationCoordinate2DMake(40.0034056,116.3779722);
+    route[3]=CLLocationCoordinate2DMake(40.0053139,116.3779556);
+    route[4]=CLLocationCoordinate2DMake(40.0055194,116.3865056);
+    route[5]=CLLocationCoordinate2DMake(40.0101472,116.3862889);
+    route[6]=CLLocationCoordinate2DMake(40.0104417,116.3874528);
+    route[7]=CLLocationCoordinate2DMake(40.0104333,116.3904583);
+    route[8]=CLLocationCoordinate2DMake(40.0101917,116.3904583);
+    route[9]=CLLocationCoordinate2DMake(40.0009844,116.3906278);
+    route[10]=CLLocationCoordinate2DMake(40.0009703,116.3902750);
+    route[11]=CLLocationCoordinate2DMake(40.0009406,116.3902306);
+    route[12]=CLLocationCoordinate2DMake(40.0009000,116.3905111);
+    route[13]=CLLocationCoordinate2DMake(40.0009469,116.3902889);
+    route[14]=CLLocationCoordinate2DMake(40.0009458,116.3925000);
+    route[15]=CLLocationCoordinate2DMake(40.0108778,116.3934639);
+    route[16]=CLLocationCoordinate2DMake(40.0144444,116.3935694);
+    route[17]=CLLocationCoordinate2DMake(40.0150861,116.3929917);
+    route[18]=CLLocationCoordinate2DMake(40.0148889,116.3918028);
+    route[19]=CLLocationCoordinate2DMake(40.0151167,116.3897833);
+    route[20]=CLLocationCoordinate2DMake(40.0158250,116.3874417);
+    route[21]=CLLocationCoordinate2DMake(40.0156917,116.3861444);
+    route[22]=CLLocationCoordinate2DMake(40.0151722,116.3845667);
+    route[23]=CLLocationCoordinate2DMake(40.0140667,116.3680944);
+}
+
+-(void)addPointAnno:(CLLocationCoordinate2D)point{
+    
+    [currentAnno setCoordinate:point];
+    [currentAnno setTitle:@"银科大厦"];
+    [currentAnno setSubtitle:@"北京市区海淀区苏州街银科大厦"];
+    [_mapView addPointAnno:currentAnno];
+
 }
 
 - (void)didReceiveMemoryWarning

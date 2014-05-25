@@ -7,8 +7,8 @@
 //
 
 
-@import UIKit;
-
+//@import UIKit;
+#import <UIKit/UIKit.h>
 /// Class to draw the line of the graph
 @interface BEMLine : UIView
 

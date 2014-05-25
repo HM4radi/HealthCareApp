@@ -184,7 +184,7 @@
 		AD48105F1924BFBA0081DAFA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD48105E1924BFBA0081DAFA /* CoreText.framework */; };
 		AD4810611924BFC10081DAFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810601924BFC10081DAFA /* OpenGLES.framework */; };
 		AD4810631924BFC90081DAFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810621924BFC90081DAFA /* SystemConfiguration.framework */; };
-		AD4810671924C0930081DAFA /* RTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4810661924C0930081DAFA /* RTMapView.m */; };
+		AD4810671924C0930081DAFA /* RTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4810661924C0930081DAFA /* RTMapView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC132192C53D1006E6898 /* PICircularProgressView.m */; };
 		AD4AC138192CCF9D006E6898 /* RTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC136192CCF9D006E6898 /* RTTableViewCell.m */; };
 		AD4AC139192CCF9D006E6898 /* RTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AC137192CCF9D006E6898 /* RTTableViewCell.xib */; };
@@ -206,7 +206,7 @@
 		ADAA5DF5192341090040ED10 /* HealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5DF4192341090040ED10 /* HealthTests.m */; };
 		ADAA5E01192341200040ED10 /* RTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5DFF192341200040ED10 /* RTMainViewController.m */; };
 		ADAA5E02192341200040ED10 /* RTMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E00192341200040ED10 /* RTMainViewController.xib */; };
-		ADAA5E06192343590040ED10 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E04192343590040ED10 /* FirstViewController.m */; };
+		ADAA5E06192343590040ED10 /* FirstViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E04192343590040ED10 /* FirstViewController.mm */; };
 		ADAA5E07192343590040ED10 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E05192343590040ED10 /* FirstViewController.xib */; };
 		ADAA5E0B192343700040ED10 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E09192343700040ED10 /* SecondViewController.m */; };
 		ADAA5E0C192343700040ED10 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E0A192343700040ED10 /* SecondViewController.xib */; };
@@ -543,7 +543,7 @@
 		ADAA5DFF192341200040ED10 /* RTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTMainViewController.m; path = ../RTMainViewController.m; sourceTree = "<group>"; };
 		ADAA5E00192341200040ED10 /* RTMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RTMainViewController.xib; path = ../RTMainViewController.xib; sourceTree = "<group>"; };
 		ADAA5E03192343590040ED10 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		ADAA5E04192343590040ED10 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		ADAA5E04192343590040ED10 /* FirstViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirstViewController.mm; sourceTree = "<group>"; };
 		ADAA5E05192343590040ED10 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		ADAA5E08192343700040ED10 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		ADAA5E09192343700040ED10 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
@@ -1109,7 +1109,7 @@
 				AD4AC134192CCF5D006E6898 /* TableViewCell */,
 				AD4AC130192C53D1006E6898 /* PICircularProgressView */,
 				ADAA5E03192343590040ED10 /* FirstViewController.h */,
-				ADAA5E04192343590040ED10 /* FirstViewController.m */,
+				ADAA5E04192343590040ED10 /* FirstViewController.mm */,
 				ADAA5E05192343590040ED10 /* FirstViewController.xib */,
 			);
 			name = FirstViewController;
@@ -1613,7 +1613,7 @@
 				AD48102D1924BE690081DAFA /* RNFrostedSidebar.m in Sources */,
 				ADAA5DDC192341090040ED10 /* main.m in Sources */,
 				ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */,
-				ADAA5E06192343590040ED10 /* FirstViewController.m in Sources */,
+				ADAA5E06192343590040ED10 /* FirstViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1731,6 +1731,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Health/Health-Prefix.pch";
 				INFOPLIST_FILE = "Health/Health-Info.plist";
@@ -1751,6 +1752,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Health/Health-Prefix.pch";
 				INFOPLIST_FILE = "Health/Health-Info.plist";

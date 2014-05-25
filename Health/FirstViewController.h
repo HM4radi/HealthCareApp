@@ -25,6 +25,11 @@
     
     int cellNum;
     int totalCalories;
+    
+    CLLocationCoordinate2D *route;
+    int routeCount;
+    int currentIndex;
+    QPointAnnotation* currentAnno;
 }
 
 @property (retain, nonatomic) IBOutlet UINavigationBar *navigationbar;
