@@ -83,8 +83,6 @@
 
 - (void)addPolyline:(CLLocationCoordinate2D[])polylineArray withcount:(int)count{
 
-
-
     QPolyline* polyline = [QPolyline polylineWithCoordinates:polylineArray count:count];
     
     [_mapView addOverlay:polyline];
