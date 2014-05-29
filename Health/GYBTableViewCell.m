@@ -31,7 +31,7 @@
 
 - (void)updateProgressWithDelta:(CGFloat)delta animated:(BOOL)animated
 {
-    NSArray *shapeViews = [self shapeViews];
+    NSArray *shapeViews = [self shapeViewss];
     for (DPMeterView *shapeView in shapeViews) {
         if (delta < 0) {
             [shapeView minus:fabs(delta) animated:animated];
@@ -44,25 +44,14 @@
 //                  [(DPMeterView *)[shapeViews lastObject] progress]*100];
 }
 
-- (NSArray *)shapeViews
+- (NSArray *)shapeViewss
 {
     NSMutableArray *shapeViews = [NSMutableArray array];
     
     if (self.statueView && [self.statueView isKindOfClass:[DPMeterView class]])
         [shapeViews addObject:self.statueView];
     
-    //    if (self.shape2View && [self.shape2View isKindOfClass:[DPMeterView class]])
-    //        [shapeViews addObject:self.shape2View];
-    //
-    //    if (self.shape3View && [self.shape3View isKindOfClass:[DPMeterView class]])
-    //        [shapeViews addObject:self.shape3View];
-    //
-    //    if (self.shape4View && [self.shape4View isKindOfClass:[DPMeterView class]])
-    //        [shapeViews addObject:self.shape4View];
-    //
-    //    if (self.shape5View && [self.shape5View isKindOfClass:[DPMeterView class]])
-    //        [shapeViews addObject:self.shape5View];
-    
+  
     return [NSArray arrayWithArray:shapeViews];
 }
 @end

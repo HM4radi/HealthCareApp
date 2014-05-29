@@ -124,7 +124,7 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self updateProgressWithDelta:0.6 animated:YES];
+//    [self updateProgressWithDelta:0.6 animated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 - (void)viewDidLoad
@@ -212,7 +212,9 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
     // shape 4 -- 3 Stars
     [cell.statueView setMeterType:DPMeterTypeLinearHorizontal];
     [cell.statueView setShape:[UIBezierPath stars:5 shapeInFrame:cell.statueView.frame].CGPath];
+    
     cell.statueView.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
+    
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
     

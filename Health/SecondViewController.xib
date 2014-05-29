@@ -7,47 +7,279 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondViewController">
             <connections>
+                <outlet property="DiseaseView" destination="OsY-OS-yVL" id="6nF-oB-nZo"/>
+                <outlet property="HumanSearchResultView" destination="IE2-dY-mVL" id="5tQ-BE-29s"/>
+                <outlet property="MedicationView" destination="e5j-zb-3fH" id="RzQ-7m-qT3"/>
+                <outlet property="Theme" destination="zQT-s7-mID" id="wh2-l9-SsN"/>
+                <outlet property="TitleLabel" destination="ka0-Eo-VWm" id="RFM-nk-Upv"/>
+                <outlet property="abdomen" destination="6pb-2F-dhG" id="hpM-xJ-Cf4"/>
+                <outlet property="arm1" destination="tgx-c3-I8h" id="OGj-l5-yz1"/>
+                <outlet property="arm2" destination="nAY-Zt-YZ5" id="XuN-cS-JB7"/>
+                <outlet property="backToThirdViewBtn" destination="nDS-Gy-2p6" id="6KN-OO-Vrf"/>
+                <outlet property="bodyImage" destination="UnC-xH-egD" id="Lc4-pG-ZhR"/>
+                <outlet property="breast" destination="MgV-Ql-qEh" id="47F-lH-LQM"/>
+                <outlet property="hand1" destination="h9u-5w-qNi" id="1fL-I2-wuq"/>
+                <outlet property="hand2" destination="0QD-1W-n1r" id="ht9-Xs-cTb"/>
+                <outlet property="head" destination="U2O-67-aPw" id="q90-bc-9Ei"/>
+                <outlet property="leg" destination="whx-YR-7I1" id="w9J-Se-McL"/>
+                <outlet property="navigationItem" destination="jHr-53-4iJ" id="hC4-1b-v1m"/>
                 <outlet property="navigationbar" destination="JYa-PF-Nz3" id="fe5-4o-RQg"/>
-                <outlet property="searchDisplayController" destination="WCh-EU-fHa" id="SU6-sH-Gqc"/>
-                <outlet property="searchbar" destination="8nj-4z-cXe" id="YP3-uz-p3E"/>
-                <outlet property="tableView" destination="D4O-9K-8LB" id="S2S-z0-1xg"/>
+                <outlet property="neck" destination="YxG-s0-3w4" id="LXp-FS-mxa"/>
+                <outlet property="searchDisplayController" destination="g5K-yS-YJp" id="67a-Tb-bnd"/>
+                <outlet property="searchView" destination="r1i-FI-YDf" id="6FD-Kd-oVU"/>
+                <outlet property="searchbar" destination="fMb-9D-GXk" id="Zv5-3r-Qks"/>
+                <outlet property="segmentedBtn" destination="VOu-YK-vDB" id="ZRh-LW-JvJ"/>
+                <outlet property="showSearchBarBtn" destination="XY5-xc-BmY" id="44x-0m-9cS"/>
+                <outlet property="tableView" destination="2DB-UC-4jg" id="1kK-gp-OXn"/>
+                <outlet property="thirdView" destination="TA7-qV-aCV" id="PdK-23-lA7"/>
+                <outlet property="titleImage" destination="qUF-eA-xnU" id="6oJ-wf-xAB"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1">
+        <view tag="1" contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="D4O-9K-8LB">
-                    <rect key="frame" x="0.0" y="88" width="320" height="448"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
-                <searchBar contentMode="redraw" id="8nj-4z-cXe">
-                    <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
-                <navigationBar contentMode="scaleToFill" id="JYa-PF-Nz3">
+                <navigationBar contentMode="center" id="JYa-PF-Nz3">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <items>
-                        <navigationItem title="SecondView" id="jHr-53-4iJ"/>
+                        <navigationItem id="jHr-53-4iJ">
+                            <nil key="title"/>
+                            <barButtonItem key="leftBarButtonItem" title="Back" id="nDS-Gy-2p6">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="bactToThirdView:" destination="-1" id="4uE-7G-F5w"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="search" id="XY5-xc-BmY">
+                                <connections>
+                                    <action selector="showToSearchBar:" destination="-1" id="mqT-bm-Hb8"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ReW-dm-7bC"/>
+                    </connections>
                 </navigationBar>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="病症查询" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ka0-Eo-VWm">
+                    <rect key="frame" x="100" y="30" width="120" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <searchDisplayController id="WCh-EU-fHa">
+        <view contentMode="scaleToFill" id="e5j-zb-3fH">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" tag="10002" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iFj-sM-5Xk">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="WEk-OK-Bp4"/>
+                        <outlet property="delegate" destination="-1" id="bUf-jd-J7S"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+        </view>
+        <searchDisplayController id="g5K-yS-YJp">
             <connections>
-                <outlet property="delegate" destination="-1" id="Bl4-ZZ-NjW"/>
-                <outlet property="searchContentsController" destination="-1" id="5Pf-I8-wuK"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="c65-y0-eqa"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="cWj-Pp-d5E"/>
+                <outlet property="delegate" destination="-1" id="p7E-tB-gzf"/>
+                <outlet property="searchBar" destination="fMb-9D-GXk" id="z8l-g3-EOP"/>
+                <outlet property="searchContentsController" destination="-1" id="ilC-fG-Nlu"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="7c2-br-hO6"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="7MW-EC-YnP"/>
             </connections>
         </searchDisplayController>
+        <view contentMode="scaleToFill" id="TA7-qV-aCV">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="renti(1)_meitu_1 (1).jpg" id="UnC-xH-egD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="451"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YxG-s0-3w4">
+                    <rect key="frame" x="137" y="81" width="48" height="30"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="neckTouched:" destination="-1" eventType="touchUpInside" id="1FH-yd-2Lk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="U2O-67-aPw">
+                    <rect key="frame" x="121" y="11" width="78" height="72"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="headTrouched:" destination="-1" eventType="touchUpInside" id="E7x-J9-AJQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0QD-1W-n1r">
+                    <rect key="frame" x="259" y="199" width="61" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="handTouched:" destination="-1" eventType="touchUpInside" id="6Rc-JI-g1t"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h9u-5w-qNi">
+                    <rect key="frame" x="0.0" y="198" width="58" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="handTouched:" destination="-1" eventType="touchUpInside" id="UFb-rp-sg4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6pb-2F-dhG">
+                    <rect key="frame" x="114" y="161" width="92" height="94"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="abdomenTouched:" destination="-1" eventType="touchUpInside" id="Pp0-en-hlB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MgV-Ql-qEh">
+                    <rect key="frame" x="121" y="108" width="78" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="breastTouched:" destination="-1" eventType="touchUpInside" id="J43-Ib-J33"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nAY-Zt-YZ5">
+                    <rect key="frame" x="47" y="124" width="66" height="63"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="armTouched:" destination="-1" eventType="touchUpInside" id="a8u-W7-cHc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tgx-c3-I8h">
+                    <rect key="frame" x="207" y="134" width="66" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="armTouched:" destination="-1" eventType="touchUpInside" id="fuM-VF-Rfy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="whx-YR-7I1">
+                    <rect key="frame" x="114" y="323" width="92" height="108"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="legTouched:" destination="-1" eventType="touchUpInside" id="kDg-g1-Lo7"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击选择身体部位" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" id="PBA-Mb-QnB">
+                    <rect key="frame" x="8" y="10" width="169" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="0.50980392159999999" green="0.74509803919999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="IE2-dY-mVL">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" tag="10003" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OsY-OS-yVL">
+                    <rect key="frame" x="0.0" y="57" width="320" height="353"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="buM-Zf-wHn"/>
+                        <outlet property="delegate" destination="-1" id="ndr-Fh-620"/>
+                    </connections>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qUF-eA-xnU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zQT-s7-mID">
+                    <rect key="frame" x="104" y="36" width="114" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" red="0.50980392159999999" green="0.74509803919999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="VOu-YK-vDB">
+                    <rect key="frame" x="68" y="6" width="185" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="对症"/>
+                        <segment title="问药"/>
+                        <segment title="寻医"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="0.39226172149999999" blue="0.47506718440000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="searchTypeChange:" destination="-1" eventType="valueChanged" id="8jM-2W-cV0"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="r1i-FI-YDf">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <searchBar clipsSubviews="YES" contentMode="left" searchBarStyle="prominent" placeholder="Search Everything" translucent="NO" id="fMb-9D-GXk">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.50980392159999999" green="0.74509803919999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.50980392159999999" green="0.74509803919999995" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Aqu-ci-kah"/>
+                    </connections>
+                </searchBar>
+            </subviews>
+            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <tableView clipsSubviews="YES" tag="10001" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2DB-UC-4jg">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="353"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="g12-vU-MtV"/>
+                <outlet property="delegate" destination="-1" id="xdi-1j-hKC"/>
+            </connections>
+        </tableView>
     </objects>
+    <resources>
+        <image name="renti(1)_meitu_1 (1).jpg" width="384" height="600"/>
+    </resources>
 </document>

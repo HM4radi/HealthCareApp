@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042716E019375C9D00FD3EF3 /* RTDoctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716CE19375C9D00FD3EF3 /* RTDoctor.m */; };
+		042716E119375C9D00FD3EF3 /* RTHeadDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D019375C9D00FD3EF3 /* RTHeadDisease.m */; };
+		042716E219375C9D00FD3EF3 /* RTLegDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D219375C9D00FD3EF3 /* RTLegDisease.m */; };
+		042716E319375C9D00FD3EF3 /* RTArmDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D419375C9D00FD3EF3 /* RTArmDisease.m */; };
+		042716E419375C9D00FD3EF3 /* RTBreastDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D619375C9D00FD3EF3 /* RTBreastDisease.m */; };
+		042716E519375C9D00FD3EF3 /* RTAbdomenDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D819375C9D00FD3EF3 /* RTAbdomenDisease.m */; };
+		042716E619375C9D00FD3EF3 /* RTHandDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716DA19375C9D00FD3EF3 /* RTHandDisease.m */; };
+		042716E719375C9D00FD3EF3 /* RTNeckDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716DC19375C9D00FD3EF3 /* RTNeckDisease.m */; };
+		042716E819375C9D00FD3EF3 /* RTMedication.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716DF19375C9D00FD3EF3 /* RTMedication.m */; };
+		042716EE19375CE100FD3EF3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716EA19375CE100FD3EF3 /* SecondViewController.m */; };
+		042716EF19375CE100FD3EF3 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042716EB19375CE100FD3EF3 /* SecondViewController.xib */; };
+		042716F019375CE100FD3EF3 /* RTHumanBodySearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716ED19375CE100FD3EF3 /* RTHumanBodySearchView.m */; };
+		042716FB19375D0200FD3EF3 /* RTSndDoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716F319375D0200FD3EF3 /* RTSndDoctorDetailViewController.m */; };
+		042716FC19375D0200FD3EF3 /* RTSndDoctorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042716F419375D0200FD3EF3 /* RTSndDoctorDetailViewController.xib */; };
+		042716FD19375D0200FD3EF3 /* RTSndMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716F619375D0200FD3EF3 /* RTSndMedicationViewController.m */; };
+		042716FE19375D0200FD3EF3 /* RTSndMedicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042716F719375D0200FD3EF3 /* RTSndMedicationViewController.xib */; };
+		042716FF19375D0200FD3EF3 /* RTDiseaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716F919375D0200FD3EF3 /* RTDiseaseViewController.m */; };
+		0427170019375D0200FD3EF3 /* RTDiseaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042716FA19375D0200FD3EF3 /* RTDiseaseViewController.xib */; };
+		0427170519375D1E00FD3EF3 /* white.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0427170119375D1E00FD3EF3 /* white.jpg */; };
+		0427170619375D1E00FD3EF3 /* renti(1)_meitu_1 (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0427170219375D1E00FD3EF3 /* renti(1)_meitu_1 (1).jpg */; };
+		0427170719375D1E00FD3EF3 /* renti(1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0427170319375D1E00FD3EF3 /* renti(1).jpg */; };
+		0427170819375D1E00FD3EF3 /* renti.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0427170419375D1E00FD3EF3 /* renti.jpg */; };
 		0469EB5C192885A500388022 /* GYBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469EB58192885A500388022 /* GYBDetailViewController.m */; };
 		0469EB5D192885A500388022 /* GYBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB59192885A500388022 /* GYBDetailViewController.xib */; };
 		0469EB5E192885A500388022 /* GYBDetialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469EB5B192885A500388022 /* GYBDetialView.m */; };
@@ -272,8 +294,6 @@
 		ADAA5E02192341200040ED10 /* RTMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E00192341200040ED10 /* RTMainViewController.xib */; };
 		ADAA5E06192343590040ED10 /* FirstViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E04192343590040ED10 /* FirstViewController.mm */; };
 		ADAA5E07192343590040ED10 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E05192343590040ED10 /* FirstViewController.xib */; };
-		ADAA5E0B192343700040ED10 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E09192343700040ED10 /* SecondViewController.m */; };
-		ADAA5E0C192343700040ED10 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E0A192343700040ED10 /* SecondViewController.xib */; };
 		ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E0E192343880040ED10 /* tabbarView.m */; };
 		ADCC7A181929ACDC005B00B4 /* RTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCC7A161929ACDC005B00B4 /* RTLoginViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		ADCC7A191929ACDC005B00B4 /* RTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADCC7A171929ACDC005B00B4 /* RTLoginViewController.xib */; };
@@ -342,6 +362,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042716CD19375C9D00FD3EF3 /* RTDoctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDoctor.h; sourceTree = "<group>"; };
+		042716CE19375C9D00FD3EF3 /* RTDoctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDoctor.m; sourceTree = "<group>"; };
+		042716CF19375C9D00FD3EF3 /* RTHeadDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHeadDisease.h; sourceTree = "<group>"; };
+		042716D019375C9D00FD3EF3 /* RTHeadDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHeadDisease.m; sourceTree = "<group>"; };
+		042716D119375C9D00FD3EF3 /* RTLegDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLegDisease.h; sourceTree = "<group>"; };
+		042716D219375C9D00FD3EF3 /* RTLegDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLegDisease.m; sourceTree = "<group>"; };
+		042716D319375C9D00FD3EF3 /* RTArmDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTArmDisease.h; sourceTree = "<group>"; };
+		042716D419375C9D00FD3EF3 /* RTArmDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTArmDisease.m; sourceTree = "<group>"; };
+		042716D519375C9D00FD3EF3 /* RTBreastDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTBreastDisease.h; sourceTree = "<group>"; };
+		042716D619375C9D00FD3EF3 /* RTBreastDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTBreastDisease.m; sourceTree = "<group>"; };
+		042716D719375C9D00FD3EF3 /* RTAbdomenDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAbdomenDisease.h; sourceTree = "<group>"; };
+		042716D819375C9D00FD3EF3 /* RTAbdomenDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAbdomenDisease.m; sourceTree = "<group>"; };
+		042716D919375C9D00FD3EF3 /* RTHandDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHandDisease.h; sourceTree = "<group>"; };
+		042716DA19375C9D00FD3EF3 /* RTHandDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHandDisease.m; sourceTree = "<group>"; };
+		042716DB19375C9D00FD3EF3 /* RTNeckDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTNeckDisease.h; sourceTree = "<group>"; };
+		042716DC19375C9D00FD3EF3 /* RTNeckDisease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTNeckDisease.m; sourceTree = "<group>"; };
+		042716DD19375C9D00FD3EF3 /* RTDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDisease.h; sourceTree = "<group>"; };
+		042716DE19375C9D00FD3EF3 /* RTMedication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMedication.h; sourceTree = "<group>"; };
+		042716DF19375C9D00FD3EF3 /* RTMedication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMedication.m; sourceTree = "<group>"; };
+		042716E919375CE100FD3EF3 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		042716EA19375CE100FD3EF3 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		042716EB19375CE100FD3EF3 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		042716EC19375CE100FD3EF3 /* RTHumanBodySearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHumanBodySearchView.h; sourceTree = "<group>"; };
+		042716ED19375CE100FD3EF3 /* RTHumanBodySearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHumanBodySearchView.m; sourceTree = "<group>"; };
+		042716F219375D0200FD3EF3 /* RTSndDoctorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSndDoctorDetailViewController.h; sourceTree = "<group>"; };
+		042716F319375D0200FD3EF3 /* RTSndDoctorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSndDoctorDetailViewController.m; sourceTree = "<group>"; };
+		042716F419375D0200FD3EF3 /* RTSndDoctorDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTSndDoctorDetailViewController.xib; sourceTree = "<group>"; };
+		042716F519375D0200FD3EF3 /* RTSndMedicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSndMedicationViewController.h; sourceTree = "<group>"; };
+		042716F619375D0200FD3EF3 /* RTSndMedicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSndMedicationViewController.m; sourceTree = "<group>"; };
+		042716F719375D0200FD3EF3 /* RTSndMedicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTSndMedicationViewController.xib; sourceTree = "<group>"; };
+		042716F819375D0200FD3EF3 /* RTDiseaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDiseaseViewController.h; sourceTree = "<group>"; };
+		042716F919375D0200FD3EF3 /* RTDiseaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDiseaseViewController.m; sourceTree = "<group>"; };
+		042716FA19375D0200FD3EF3 /* RTDiseaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTDiseaseViewController.xib; sourceTree = "<group>"; };
+		0427170119375D1E00FD3EF3 /* white.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white.jpg; sourceTree = "<group>"; };
+		0427170219375D1E00FD3EF3 /* renti(1)_meitu_1 (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "renti(1)_meitu_1 (1).jpg"; sourceTree = "<group>"; };
+		0427170319375D1E00FD3EF3 /* renti(1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "renti(1).jpg"; sourceTree = "<group>"; };
+		0427170419375D1E00FD3EF3 /* renti.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = renti.jpg; sourceTree = "<group>"; };
 		0469EB57192885A500388022 /* GYBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYBDetailViewController.h; sourceTree = "<group>"; };
 		0469EB58192885A500388022 /* GYBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYBDetailViewController.m; sourceTree = "<group>"; };
 		0469EB59192885A500388022 /* GYBDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GYBDetailViewController.xib; sourceTree = "<group>"; };
@@ -669,9 +726,6 @@
 		ADAA5E03192343590040ED10 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		ADAA5E04192343590040ED10 /* FirstViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirstViewController.mm; sourceTree = "<group>"; };
 		ADAA5E05192343590040ED10 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
-		ADAA5E08192343700040ED10 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		ADAA5E09192343700040ED10 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		ADAA5E0A192343700040ED10 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		ADAA5E0D192343880040ED10 /* tabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tabbarView.h; sourceTree = "<group>"; };
 		ADAA5E0E192343880040ED10 /* tabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tabbarView.m; sourceTree = "<group>"; };
 		ADCC7A151929ACDC005B00B4 /* RTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLoginViewController.h; sourceTree = "<group>"; };
@@ -780,6 +834,56 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		042716CB19375C7F00FD3EF3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				042716CC19375C8A00FD3EF3 /* model */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		042716CC19375C8A00FD3EF3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				042716CD19375C9D00FD3EF3 /* RTDoctor.h */,
+				042716CE19375C9D00FD3EF3 /* RTDoctor.m */,
+				042716CF19375C9D00FD3EF3 /* RTHeadDisease.h */,
+				042716D019375C9D00FD3EF3 /* RTHeadDisease.m */,
+				042716D119375C9D00FD3EF3 /* RTLegDisease.h */,
+				042716D219375C9D00FD3EF3 /* RTLegDisease.m */,
+				042716D319375C9D00FD3EF3 /* RTArmDisease.h */,
+				042716D419375C9D00FD3EF3 /* RTArmDisease.m */,
+				042716D519375C9D00FD3EF3 /* RTBreastDisease.h */,
+				042716D619375C9D00FD3EF3 /* RTBreastDisease.m */,
+				042716D719375C9D00FD3EF3 /* RTAbdomenDisease.h */,
+				042716D819375C9D00FD3EF3 /* RTAbdomenDisease.m */,
+				042716D919375C9D00FD3EF3 /* RTHandDisease.h */,
+				042716DA19375C9D00FD3EF3 /* RTHandDisease.m */,
+				042716DB19375C9D00FD3EF3 /* RTNeckDisease.h */,
+				042716DC19375C9D00FD3EF3 /* RTNeckDisease.m */,
+				042716DD19375C9D00FD3EF3 /* RTDisease.h */,
+				042716DE19375C9D00FD3EF3 /* RTMedication.h */,
+				042716DF19375C9D00FD3EF3 /* RTMedication.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		042716F119375CE700FD3EF3 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				042716F219375D0200FD3EF3 /* RTSndDoctorDetailViewController.h */,
+				042716F319375D0200FD3EF3 /* RTSndDoctorDetailViewController.m */,
+				042716F419375D0200FD3EF3 /* RTSndDoctorDetailViewController.xib */,
+				042716F519375D0200FD3EF3 /* RTSndMedicationViewController.h */,
+				042716F619375D0200FD3EF3 /* RTSndMedicationViewController.m */,
+				042716F719375D0200FD3EF3 /* RTSndMedicationViewController.xib */,
+				042716F819375D0200FD3EF3 /* RTDiseaseViewController.h */,
+				042716F919375D0200FD3EF3 /* RTDiseaseViewController.m */,
+				042716FA19375D0200FD3EF3 /* RTDiseaseViewController.xib */,
+			);
+			name = DetailViewController;
+			sourceTree = "<group>";
+		};
 		0469EB5F192885AE00388022 /* ThirdTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,6 +925,10 @@
 		0469EB72192886FF00388022 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				0427170119375D1E00FD3EF3 /* white.jpg */,
+				0427170219375D1E00FD3EF3 /* renti(1)_meitu_1 (1).jpg */,
+				0427170319375D1E00FD3EF3 /* renti(1).jpg */,
+				0427170419375D1E00FD3EF3 /* renti.jpg */,
 				ADA9874119337D0A00B98092 /* walking.jpg */,
 				AD4AC13C192CEE98006E6898 /* walking1.jpg */,
 				ADCC7A5B1929DC87005B00B4 /* Icon_58x58.png */,
@@ -1254,6 +1362,7 @@
 		ADAA5DD5192341090040ED10 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				042716CB19375C7F00FD3EF3 /* Utilities */,
 				ADAA5DDE192341090040ED10 /* RTAppDelegate.h */,
 				ADAA5DDF192341090040ED10 /* RTAppDelegate.m */,
 				0406C748192A3E4C0060A481 /* Utilities */,
@@ -1337,9 +1446,12 @@
 		ADAA5E2C192356050040ED10 /* SecondViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ADAA5E08192343700040ED10 /* SecondViewController.h */,
-				ADAA5E09192343700040ED10 /* SecondViewController.m */,
-				ADAA5E0A192343700040ED10 /* SecondViewController.xib */,
+				042716F119375CE700FD3EF3 /* DetailViewController */,
+				042716E919375CE100FD3EF3 /* SecondViewController.h */,
+				042716EA19375CE100FD3EF3 /* SecondViewController.m */,
+				042716EB19375CE100FD3EF3 /* SecondViewController.xib */,
+				042716EC19375CE100FD3EF3 /* RTHumanBodySearchView.h */,
+				042716ED19375CE100FD3EF3 /* RTHumanBodySearchView.m */,
 			);
 			name = SecondViewController;
 			sourceTree = "<group>";
@@ -1592,6 +1704,7 @@
 				AD480F741924A64F0081DAFA /* gear@2x.png in Resources */,
 				AD12F6B5192634B400921894 /* timeline_location_icon@2x.png in Resources */,
 				ADCC7A3F1929AF64005B00B4 /* login_bg_ip5@2x.jpg in Resources */,
+				0427170619375D1E00FD3EF3 /* renti(1)_meitu_1 (1).jpg in Resources */,
 				AD12F69B192634B400921894 /* settings_queue_icon.png in Resources */,
 				AD12F677192634B400921894 /* navigationbar_comments.png in Resources */,
 				04FE00761928AADD002FB4E1 /* RTGYBNaviViewController.xib in Resources */,
@@ -1602,6 +1715,7 @@
 				AD12F642192634B400921894 /* blueArrow@2x.png in Resources */,
 				AD12F6A2192634B400921894 /* tabbar_background.png in Resources */,
 				AD12F68B192634B400921894 /* popover_button@2x.png in Resources */,
+				042716EF19375CE100FD3EF3 /* SecondViewController.xib in Resources */,
 				AD12F63A192634B400921894 /* avatar_grassroot@2x.png in Resources */,
 				ADCC7A4A1929AF64005B00B4 /* login_textfield_bottom.png in Resources */,
 				ADCC7A431929AF64005B00B4 /* login_btn_blue_nor@2x.png in Resources */,
@@ -1638,6 +1752,7 @@
 				AD0DA0491935C35700A9846E /* tabbar_0@2x.png in Resources */,
 				AD12F640192634B400921894 /* blackArrow@2x.png in Resources */,
 				AD12F6A3192634B400921894 /* tabbar_discover.png in Resources */,
+				042716FE19375D0200FD3EF3 /* RTSndMedicationViewController.xib in Resources */,
 				AD12F6AE192634B400921894 /* text_badge.png in Resources */,
 				ADCC7A191929ACDC005B00B4 /* RTLoginViewController.xib in Resources */,
 				AD0DA04B1935C35700A9846E /* tabbar_1@2x.png in Resources */,
@@ -1651,12 +1766,14 @@
 				AD12F6C4192634B400921894 /* toolbar_favorite_highlighted.png in Resources */,
 				AD12F637192634B400921894 /* avatar_default_big@2x.png in Resources */,
 				AD12F657192634B400921894 /* compose_trendbutton_background_highlighted.png in Resources */,
+				0427170519375D1E00FD3EF3 /* white.jpg in Resources */,
 				AD12F6A8192634B400921894 /* tabbar_message_center_selected.png in Resources */,
 				AD54260C193715E4005F10F4 /* ydys.jpg in Resources */,
 				ADCC7A4B1929AF64005B00B4 /* login_textfield_bottom@2x.png in Resources */,
 				AD12F688192634B400921894 /* popover_background.png in Resources */,
 				AD0DA0621935C57700A9846E /* setting-master.png in Resources */,
 				AD12F6A1192634B400921894 /* settings_upgrade_icon.png in Resources */,
+				0427170019375D0200FD3EF3 /* RTDiseaseViewController.xib in Resources */,
 				AD54260F193715E4005F10F4 /* zfg.jpg in Resources */,
 				AD12F63C192634B400921894 /* avatar_vip.png in Resources */,
 				AD542608193715E4005F10F4 /* nxjk1.jpg in Resources */,
@@ -1721,6 +1838,7 @@
 				ADCC7A3C1929AF64005B00B4 /* login_avatar_default@2x.png in Resources */,
 				AD6049B919245C2500A59798 /* ThirdViewController.xib in Resources */,
 				ADE39B881923A78600E4278B /* bluetooth.png in Resources */,
+				042716FC19375D0200FD3EF3 /* RTSndDoctorDetailViewController.xib in Resources */,
 				AD12F6BF192634B400921894 /* timeline_unlike_count_icon@2x.png in Resources */,
 				AD12F693192634B400921894 /* settingButtonHL.png in Resources */,
 				ADA987401933794400B98092 /* RTfoodViewController.xib in Resources */,
@@ -1736,6 +1854,7 @@
 				AD12F6B2192634B400921894 /* timeline_icon_like.png in Resources */,
 				AD12F676192634B400921894 /* navigationbar_button_background.png in Resources */,
 				AD54260E193715E4005F10F4 /* ys.jpg in Resources */,
+				0427170719375D1E00FD3EF3 /* renti(1).jpg in Resources */,
 				AD3FCA3A193451DA00ECEA4B /* pills.jpg in Resources */,
 				AD12F6AB192634B400921894 /* tabbar_profile.png in Resources */,
 				AD12F678192634B400921894 /* navigationbar_compose.png in Resources */,
@@ -1747,6 +1866,7 @@
 				AD12F654192634B400921894 /* compose_split.png in Resources */,
 				AD12F686192634B400921894 /* navigationbar_time_group.png in Resources */,
 				AD12F6AA192634B400921894 /* tabbar_more_selected.png in Resources */,
+				0427170819375D1E00FD3EF3 /* renti.jpg in Resources */,
 				AD0DA0521935C35700A9846E /* tabbar_mainbtn_bg.png in Resources */,
 				0469EB6A1928862300388022 /* GYBTableViewController.xib in Resources */,
 				ADCC7A541929AF64005B00B4 /* login_textfield@2x.png in Resources */,
@@ -1817,7 +1937,6 @@
 				AD12F68C192634B400921894 /* popover_button_highlighted.png in Resources */,
 				AD480F711924A64F0081DAFA /* burger.png in Resources */,
 				AD12F68F192634B400921894 /* profile_pop_button_background_bottom.png in Resources */,
-				ADAA5E0C192343700040ED10 /* SecondViewController.xib in Resources */,
 				AD12F669192634B400921894 /* login_background.png in Resources */,
 				ADCC7A531929AF64005B00B4 /* login_textfield.png in Resources */,
 				AD12F663192634B400921894 /* like_left_button_background.png in Resources */,
@@ -1857,11 +1976,17 @@
 				AD4810671924C0930081DAFA /* RTMapView.m in Sources */,
 				ADA9873F1933794400B98092 /* RTfoodViewController.m in Sources */,
 				AD5425E2193703CF005F10F4 /* RTMsgDetailTableViewCell.m in Sources */,
+				042716E019375C9D00FD3EF3 /* RTDoctor.m in Sources */,
+				042716FF19375D0200FD3EF3 /* RTDiseaseViewController.m in Sources */,
+				042716E719375C9D00FD3EF3 /* RTNeckDisease.m in Sources */,
+				042716EE19375CE100FD3EF3 /* SecondViewController.m in Sources */,
 				ADCC7A181929ACDC005B00B4 /* RTLoginViewController.m in Sources */,
-				ADAA5E0B192343700040ED10 /* SecondViewController.m in Sources */,
 				0469EB691928862300388022 /* GYBTableViewController.m in Sources */,
+				042716F019375CE100FD3EF3 /* RTHumanBodySearchView.m in Sources */,
 				AD6049BD19245CD200A59798 /* ForthViewController.m in Sources */,
+				042716E219375C9D00FD3EF3 /* RTLegDisease.m in Sources */,
 				0469EB70192886F600388022 /* DPMeterView.m in Sources */,
+				042716E119375C9D00FD3EF3 /* RTHeadDisease.m in Sources */,
 				AD6049B819245C2500A59798 /* ThirdViewController.m in Sources */,
 				0469EB5E192885A500388022 /* GYBDetialView.m in Sources */,
 				ADEF87D9192DF8F20057DCB0 /* BEMCircle.m in Sources */,
@@ -1870,6 +1995,7 @@
 				0469EB5C192885A500388022 /* GYBDetailViewController.m in Sources */,
 				ADCC7A751929F875005B00B4 /* RTShareMsg.m in Sources */,
 				0469EB671928862300388022 /* GYBTableViewCell.m in Sources */,
+				042716FB19375D0200FD3EF3 /* RTSndDoctorDetailViewController.m in Sources */,
 				AD5425BC1936C374005F10F4 /* RTCollectionViewCell.m in Sources */,
 				AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */,
 				04FE00751928AADD002FB4E1 /* RTGYBNaviViewController.m in Sources */,
@@ -1879,12 +2005,18 @@
 				ADAA5E01192341200040ED10 /* RTMainViewController.m in Sources */,
 				AD48102A1924BDFC0081DAFA /* RNGridMenu.m in Sources */,
 				ADEF87DA192DF8F20057DCB0 /* BEMLine.m in Sources */,
+				042716E519375C9D00FD3EF3 /* RTAbdomenDisease.m in Sources */,
 				0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */,
 				AD48102D1924BE690081DAFA /* RNFrostedSidebar.m in Sources */,
+				042716E419375C9D00FD3EF3 /* RTBreastDisease.m in Sources */,
+				042716E819375C9D00FD3EF3 /* RTMedication.m in Sources */,
 				ADAA5DDC192341090040ED10 /* main.m in Sources */,
 				AD0DA0391935C06800A9846E /* RTMsgViewController.m in Sources */,
+				042716E319375C9D00FD3EF3 /* RTArmDisease.m in Sources */,
 				ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */,
+				042716E619375C9D00FD3EF3 /* RTHandDisease.m in Sources */,
 				ADAA5E06192343590040ED10 /* FirstViewController.mm in Sources */,
+				042716FD19375D0200FD3EF3 /* RTSndMedicationViewController.m in Sources */,
 				AD46FB0B1934286300F19BC4 /* RTPillsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

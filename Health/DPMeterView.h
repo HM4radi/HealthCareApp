@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, DPMeterType) {
 
 @property (nonatomic) DPMeterType meterType;
 @property (strong, nonatomic) UIColor *trackTintColor UI_APPEARANCE_SELECTOR;
-@property (strong, nonatomic) UIColor *progressTintColor UI_APPEARANCE_SELECTOR;
+@property (strong, nonatomic) UIColor *progressTintColor;// UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat progress;
 
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape;

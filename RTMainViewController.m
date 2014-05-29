@@ -84,7 +84,7 @@
     viewController.view.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height- 50);
     
     [self.view insertSubview:viewController.view belowSubview:_tabbar];
-
+    
 }
 
 -(NSArray *)getViewcontrollers
@@ -97,7 +97,8 @@
     SecondViewController *second = [[SecondViewController alloc]init];
     
     ForthViewController *forth = [[ForthViewController alloc]init];
-
+//    ThirdViewController *thd=[[ThirdViewController alloc]init];
+//
     RTGYBNaviViewController *thd=[[RTGYBNaviViewController alloc]init];
     
     RTCenterViewController *center=[[RTCenterViewController alloc]init];

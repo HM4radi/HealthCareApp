@@ -23,10 +23,19 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.shape1View.progressTintColor = [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:113.0/255.0 alpha:1.0];
+    
+    self.shape2View.progressTintColor =[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+    
+       self.shape3View.progressTintColor = [UIColor colorWithRed:225.0/255.0 green:240.0/255.0 blue:109.0/255.0 alpha:1.0];
+    
+       self.shape4View.progressTintColor = [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     // Do any additional setup after loading the view from its nib.
     [self.navBar setFrame:CGRectMake(0, 0, 320, 64)];
@@ -47,7 +56,7 @@
 
     //血糖
     [self.shape1View setMeterType:DPMeterTypeLinearHorizontal];
-    self.shape1View.progressTintColor = [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:113.0/255.0 alpha:1.0];
+//    self.shape1View.progressTintColor = [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:113.0/255.0 alpha:1.0];
     self.shape1View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     [self.shape1View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape1View.bounds cornerRadius:0.f].CGPath];
     [self.shape1View.layer setBorderWidth:0.0f];
@@ -56,16 +65,19 @@
     
     //血压——高压
     [self.shape2View setMeterType:DPMeterTypeLinearHorizontal];
-    self.shape2View.progressTintColor =[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+//    self.shape2View.progressTintColor =[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+    
     self.shape2View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
+    
     [self.shape2View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape2View.bounds cornerRadius:0.f].CGPath];
     [self.shape2View.layer setBorderWidth:0.0f];
+    
     [self.shape2View.layer setBorderColor:[UIColor colorWithRed:195/255.f green:129/255.f blue:35/255.f alpha:1.f].CGColor];
     [self updateProgressWithDelta:0.8 shapeView:self.shape2View animated:true];
 
     //血压-低压
     [self.shape3View setMeterType:DPMeterTypeLinearHorizontal];
-    self.shape3View.progressTintColor = [UIColor colorWithRed:225.0/255.0 green:240.0/255.0 blue:109.0/255.0 alpha:1.0];
+//    self.shape3View.progressTintColor = [UIColor colorWithRed:225.0/255.0 green:240.0/255.0 blue:109.0/255.0 alpha:1.0];
     self.shape3View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     [self.shape3View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape3View.bounds cornerRadius:0.f].CGPath];
     [self.shape3View.layer setBorderWidth:0.0f];
@@ -74,7 +86,7 @@
     
     //血氧
     [self.shape4View setMeterType:DPMeterTypeLinearHorizontal];
-    self.shape4View.progressTintColor = [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+//    self.shape4View.progressTintColor = [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
     self.shape4View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     [self.shape4View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape4View.bounds cornerRadius:0.f].CGPath];
     [self.shape4View.layer setBorderWidth:0.0f];
