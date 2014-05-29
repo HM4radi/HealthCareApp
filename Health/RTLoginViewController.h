@@ -14,7 +14,7 @@
     NSMutableArray *_currentAccounts;
 }
 
-@property (retain, nonatomic) IBOutlet UIButton *login;
+@property (retain, nonatomic) IBOutlet UIImageView *login;
 @property (retain, nonatomic) IBOutlet UIButton *dropButton;
 @property (retain, nonatomic) IBOutlet UIView *moveDownGroup;
 @property (retain, nonatomic) IBOutlet UIView *account_box;

@@ -50,7 +50,6 @@
     [self addSubview:_tabbarViewCenter];
     
     [self layoutBtn];
-
 }
 
 -(void)layoutBtn
@@ -87,7 +86,7 @@
 {
         
     UIButton *btn = (UIButton *)sender;
-    NSLog(@"%li",(long)btn.tag);
+    //NSLog(@"%li",(long)btn.tag);
     switch (btn.tag) {
         case 101:
         {

@@ -31,15 +31,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
     NSDictionary *account1=[NSDictionary dictionaryWithObjectsAndKeys:@"AngelaBaby@qq.com",@"userNumber",@"123456",@"passWord",@"1.jpg",@"userHead", nil];
     NSDictionary *account2=[NSDictionary dictionaryWithObjectsAndKeys:@"Lucas@163.com",@"userNumber",@"29843223",@"passWord",@"2.jpg",@"userHead", nil];
     
     NSDictionary *account3=[NSDictionary dictionaryWithObjectsAndKeys:@"Ray@Hotmail.com",@"userNumber",@"987654321",@"passWord",@"3.jpg",@"userHead", nil];
 
+    [_userLargeHead.layer setCornerRadius:CGRectGetHeight(_userLargeHead.bounds)/2];
+    [_userLargeHead.layer setMasksToBounds:YES];
+
+    
     _currentAccounts=[[NSMutableArray arrayWithObjects:account1,account2, account3,nil]retain];
     
     [self reloadAccountBox];
 
+    self.login.userInteractionEnabled=YES;
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(logIn)];
+    [self.login addGestureRecognizer:tapGesture];
 }
 
 - (IBAction)register:(id)sender {
@@ -48,14 +56,7 @@
 
 }
 
-- (IBAction)login:(id)sender {
-    
-    //可以添加账户
-    
-//    NSDictionary *account=[NSDictionary dictionaryWithObjectsAndKeys:_userNumber.text,@"userNumber",_userPassword.text,@"passWord",@"3.jpeg",@"userHead", nil];
-//    [_currentAccounts addObject:account];
-//    [self reloadAccountBox];
-    
+-(void)logIn{
     RTMainViewController* mainVC=[[RTMainViewController alloc] initWithNibName:@"RTMainViewController" bundle:nil];
     [self presentModalViewController:mainVC animated:YES];
 }

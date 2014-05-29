@@ -33,11 +33,14 @@
     [super viewDidLoad];
     [self.navigationbar setFrame:CGRectMake(0, 0, 320, 64)];
     self.navigationbar.translucent=YES;
-    self.navigationItem.title=@"今日运动";
-    
+//    self.navLabel.frame=CGRectMake(100,32,120,20);
+//    self.navLabel1.frame=CGRectMake(100,32,120,20);
     UIScrollView* scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
     [self.view addSubview:scrollView];
     progressView=[[PICircularProgressView alloc]initWithFrame:CGRectMake(60, 6, 200, 200)];
+    progressView.thicknessRatio=0.08;
+    progressView.roundedHead=false;
+    progressView.showShadow=false;
     [scrollView addSubview:progressView];
     scrollView.contentSize=CGSizeMake(self.view.frame.size.width, 226+100*cellNum);
 
@@ -47,18 +50,37 @@
     [progressView addGestureRecognizer:tapGesture];
     tag=0;
     
+    
+    //返回按钮1
+    UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
+    [imgview setImage:[UIImage imageNamed:@"back-master.png"]];
+    [self.view insertSubview:imgview aboveSubview:self.navigationbar];
+    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
+    [imgview addGestureRecognizer:backGesture1];
+    imgview.userInteractionEnabled=YES;
+    
+    //返回按钮2
+    UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
+    [imgview1 setImage:[UIImage imageNamed:@"back-master.png"]];
+    [self.detailView insertSubview:imgview1 aboveSubview:self.detailNavBar];
+    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack2)];
+    [imgview1 addGestureRecognizer:backGesture2];
+    imgview1.userInteractionEnabled=YES;
+
+    
     //add tableView
     [self.tableView setDelegate:self];
 	[self.tableView setDataSource:self];
     [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];//按照cell个数定义高度
     self.tableView.scrollEnabled=false;
+    self.tableView.separatorColor=[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
     [scrollView addSubview:self.tableView];
     recordArray = [NSMutableArray arrayWithObjects:
-                   [NSDictionary dictionaryWithObjectsAndKeys:@"鸟巢", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3km/h",@"speed",@"200KCal",@"colories", nil],
-                   [NSDictionary dictionaryWithObjectsAndKeys:@"天安门", @"location",@"11:00", @"startTime", @"11:30", @"endTime",@"5000",@"steps",@"4.7km/h",@"speed",@"280KCal",@"colories", nil],
-                    [NSDictionary dictionaryWithObjectsAndKeys:@"中科院遥感所", @"location",@"19:00", @"startTime", @"20:30", @"endTime",@"10000",@"steps",@"4.3km/h",@"speed",@"400KCal",@"colories", nil],
-                    [NSDictionary dictionaryWithObjectsAndKeys:@"清华大学", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3km/h",@"speed",@"200KCal",@"colories", nil],
-                    [NSDictionary dictionaryWithObjectsAndKeys:@"天坛", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3km/h",@"speed",@"200KCal",@"colories", nil]
+                   [NSDictionary dictionaryWithObjectsAndKeys:@"鸟巢", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3",@"speed",@"200",@"calories", nil],
+                   [NSDictionary dictionaryWithObjectsAndKeys:@"天安门", @"location",@"11:00", @"startTime", @"11:30", @"endTime",@"5000",@"steps",@"4.7",@"speed",@"280",@"calories", nil],
+                    [NSDictionary dictionaryWithObjectsAndKeys:@"中科院遥感所", @"location",@"19:00", @"startTime", @"20:30", @"endTime",@"10000",@"steps",@"4.3",@"speed",@"400",@"calories", nil],
+                    [NSDictionary dictionaryWithObjectsAndKeys:@"清华大学", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3",@"speed",@"200",@"calories", nil],
+                    [NSDictionary dictionaryWithObjectsAndKeys:@"天坛", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3",@"speed",@"200",@"calories", nil]
                    ,nil];
     
     //add mapView
@@ -91,16 +113,18 @@
         [self setupPregressView:@"里   程" goal:@"目标:10" complete:7 withTopColor:col1 AndBottomColor:col2];
         tag++;
     }else if (tag==2){
-        UIColor *col1=[UIColor colorWithRed:255.0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0];
-        UIColor *col2=[UIColor colorWithRed:242.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1.0];
+        UIColor *col1=[UIColor colorWithRed:255.0/255.0 green:136/255.0 blue:49/255.0 alpha:1.0];
+        UIColor *col2=[UIColor colorWithRed:244.0/255.0 green:237.0/255.0 blue:138.0/255.0 alpha:1.0];
 
-        [self setupPregressView:@"卡路里" goal:@"目标:300" complete:180 withTopColor:col1 AndBottomColor:col2];
+        [self setupPregressView:@"卡路里" goal:@"目标:300" complete:240 withTopColor:col1 AndBottomColor:col2];
         tag=0;
     }
     
 }
+
 - (void)setupPregressView:(NSString *)title goal:(NSString *)goal complete:(int)_complete withTopColor:(UIColor*)color1 AndBottomColor:(UIColor*)color2
 {
+    progressNow=0;
     progressView.title=title;
     progressView.goal=goal;
     complete=_complete;
@@ -115,16 +139,17 @@
 - (void)setProgress{
     
     progressView.progress=(progressNow++)/100;
-    if (progressNow==100*complete/[[progressView.goal substringFromIndex:3] floatValue]+1) {
-        progressNow=0;
-    }
+//    if (progressNow==100*complete/[[progressView.goal substringFromIndex:3] floatValue]+1) {
+//        progressNow=0;
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    UIColor *col1=[UIColor colorWithRed:255.0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0];
-    UIColor *col2=[UIColor colorWithRed:242.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1.0];
+    
+    UIColor *col1=[UIColor colorWithRed:255.0/255.0 green:136/255.0 blue:49/255.0 alpha:1.0];
+    UIColor *col2=[UIColor colorWithRed:244.0/255.0 green:237.0/255.0 blue:138.0/255.0 alpha:1.0];
 
-    [self setupPregressView:@"卡路里" goal:@"目标:300" complete:180 withTopColor:col1 AndBottomColor:col2];
+    [self setupPregressView:@"卡路里" goal:@"目标:300" complete:240 withTopColor:col1 AndBottomColor:col2];
 
 }
 
@@ -143,7 +168,7 @@
     }
 
     RTTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-
+    
 	NSUInteger row=[indexPath row];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -155,6 +180,7 @@
     cell.steps.text=[dic objectForKey:@"steps"];
     cell.speed.text=[dic objectForKey:@"speed"];
     cell.calories.text=[dic objectForKey:@"calories"];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
 	return cell;
 }
@@ -202,17 +228,7 @@
     
 }
 
-- (IBAction)back:(id)sender {
-    [UIView beginAnimations:@"view flip" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView transitionWithView:self.view
-                      duration:0.2
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{ [self.detailView removeFromSuperview];  }
-                    completion:NULL];
-    [UIView commitAnimations];
-    
-}
+
 
 //*********************chartView********************//
 
@@ -284,11 +300,6 @@
         self.labelValues.alpha = 1.0;
         self.labelDates.alpha = 1.0;
         
-//        
-//        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-//            self.labelValues.alpha = 1.0;
-//            self.labelDates.alpha = 1.0;
-//        } completion:nil];
     }];
     
 }
@@ -335,6 +346,31 @@
     [currentAnno setSubtitle:@"北京市区海淀区苏州街银科大厦"];
     [_mapView addPointAnno:currentAnno];
 
+}
+
+
+- (void)touchBack{
+    
+    [UIView beginAnimations:@"view flip" context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView transitionWithView:self.view.superview
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{ [self.view removeFromSuperview];  }
+                    completion:NULL];
+    [UIView commitAnimations];
+}
+
+- (void)touchBack2{
+    
+    [UIView beginAnimations:@"view flip" context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{ [self.detailView removeFromSuperview];  }
+                    completion:NULL];
+    [UIView commitAnimations];
 }
 
 - (void)didReceiveMemoryWarning

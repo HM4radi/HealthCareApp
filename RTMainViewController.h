@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RNGridMenu.h"
+#import "RTCenterViewController.h"
+#import "RTMsgViewController.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"

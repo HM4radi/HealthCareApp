@@ -42,8 +42,6 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *detailNavBar;
 
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
-
 @property int cellNum;
 
 @property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *myGraph;
@@ -52,6 +50,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelValues;
 @property (strong, nonatomic) IBOutlet UILabel *labelDates;
 @property (weak, nonatomic) IBOutlet UINavigationItem *detailItem;
+@property (weak, nonatomic) IBOutlet UILabel *navLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *navLabel1;
 
 @end

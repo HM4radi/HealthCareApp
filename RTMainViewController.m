@@ -42,12 +42,11 @@
     [self.view addSubview:_tabbar];
     
     _arrayViewcontrollers = [self getViewcontrollers];
-    [self touchBtnAtIndex:0];
+    [self touchCenterBtn];
     
     //for center button
     RNLongPressGestureRecognizer *longPress = [[RNLongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     [self.view addGestureRecognizer:longPress];
-
 }
 
 //分享至微信
@@ -69,38 +68,48 @@
     viewController.view.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height- 50);
     
     [self.view insertSubview:viewController.view belowSubview:_tabbar];
-    
 }
 
 -(void)touchCenterBtn
 {
     NSLog(@"touch center button");
-    [self showGrid];
+    //[self showGrid];
+    UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
+    [currentView removeFromSuperview];
+    
+    NSDictionary* data = [_arrayViewcontrollers objectAtIndex:4];
+    
+    UIViewController *viewController = [data objectForKey:@"viewController"];
+    viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
+    viewController.view.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height- 50);
+    
+    [self.view insertSubview:viewController.view belowSubview:_tabbar];
+
 }
 
 -(NSArray *)getViewcontrollers
 {
     NSArray* tabBarItems = nil;
     
-    FirstViewController *first = [[FirstViewController alloc]init];
+    //FirstViewController *first = [[FirstViewController alloc]init];
+    RTMsgViewController *msg=[[RTMsgViewController alloc]init];
     
     SecondViewController *second = [[SecondViewController alloc]init];
-    
-//    ThirdViewController *third = [[ThirdViewController alloc]init];
     
     ForthViewController *forth = [[ForthViewController alloc]init];
 
     RTGYBNaviViewController *thd=[[RTGYBNaviViewController alloc]init];
     
+    RTCenterViewController *center=[[RTCenterViewController alloc]init];
     
     
     tabBarItems = [NSArray arrayWithObjects:
-                   [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", first, @"viewController",@"主页",@"title", nil],
+                   [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", msg, @"viewController",@"主页",@"title", nil],
                    [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", second, @"viewController",@"主页",@"title", nil],
                    [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", thd, @"viewController",@"主页",@"title", nil],
-                   [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", forth, @"viewController",@"主页",@"title", nil],nil];
+                   [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", forth, @"viewController",@"主页",@"title", nil],
+                   [NSDictionary dictionaryWithObjectsAndKeys:@"tabicon_home", @"image",@"tabicon_home", @"image_locked", center, @"viewController",@"主页",@"title", nil],nil];
     return tabBarItems;
-    
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)longPress {

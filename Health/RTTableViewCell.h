@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *steps;
 @property (weak, nonatomic) IBOutlet UILabel *speed;
 @property (weak, nonatomic) IBOutlet UILabel *calories;
+@property (weak, nonatomic) IBOutlet UIImageView *portraitView;
 
 @end
