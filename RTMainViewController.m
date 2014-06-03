@@ -67,7 +67,12 @@
     viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
     viewController.view.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height- 50);
     
+    if (index==1) {
+       
+    }
+    
     [self.view insertSubview:viewController.view belowSubview:_tabbar];
+    
 }
 
 -(void)touchCenterBtn

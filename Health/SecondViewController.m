@@ -51,6 +51,22 @@
 
 @implementation SecondViewController
 
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    for(UIView* subView in self.view.subviews)
+    {
+    
+        [subView removeFromSuperview];
+    }
+    [self.view addSubview:self.navigationbar];
+    self.backToThirdViewBtn.enabled=NO;
+    self.backToThirdViewBtn.title=nil;
+    [self.view addSubview:self.TitleLabel];
+    [self.view addSubview:self.thirdView];
+    
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

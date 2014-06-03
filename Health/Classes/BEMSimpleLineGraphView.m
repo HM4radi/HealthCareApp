@@ -155,6 +155,7 @@ int currentlyCloser;
         line.topAlpha = self.alphaTop;
         line.bottomAlpha = self.alphaBottom;
         line.lineAlpha = self.alphaLine;
+        
         line.lineWidth = self.widthLine;
         [self addSubview:line];
         [self sendSubviewToBack:line];

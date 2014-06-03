@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RTGYBNaviViewController : UINavigationController
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

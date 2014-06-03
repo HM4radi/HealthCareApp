@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
      UIViewController *rootController = [[GYBTableViewController alloc] init];
     
     
@@ -37,6 +38,7 @@
     [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 320, 64)];
     //    //[self.navigationbar setBackgroundColor:[UIColor darkGrayColor]];
     self.navigationController.navigationBar.translucent=YES;
+    self.navigationItem.titleView=self.titleLabel;
     
     // 初始化UINavigationController
 //    UINavigationController *navigationController = [[UINavigationController alloc]
