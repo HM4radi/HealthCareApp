@@ -25,6 +25,15 @@
     
     //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //AVOS
+    
+    [AVOSCloud setApplicationId:@"fkpkteplejsdhh4gpwwgxhby59cr3858jvthfc34mgqyvya2"
+                      clientKey:@"f23h6a0z598j9ftmck31mhk5ofxivj3y5eyvf0ib2ue86qh5"];
+    
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
     return YES;
 }
 

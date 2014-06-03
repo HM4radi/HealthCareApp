@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RTLoginViewController.h"
 #import "WXApi.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface RTAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 

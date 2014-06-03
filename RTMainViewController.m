@@ -8,6 +8,7 @@
 
 #import "RTMainViewController.h"
 #import "tabbarView.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 
 
@@ -31,7 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+//AVOS
+    AVObject *testObject = [AVObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    
+    
+    
+    
+    
     CGFloat orginHeight = self.view.frame.size.height- 60;
     if (!iPhone5) {
         orginHeight = self.view.frame.size.height- 60 - addHeight;
