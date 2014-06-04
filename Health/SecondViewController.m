@@ -17,6 +17,7 @@
 #import "RTHandDisease.h"
 #import "RTNeckDisease.h"
 #import "RTMedication.h"
+#import "AVIllness.h"
 @interface SecondViewController ()<UITableViewDataSource, UITableViewDelegate,UIGestureRecognizerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 {
   
@@ -82,6 +83,24 @@
     [super viewDidLoad];
     self.searchDisplayController.searchResultsTableView.tag=10004;
     //Disease 示范数据
+    
+    AVQuery *queryIllness=[AVIllness query];
+    queryIllness.limit=10;
+//    [queryIllness selectKeys:@[@"name", @"info"]];
+    [queryIllness findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            for (AVIllness *i in objects) {
+                NSLog(@"%@",i.name);
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }
+    ];
     
     _medicationArray=[NSArray arrayWithObjects:
                       [RTMedication diseaseNewDisease:@"OTC" name:@"莲花清瘟胶囊"],
@@ -299,27 +318,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger rowcount=0;
     switch (tableView.tag) {
         case 10001:
-            return [self.doctorArray count];
+            rowcount=[self.doctorArray count];
            
             break;
         case 10002:
-            return [self.medicationArray count];
+            rowcount=[self.medicationArray count];
             
             break;
         case 10003:
-            return [self.filteredDiseaseArray count];
+            rowcount=[self.filteredDiseaseArray count];
             
             break;
         case 10004:
-            return [self.filteredAll count];
+           rowcount=[self.filteredAll count];
 
         default:
-            return 0;
+            rowcount=0;
             break;
     }
-   
+    return rowcount+1;
 }
 
 //改变cell高度
@@ -329,25 +349,41 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
+    
     static NSString *cellIndentifier;
     UITableViewCell *cell;
-    
+   
     switch (tableView.tag) {
         case 10001:
         
         {   cellIndentifier=@"doctorCell";
             cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+            if ([indexPath row]< self.doctorArray.count) {
+                cell=nil;
+                if (!cell) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+                }
+                RTDoctor *doctor=nil;
+                doctor=[self.doctorArray objectAtIndex:indexPath.row];
+                cell.textLabel.text = doctor.name;
+                cell.detailTextLabel.text=doctor.category;
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+                
             }
+            //分页显示按钮  以下类似
+            else
+            {
+                NSLog(@"selectedIndex:%d",indexPath.row);
+                cell=nil;
+                if (!cell) {
+                   cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+                }
+                
+                cell.textLabel.text=@"点击加载更多";
+                [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
             
-            RTDoctor *doctor=nil;
-            
-            
-            doctor=[self.doctorArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = doctor.name;
-            cell.detailTextLabel.text=doctor.category;
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            }
             
             break;
             
@@ -357,18 +393,34 @@
             
         {   cellIndentifier=@"medicationCell";
             cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+            if ([indexPath row]<self.medicationArray.count) {
+                cell=nil;
+                if (!cell) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+                }
+                
+                RTMedication *doctor=nil;
+                
+                
+                doctor=[self.medicationArray objectAtIndex:indexPath.row];
+                cell.textLabel.text = doctor.name;
+                cell.detailTextLabel.text=doctor.info;
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             }
-            
-            RTMedication *doctor=nil;
-            
-            
-            doctor=[self.medicationArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = doctor.name;
-            cell.detailTextLabel.text=doctor.info;
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-            
+            else
+            {
+                NSLog(@"selectedIndex:%d",indexPath.row);
+                cell=nil;
+                if (!cell) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+                }
+                
+                
+                cell.textLabel.text=@"点击加载更多";
+                
+                [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+                
+            }
             break;
             
             
@@ -380,29 +432,50 @@
         {
             cellIndentifier=@"diseaseCell";
             cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+            
+            if ([indexPath row]<self.filteredDiseaseArray.count) {
+                
+            
+                cell=nil;
+                if (!cell) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+                }
+                
+                RTHandDisease *doctor=nil;
+                
+                
+                
+                doctor=[self.filteredDiseaseArray objectAtIndex:indexPath.row];
+                
+                
+                
+                cell.textLabel.text = doctor.name;
+                cell.detailTextLabel.text=doctor.info;
+                
+                
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             }
-            
-            RTHandDisease *doctor=nil;
-            
-            
-            doctor=[self.filteredDiseaseArray objectAtIndex:indexPath.row];
-            
-            
-            
-            cell.textLabel.text = doctor.name;
-            cell.detailTextLabel.text=doctor.info;
-           
-            
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-            
+            else
+            {
+                NSLog(@"selectedIndex:%d",indexPath.row);
+                cell=nil;
+                if (!cell) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+                }
+                
+                cell.textLabel.text=@"点击加载更多";
+                
+                [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+                
+                
+            }
             break;
         }
             case 10004:
         {
             cellIndentifier=@"doctorCell";
             cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+            cell=nil;
             if (!cell) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
             }
@@ -414,6 +487,9 @@
             cell.textLabel.text = doctor.name;
             cell.detailTextLabel.text=doctor.info;
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            
+            
+            
             
             break;
             
@@ -454,8 +530,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // 切入详细视图
+   
+  
+        
+ 
     
     switch (tableView.tag) {
+            
         case 10001:
             if (!rtSndDoctorDetailViewController) {
                 rtSndDoctorDetailViewController=[[RTSndDoctorDetailViewController alloc]init];
@@ -485,6 +566,7 @@
     }
     
     rightNowView=self.HumanSearchResultView;
+    
 //    [self loadDetailView];
 //    [[tableView cellForRowAtIndexPath:indexPath] setSelectionStyle:UITableViewCellSelectionStyleNone];
 //    [self performSegueWithIdentifier:@"candyDetail" sender:tableView];

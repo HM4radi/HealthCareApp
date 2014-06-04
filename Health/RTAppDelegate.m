@@ -8,6 +8,7 @@
 //
 
 #import "RTAppDelegate.h"
+#import "AVIllness.h"
 
 //#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
@@ -32,7 +33,9 @@
                       clientKey:@"f23h6a0z598j9ftmck31mhk5ofxivj3y5eyvf0ib2ue86qh5"];
     
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+    //AVOS subclass register
+    [AVIllness registerSubclass];
+   
     
     return YES;
 }

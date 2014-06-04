@@ -9,6 +9,7 @@
 #import "RTSndDoctorDetailViewController.h"
 #import "RTSndMedicationViewController.h"
 #import "RTDiseaseViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface SecondViewController : UIViewController <UISearchBarDelegate,UISearchDisplayDelegate>{
     RTSndDoctorDetailViewController *rtSndDoctorDetailViewController;

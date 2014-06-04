@@ -1,0 +1,2 @@
+PODS_AVOSCLOUDSNS_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/AVOSCloudSNS/iOS/release-v2.5.6"
+PODS_AVOSCLOUDSNS_OTHER_LDFLAGS = -framework AVOSCloudSNS -framework CFNetwork -framework MobileCoreServices -framework Security -framework SystemConfiguration

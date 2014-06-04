@@ -32,6 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     
     
+    
     NSDictionary *account1=[NSDictionary dictionaryWithObjectsAndKeys:@"AngelaBaby@qq.com",@"userNumber",@"123456",@"passWord",@"1.jpg",@"userHead", nil];
     NSDictionary *account2=[NSDictionary dictionaryWithObjectsAndKeys:@"Lucas@163.com",@"userNumber",@"29843223",@"passWord",@"2.jpg",@"userHead", nil];
     
@@ -57,6 +58,7 @@
 }
 
 -(void)logIn{
+    
     RTMainViewController* mainVC=[[RTMainViewController alloc] initWithNibName:@"RTMainViewController" bundle:nil];
     [self presentModalViewController:mainVC animated:YES];
 }
