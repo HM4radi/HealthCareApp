@@ -7,6 +7,9 @@
 //
 
 #import "ForthViewController.h"
+#import "RTLoginViewController.h"
+#import "RTAppDelegate.h"
+
 
 @interface ForthViewController ()
 
@@ -41,4 +44,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)signOutsignOut:(id)sender {
+    
+    [AVUser logOut];  //清除缓存用户对象
+    AVUser * currentUser = [AVUser currentUser];
+    NSLog(@"CurrentUser:%@",currentUser.username);// 现在的currentUser是nil了
+   
+    [[RTMainViewController shareMainViewControllor] logout];
+   
+        
+
+    
+}
 @end

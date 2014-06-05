@@ -9,6 +9,7 @@
                 <outlet property="account_box" destination="82F-3D-DHu" id="ENX-gV-qM2"/>
                 <outlet property="dropButton" destination="kEF-7H-ymx" id="ajN-XY-cNS"/>
                 <outlet property="login" destination="Ctv-UN-d26" id="Bfl-gq-90U"/>
+                <outlet property="loginInfoLabel" destination="pfa-71-jzL" id="wxx-zb-gme"/>
                 <outlet property="moveDownGroup" destination="Lvz-dQ-5hI" id="OGx-hv-BrM"/>
                 <outlet property="numberLabel" destination="2Gf-mz-PrT" id="zfS-O5-OHc"/>
                 <outlet property="passwordLabel" destination="8xG-xI-hmX" id="XJf-Qg-9id"/>
@@ -96,7 +97,10 @@
                             <rect key="frame" x="77" y="12" width="195" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="loginInput:" destination="-1" eventType="editingDidEnd" id="qrI-We-y8D"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kEF-7H-ymx">
                             <rect key="frame" x="271" y="20" width="18" height="11"/>
@@ -127,6 +131,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            <connections>
+                                <action selector="loginInput:" destination="-1" eventType="editingDidEnd" id="Jdj-14-5K0"/>
+                            </connections>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8xG-xI-hmX">
                             <rect key="frame" x="27" y="9" width="42" height="21"/>
@@ -152,6 +159,14 @@
                     <rect key="frame" x="125" y="337" width="70" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pfa-71-jzL">
+                    <rect key="frame" x="28" y="415" width="265" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.31942442599999998" blue="0.46203726940000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

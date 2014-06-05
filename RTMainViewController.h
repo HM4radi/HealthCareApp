@@ -34,6 +34,8 @@
 
 @property(nonatomic,strong) tabbarView *tabbar;
 @property(nonatomic,strong) NSArray *arrayViewcontrollers;
-
+@property(nonatomic,strong) UIViewController* loginViewController;
++(RTMainViewController*)shareMainViewControllor;
+-(void)logout;
 
 @end

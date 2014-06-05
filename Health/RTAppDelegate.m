@@ -14,13 +14,27 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
 @implementation RTAppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //AVOS  TestObject
+    AVObject *testObject = [AVObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //self.viewController= [[RTMainViewController alloc] initWithNibName:@"RTMainViewController" bundle:nil];
-    self.viewController= [[RTLoginViewController alloc] initWithNibName:@"RTLoginViewController" bundle:nil];
+    
+    self.viewController=[[RTLoginViewController alloc] initWithNibName:@"RTLoginViewController" bundle:nil];
+    
     self.window.rootViewController = self.viewController;
+    
+    
+  
+    
+    
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     
@@ -80,5 +94,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 @end

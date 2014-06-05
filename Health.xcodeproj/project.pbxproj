@@ -10,6 +10,8 @@
 		0420539A193EC00700D0C9EE /* AVIllness.m in Sources */ = {isa = PBXBuildFile; fileRef = 04205399193EC00700D0C9EE /* AVIllness.m */; };
 		042053AC193F25A800D0C9EE /* RTRegistBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 042053AB193F25A800D0C9EE /* RTRegistBussiness.m */; };
 		042053AF193F25B800D0C9EE /* RTLoginBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 042053AE193F25B800D0C9EE /* RTLoginBusiness.m */; };
+		042053B51940793500D0C9EE /* RTUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042053B31940793500D0C9EE /* RTUserProfileViewController.m */; };
+		042053B61940793500D0C9EE /* RTUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042053B41940793500D0C9EE /* RTUserProfileViewController.xib */; };
 		042716E019375C9D00FD3EF3 /* RTDoctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716CE19375C9D00FD3EF3 /* RTDoctor.m */; };
 		042716E119375C9D00FD3EF3 /* RTHeadDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D019375C9D00FD3EF3 /* RTHeadDisease.m */; };
 		042716E219375C9D00FD3EF3 /* RTLegDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = 042716D219375C9D00FD3EF3 /* RTLegDisease.m */; };
@@ -372,6 +374,9 @@
 		042053AB193F25A800D0C9EE /* RTRegistBussiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRegistBussiness.m; sourceTree = "<group>"; };
 		042053AD193F25B800D0C9EE /* RTLoginBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLoginBusiness.h; sourceTree = "<group>"; };
 		042053AE193F25B800D0C9EE /* RTLoginBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLoginBusiness.m; sourceTree = "<group>"; };
+		042053B21940793500D0C9EE /* RTUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserProfileViewController.h; sourceTree = "<group>"; };
+		042053B31940793500D0C9EE /* RTUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserProfileViewController.m; sourceTree = "<group>"; };
+		042053B41940793500D0C9EE /* RTUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTUserProfileViewController.xib; sourceTree = "<group>"; };
 		042716CD19375C9D00FD3EF3 /* RTDoctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDoctor.h; sourceTree = "<group>"; };
 		042716CE19375C9D00FD3EF3 /* RTDoctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDoctor.m; sourceTree = "<group>"; };
 		042716CF19375C9D00FD3EF3 /* RTHeadDisease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHeadDisease.h; sourceTree = "<group>"; };
@@ -875,6 +880,16 @@
 				042716DF19375C9D00FD3EF3 /* RTMedication.m */,
 			);
 			name = testModal;
+			sourceTree = "<group>";
+		};
+		042053B11940790F00D0C9EE /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				042053B21940793500D0C9EE /* RTUserProfileViewController.h */,
+				042053B31940793500D0C9EE /* RTUserProfileViewController.m */,
+				042053B41940793500D0C9EE /* RTUserProfileViewController.xib */,
+			);
+			name = UserProfile;
 			sourceTree = "<group>";
 		};
 		042716CB19375C7F00FD3EF3 /* Utilities */ = {
@@ -1392,6 +1407,7 @@
 		ADAA5DD5192341090040ED10 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				042053B11940790F00D0C9EE /* UserProfile */,
 				042716CB19375C7F00FD3EF3 /* Utilities */,
 				ADAA5DDE192341090040ED10 /* RTAppDelegate.h */,
 				ADAA5DDF192341090040ED10 /* RTAppDelegate.m */,
@@ -1967,6 +1983,7 @@
 				AD480F771924A64F0081DAFA /* profile.png in Resources */,
 				AD12F68C192634B400921894 /* popover_button_highlighted.png in Resources */,
 				AD480F711924A64F0081DAFA /* burger.png in Resources */,
+				042053B61940793500D0C9EE /* RTUserProfileViewController.xib in Resources */,
 				AD12F68F192634B400921894 /* profile_pop_button_background_bottom.png in Resources */,
 				AD12F669192634B400921894 /* login_background.png in Resources */,
 				ADCC7A531929AF64005B00B4 /* login_textfield.png in Resources */,
@@ -2075,6 +2092,7 @@
 				042716E519375C9D00FD3EF3 /* RTAbdomenDisease.m in Sources */,
 				0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */,
 				AD48102D1924BE690081DAFA /* RNFrostedSidebar.m in Sources */,
+				042053B51940793500D0C9EE /* RTUserProfileViewController.m in Sources */,
 				042716E419375C9D00FD3EF3 /* RTBreastDisease.m in Sources */,
 				042716E819375C9D00FD3EF3 /* RTMedication.m in Sources */,
 				ADAA5DDC192341090040ED10 /* main.m in Sources */,

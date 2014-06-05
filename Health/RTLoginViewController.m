@@ -26,17 +26,42 @@
     return self;
 }
 
+
+-(void) viewWillAppear:(BOOL)animated{
+
+    [self CheckCurrentUserAndLoadViewControllor];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //AVOS Login subclass
+    loginer=[[RTLoginBusiness alloc]init];
     
-    
-    NSDictionary *account1=[NSDictionary dictionaryWithObjectsAndKeys:@"AngelaBaby@qq.com",@"userNumber",@"123456",@"passWord",@"1.jpg",@"userHead", nil];
+   
+    NSDictionary *account1=[NSDictionary dictionaryWithObjectsAndKeys:@"aaaaaa",@"userNumber",@"12345678",@"passWord",@"1.jpg",@"userHead", nil];
     NSDictionary *account2=[NSDictionary dictionaryWithObjectsAndKeys:@"Lucas@163.com",@"userNumber",@"29843223",@"passWord",@"2.jpg",@"userHead", nil];
     
     NSDictionary *account3=[NSDictionary dictionaryWithObjectsAndKeys:@"Ray@Hotmail.com",@"userNumber",@"987654321",@"passWord",@"3.jpg",@"userHead", nil];
+    
+     _currentAccounts=[[NSMutableArray arrayWithObjects:account1,account2, account3,nil]retain];
+    
+    AVUser *currentuser=[AVUser currentUser];
+    if (currentuser != nil) {
+    
+//     NSDictionary *currentAccount=[NSDictionary dictionaryWithObjectsAndKeys:currentuser.username,@"userNumber",@"12345678",@"passWord","1.jpg",@"userHead", nil];
+//        [_currentAccounts addObject:currentAccount];
+    
+    }
+    else
+    {
+    
+    
+    }
+    
+   
 
     [_userLargeHead.layer setCornerRadius:CGRectGetHeight(_userLargeHead.bounds)/2];
     [_userLargeHead.layer setMasksToBounds:YES];
@@ -47,20 +72,51 @@
     [self reloadAccountBox];
 
     self.login.userInteractionEnabled=YES;
-    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(logIn)];
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(loginCheckOncloud)];
     [self.login addGestureRecognizer:tapGesture];
+    
+    
+   
+}
+
+-(void)loginCheckOncloud{
+    if (loginer.username==nil || loginer.pwd==nil) {
+         self.loginInfoLabel.text=@"请输入用户信息";
+    }
+    else{
+        [loginer login:loginer.username Pwd:loginer.pwd];
+        if(loginer.isSucceed)
+        {
+            [self logIn];
+            NSLog(@"loginer.isSucceed:Yes");
+            self.loginInfoLabel.text=nil;
+        }
+        else
+        {
+            NSLog(@"loginer.isSucceed:No");
+            self.loginInfoLabel.text=loginer.feedback;
+            
+            
+            
+        }
+        
+    }
+  
+
 }
 
 - (IBAction)register:(id)sender {
     RTRegisterViewController* rgtVC=[[RTRegisterViewController alloc] initWithNibName:@"RTRegisterViewController" bundle:nil];
-    [self presentModalViewController:rgtVC animated:YES];
+    [self presentViewController:rgtVC animated:YES completion:nil];
 
 }
 
 -(void)logIn{
     
-    RTMainViewController* mainVC=[[RTMainViewController alloc] initWithNibName:@"RTMainViewController" bundle:nil];
-    [self presentModalViewController:mainVC animated:YES];
+    RTMainViewController* mainVC=[RTMainViewController shareMainViewControllor];
+//    [self presentModalViewController:mainVC animated:YES];
+    [self presentViewController:mainVC animated:YES completion:nil];
+    
 }
 
 
@@ -246,6 +302,39 @@
     [_numberLabel release];
     [_passwordLabel release];
     [super dealloc];
+}
+
+- (IBAction)loginInput:(id)sender {
+    NSString *username;
+    NSString *pwd;
+    username=self.userNumber.text;
+    pwd=self.userPassword.text;
+    
+    if (username==nil|| pwd==nil) {
+        NSLog(@"用户输入为空");
+    }
+    else
+    {
+        loginer.username=username;
+        loginer.pwd=pwd;
+    
+    }
+}
+
+-(BOOL)CheckCurrentUserAndLoadViewControllor
+{
+    AVUser * currentUser = [AVUser currentUser];
+    if (currentUser != nil) {
+        [self logIn];
+        NSLog(@"CurrentUser:%@",currentUser.username);
+        return YES;
+    }
+    else
+    {
+        NSLog(@"CurrentUser1:%@",currentUser.username);
+        return NO;
+    }
+    
 }
 
 @end

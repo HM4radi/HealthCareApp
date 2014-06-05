@@ -13,6 +13,10 @@
 
 @interface RTAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
+
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) RTLoginViewController *viewController;
+@property (strong, nonatomic) UIViewController *viewController;
+
+
+
 @end

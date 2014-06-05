@@ -9,6 +9,7 @@
 #import "RTMainViewController.h"
 #import "tabbarView.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "RTLoginViewController.h"
 
 
 
@@ -20,26 +21,79 @@
 
 @implementation RTMainViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+static RTMainViewController* singleInstanceOfRTMainViewController=nil;
+
++(id)shareMainViewControllor
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    @synchronized(self){
+    if (singleInstanceOfRTMainViewController==nil) {
+        singleInstanceOfRTMainViewController=[RTMainViewController alloc];
     }
-    return self;
+    }
+    return singleInstanceOfRTMainViewController;
+    
 }
 
++(id)alloc
+{
+    @synchronized(self)
+    {
+        if (singleInstanceOfRTMainViewController == nil)
+        {
+            singleInstanceOfRTMainViewController = [[super alloc]init];
+            return singleInstanceOfRTMainViewController;
+        }
+    }
+    return nil;
+}
+
++(id) allocWithZone:(NSZone *)zone
+{
+    @synchronized(self)
+    {
+        if (singleInstanceOfRTMainViewController == nil)
+        {
+            singleInstanceOfRTMainViewController = [[super allocWithZone:zone]init];
+            return singleInstanceOfRTMainViewController;
+        }
+    }
+    return nil;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    @synchronized(self)
+    {
+        if (singleInstanceOfRTMainViewController != nil)
+        {
+            
+            return singleInstanceOfRTMainViewController;
+        }
+        else if(singleInstanceOfRTMainViewController==nil){
+            singleInstanceOfRTMainViewController = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+            return singleInstanceOfRTMainViewController;
+        }
+    }
+    
+    return nil;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+//    [self CheckCurrentUserAndLoadViewControllor];
+    
+
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//AVOS  TestObject
-    AVObject *testObject = [AVObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    [testObject save];
+
     
+  
     
-    
-    
+   
     
     CGFloat orginHeight = self.view.frame.size.height- 60;
     if (!iPhone5) {
@@ -56,6 +110,10 @@
     //for center button
     RNLongPressGestureRecognizer *longPress = [[RNLongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     [self.view addGestureRecognizer:longPress];
+    
+  
+   
+ 
 }
 
 //分享至微信
@@ -262,5 +320,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)logout
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
