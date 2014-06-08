@@ -16,7 +16,15 @@
 @end
 
 @implementation RTLoginViewController
+static  RTLoginViewController *thisController=nil;
 
++(id)shareLoginControllor
+{
+    if (thisController==nil) {
+        thisController=[[RTLoginViewController alloc] initWithNibName:@"RTLoginViewController" bundle:nil];
+    }
+    return thisController;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,52 +38,44 @@
 -(void) viewWillAppear:(BOOL)animated{
 
     [self CheckCurrentUserAndLoadViewControllor];
+    
 }
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    //AVOS Login subclass
-    loginer=[[RTLoginBusiness alloc]init];
+        // Do any additional setup after loading the view from its nib.
+        
+        //AVOS Login subclass
+        loginer=[[RTLoginBusiness alloc]init];
+        
+        
+        NSDictionary *account1=[NSDictionary dictionaryWithObjectsAndKeys:@"aaaaaa",@"userNumber",@"12345678",@"passWord",@"1.jpg",@"userHead", nil];
+        NSDictionary *account2=[NSDictionary dictionaryWithObjectsAndKeys:@"Lucas@163.com",@"userNumber",@"29843223",@"passWord",@"2.jpg",@"userHead", nil];
+        
+        NSDictionary *account3=[NSDictionary dictionaryWithObjectsAndKeys:@"Ray@Hotmail.com",@"userNumber",@"987654321",@"passWord",@"3.jpg",@"userHead", nil];
+        
+        _currentAccounts=[[NSMutableArray arrayWithObjects:account1,account2, account3,nil]retain];
+        
+        
+        
+        
+        [_userLargeHead.layer setCornerRadius:CGRectGetHeight(_userLargeHead.bounds)/2];
+        [_userLargeHead.layer setMasksToBounds:YES];
+        
+        
+        _currentAccounts=[[NSMutableArray arrayWithObjects:account1,account2, account3,nil]retain];
+        
+        [self reloadAccountBox];
+        
+        self.login.userInteractionEnabled=YES;
+        UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(loginCheckOncloud)];
+        [self.login addGestureRecognizer:tapGesture];
     
    
-    NSDictionary *account1=[NSDictionary dictionaryWithObjectsAndKeys:@"aaaaaa",@"userNumber",@"12345678",@"passWord",@"1.jpg",@"userHead", nil];
-    NSDictionary *account2=[NSDictionary dictionaryWithObjectsAndKeys:@"Lucas@163.com",@"userNumber",@"29843223",@"passWord",@"2.jpg",@"userHead", nil];
-    
-    NSDictionary *account3=[NSDictionary dictionaryWithObjectsAndKeys:@"Ray@Hotmail.com",@"userNumber",@"987654321",@"passWord",@"3.jpg",@"userHead", nil];
-    
-     _currentAccounts=[[NSMutableArray arrayWithObjects:account1,account2, account3,nil]retain];
-    
-    AVUser *currentuser=[AVUser currentUser];
-    if (currentuser != nil) {
-    
-//     NSDictionary *currentAccount=[NSDictionary dictionaryWithObjectsAndKeys:currentuser.username,@"userNumber",@"12345678",@"passWord","1.jpg",@"userHead", nil];
-//        [_currentAccounts addObject:currentAccount];
-    
-    }
-    else
-    {
-    
-    
-    }
-    
-   
-
-    [_userLargeHead.layer setCornerRadius:CGRectGetHeight(_userLargeHead.bounds)/2];
-    [_userLargeHead.layer setMasksToBounds:YES];
-
-    
-    _currentAccounts=[[NSMutableArray arrayWithObjects:account1,account2, account3,nil]retain];
-    
-    [self reloadAccountBox];
-
-    self.login.userInteractionEnabled=YES;
-    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(loginCheckOncloud)];
-    [self.login addGestureRecognizer:tapGesture];
-    
-    
    
 }
 
@@ -116,6 +116,11 @@
     RTMainViewController* mainVC=[RTMainViewController shareMainViewControllor];
 //    [self presentModalViewController:mainVC animated:YES];
     [self presentViewController:mainVC animated:YES completion:nil];
+    
+    
+    AVUser *user=[AVUser currentUser];
+
+    NSLog(@"user1234:%@",user.username);
     
 }
 
@@ -325,13 +330,13 @@
 {
     AVUser * currentUser = [AVUser currentUser];
     if (currentUser != nil) {
+        NSLog(@"CurrentUser1:%@",currentUser.username);
         [self logIn];
-        NSLog(@"CurrentUser:%@",currentUser.username);
         return YES;
     }
     else
     {
-        NSLog(@"CurrentUser1:%@",currentUser.username);
+        NSLog(@"CurrentUser2:%@",currentUser.username);
         return NO;
     }
     

@@ -45,6 +45,11 @@
 		0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469EB6F192886F600388022 /* UIBezierPath+BasicShapes.m */; };
 		0469EB741928871D00388022 /* locationMark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB731928871D00388022 /* locationMark.jpg */; };
 		0469EB761928876100388022 /* compose_privatebutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB751928876100388022 /* compose_privatebutton_background.png */; };
+		04FB29D21940BA7700B96AA7 /* RTUserProfileBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */; };
+		04FB29D51940BB5C00B96AA7 /* RTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB29D41940BB5C00B96AA7 /* RTUser.m */; };
+		04FB29DA1941ACC100B96AA7 /* 2(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D71941ACC100B96AA7 /* 2(1).png */; };
+		04FB29DB1941ACC100B96AA7 /* 3(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D81941ACC100B96AA7 /* 3(1).png */; };
+		04FB29DC1941ACC100B96AA7 /* 1(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D91941ACC100B96AA7 /* 1(1).png */; };
 		04FE00751928AADD002FB4E1 /* RTGYBNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE00731928AADD002FB4E1 /* RTGYBNaviViewController.m */; };
 		04FE00761928AADD002FB4E1 /* RTGYBNaviViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FE00741928AADD002FB4E1 /* RTGYBNaviViewController.xib */; };
 		AD0DA0391935C06800A9846E /* RTMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0DA0371935C06800A9846E /* RTMsgViewController.m */; };
@@ -431,6 +436,13 @@
 		0469EB6F192886F600388022 /* UIBezierPath+BasicShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+BasicShapes.m"; sourceTree = "<group>"; };
 		0469EB731928871D00388022 /* locationMark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = locationMark.jpg; sourceTree = "<group>"; };
 		0469EB751928876100388022 /* compose_privatebutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_privatebutton_background.png; sourceTree = "<group>"; };
+		04FB29D01940BA7700B96AA7 /* RTUserProfileBussiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserProfileBussiness.h; sourceTree = "<group>"; };
+		04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserProfileBussiness.m; sourceTree = "<group>"; };
+		04FB29D31940BB5C00B96AA7 /* RTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUser.h; sourceTree = "<group>"; };
+		04FB29D41940BB5C00B96AA7 /* RTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUser.m; sourceTree = "<group>"; };
+		04FB29D71941ACC100B96AA7 /* 2(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2(1).png"; sourceTree = "<group>"; };
+		04FB29D81941ACC100B96AA7 /* 3(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3(1).png"; sourceTree = "<group>"; };
+		04FB29D91941ACC100B96AA7 /* 1(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1(1).png"; sourceTree = "<group>"; };
 		04FE00721928AADD002FB4E1 /* RTGYBNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTGYBNaviViewController.h; sourceTree = "<group>"; };
 		04FE00731928AADD002FB4E1 /* RTGYBNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTGYBNaviViewController.m; sourceTree = "<group>"; };
 		04FE00741928AADD002FB4E1 /* RTGYBNaviViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTGYBNaviViewController.xib; sourceTree = "<group>"; };
@@ -852,6 +864,8 @@
 				042053AB193F25A800D0C9EE /* RTRegistBussiness.m */,
 				042053AD193F25B800D0C9EE /* RTLoginBusiness.h */,
 				042053AE193F25B800D0C9EE /* RTLoginBusiness.m */,
+				04FB29D01940BA7700B96AA7 /* RTUserProfileBussiness.h */,
+				04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */,
 			);
 			name = BusinessLayer;
 			sourceTree = "<group>";
@@ -885,6 +899,7 @@
 		042053B11940790F00D0C9EE /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				04FB29D61941ACB300B96AA7 /* images */,
 				042053B21940793500D0C9EE /* RTUserProfileViewController.h */,
 				042053B31940793500D0C9EE /* RTUserProfileViewController.m */,
 				042053B41940793500D0C9EE /* RTUserProfileViewController.xib */,
@@ -907,6 +922,8 @@
 				042053A0193F1D3500D0C9EE /* testModal */,
 				04205398193EC00700D0C9EE /* AVIllness.h */,
 				04205399193EC00700D0C9EE /* AVIllness.m */,
+				04FB29D31940BB5C00B96AA7 /* RTUser.h */,
+				04FB29D41940BB5C00B96AA7 /* RTUser.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -981,6 +998,16 @@
 				0469EB731928871D00388022 /* locationMark.jpg */,
 			);
 			name = image;
+			sourceTree = "<group>";
+		};
+		04FB29D61941ACB300B96AA7 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				04FB29D71941ACC100B96AA7 /* 2(1).png */,
+				04FB29D81941ACC100B96AA7 /* 3(1).png */,
+				04FB29D91941ACC100B96AA7 /* 1(1).png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		04FE00771928AAE6002FB4E1 /* Custom Cell */ = {
@@ -1804,6 +1831,7 @@
 				ADCC7A191929ACDC005B00B4 /* RTLoginViewController.xib in Resources */,
 				AD0DA04B1935C35700A9846E /* tabbar_1@2x.png in Resources */,
 				ADCC7A451929AF64005B00B4 /* login_btn_blue_press@2x.png in Resources */,
+				04FB29DB1941ACC100B96AA7 /* 3(1).png in Resources */,
 				AD12F655192634B400921894 /* compose_toolbar_background.png in Resources */,
 				AD12F6BC192634B400921894 /* timeline_retweet_count_icon@2x.png in Resources */,
 				AD0DA04A1935C35700A9846E /* tabbar_1.png in Resources */,
@@ -1904,6 +1932,7 @@
 				0427170719375D1E00FD3EF3 /* renti(1).jpg in Resources */,
 				AD3FCA3A193451DA00ECEA4B /* pills.jpg in Resources */,
 				AD12F6AB192634B400921894 /* tabbar_profile.png in Resources */,
+				04FB29DC1941ACC100B96AA7 /* 1(1).png in Resources */,
 				AD12F678192634B400921894 /* navigationbar_compose.png in Resources */,
 				ADCC7A3B1929AF64005B00B4 /* login_avatar_default.png in Resources */,
 				AD0DA0601935C57700A9846E /* health-master1.png in Resources */,
@@ -1992,6 +2021,7 @@
 				AD12F636192634B400921894 /* avatar_default@2x.png in Resources */,
 				AD12F6BA192634B400921894 /* timeline_private_button_background@2x.png in Resources */,
 				ADCC7A6C1929E8D4005B00B4 /* operationbox_text.png in Resources */,
+				04FB29DA1941ACC100B96AA7 /* 2(1).png in Resources */,
 				AD0DA0661935C62100A9846E /* greenline.png in Resources */,
 				AD0DA0611935C57700A9846E /* pills-master.png in Resources */,
 				AD12F6C2192634B400921894 /* toolbar_comment_highlighted.png in Resources */,
@@ -2067,6 +2097,7 @@
 				042716F019375CE100FD3EF3 /* RTHumanBodySearchView.m in Sources */,
 				AD6049BD19245CD200A59798 /* ForthViewController.m in Sources */,
 				042716E219375C9D00FD3EF3 /* RTLegDisease.m in Sources */,
+				04FB29D51940BB5C00B96AA7 /* RTUser.m in Sources */,
 				0469EB70192886F600388022 /* DPMeterView.m in Sources */,
 				042716E119375C9D00FD3EF3 /* RTHeadDisease.m in Sources */,
 				AD6049B819245C2500A59798 /* ThirdViewController.m in Sources */,
@@ -2077,6 +2108,7 @@
 				AD46FB10193431CE00F19BC4 /* RTPillsTableViewCell.m in Sources */,
 				0469EB5C192885A500388022 /* GYBDetailViewController.m in Sources */,
 				ADCC7A751929F875005B00B4 /* RTShareMsg.m in Sources */,
+				04FB29D21940BA7700B96AA7 /* RTUserProfileBussiness.m in Sources */,
 				0469EB671928862300388022 /* GYBTableViewCell.m in Sources */,
 				042716FB19375D0200FD3EF3 /* RTSndDoctorDetailViewController.m in Sources */,
 				AD5425BC1936C374005F10F4 /* RTCollectionViewCell.m in Sources */,

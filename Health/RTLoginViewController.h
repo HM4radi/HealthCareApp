@@ -15,6 +15,7 @@
 @interface RTLoginViewController : UIViewController{
     NSMutableArray *_currentAccounts;
     RTLoginBusiness *loginer;
+    RTLoginViewController *thisController;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *login;
@@ -33,4 +34,6 @@
 @property (retain, nonatomic) IBOutlet UIImageView *userLargeHead;
 
 -(BOOL)CheckCurrentUserAndLoadViewControllor;
+
++(id)shareLoginControllor;
 @end
