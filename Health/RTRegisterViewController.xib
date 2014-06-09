@@ -200,6 +200,9 @@
                     <state key="highlighted">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="upLoadImagesAction:" destination="-1" eventType="touchUpInside" id="HNj-1G-gX9"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na4-ck-Pj5">
                     <rect key="frame" x="20" y="10" width="46" height="30"/>

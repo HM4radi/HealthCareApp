@@ -56,6 +56,12 @@
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
     [mySettingData setBool:NO forKey:@"auto_login"];
     
+    //重置用户个人信息输入页面判断 信息
+    [mySettingData removeObjectForKey:@"CurrentUserProfileIsSetted"];
+    
+    //sync DB , and release if from memory 
+    [NSUserDefaults resetStandardUserDefaults];
+    
 
     
 }

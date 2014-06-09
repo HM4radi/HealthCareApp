@@ -29,7 +29,7 @@
 
 @class tabbarView;
 
-@interface RTMainViewController : UIViewController<tabbarDelegate,RNGridMenuDelegate>
+@interface RTMainViewController : UIViewController<tabbarDelegate,RNGridMenuDelegate,UIAlertViewDelegate>
 
 
 @property(nonatomic,strong) tabbarView *tabbar;

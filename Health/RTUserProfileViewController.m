@@ -7,6 +7,7 @@
 //
 
 #import "RTUserProfileViewController.h"
+#import "RTMainViewController.h"
 
 @interface RTUserProfileViewController ()
 {
@@ -172,6 +173,10 @@
     
 }
 - (IBAction)DoneAction:(id)sender {
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    [mySettingData setObject:@"Has Been Setted"  forKey:@"CurrentUserProfileIsSetted"];
+   
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelAction:(id)sender {

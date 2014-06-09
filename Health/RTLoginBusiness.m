@@ -25,6 +25,8 @@
 //
 //auto_login                        --  (BOOL)               是否自动登录
 
+//CurrentUserProfileIsSetted        --  (NSString) Has Been Setted  是否填写用户信息
+
 #import "RTLoginBusiness.h"
 
 @implementation RTLoginBusiness
@@ -166,7 +168,7 @@
             [mySettingData setObject:userinfo.healthIndex forKey:@"CurrentUserHealthIndex"];
     }
    
-
+    [mySettingData synchronize];  
     
 
 

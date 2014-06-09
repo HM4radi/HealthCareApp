@@ -59,5 +59,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *pwdInputFieldBorderView;
 @property (strong, nonatomic) IBOutlet UIImageView *usernameInputFieldBorder;
 @property (strong, nonatomic) IBOutlet UIImageView *pwdAgainInputFieldBorder;
+- (IBAction)upLoadImagesAction:(id)sender;
 
 @end

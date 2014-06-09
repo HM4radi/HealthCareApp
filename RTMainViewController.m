@@ -11,6 +11,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "RTLoginViewController.h"
 #import "RTAppDelegate.h"
+#import "RTUserProfileViewController.h"
 
 
 
@@ -112,7 +113,7 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
     RNLongPressGestureRecognizer *longPress = [[RNLongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     [self.view addGestureRecognizer:longPress];
     
-  
+    [self CheckUserProfileIfSetted];
    
  
 }
@@ -346,5 +347,47 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
 
 }
 
+
+-(BOOL)CheckUserProfileIfSetted
+{
+    
+    
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    if ([mySettingData objectForKey:@"CurrentUserProfileIsSetted"]!=nil) {
+        return YES;
+    }
+    else
+    {
+        UIAlertView *alerView=[[UIAlertView alloc]initWithTitle:@"欢迎来到健康宝!" message:@"您是第一次登录，为了更准确的提供服务，请先设置下个人基本信息！" delegate:self cancelButtonTitle:@"下次再说" otherButtonTitles:@"马上设置", nil];
+        [alerView show];
+       
+        
+        return NO;
+    }
+    
+  
+}
+
+
+#pragma -mark UIAlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==0) {
+        
+    }
+    if (buttonIndex==1) {
+        [self PushModalToUserProfileViewControllor];
+    }
+
+
+}
+
+-(void)PushModalToUserProfileViewControllor
+{
+    UIViewController *UserProfileVC=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
+    [self presentViewController:UserProfileVC animated:YES completion:nil];
+
+}
 
 @end

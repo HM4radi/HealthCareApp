@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RTUSERInfo.h"
 
+
 #define ANIMATION_DURATION 0.3f
 
 @interface RTLoginViewController ()
@@ -112,16 +113,22 @@ static  RTLoginViewController *thisController=nil;
 
 }
 
+
+
+
+
+-(void)PushModalToMainView
+{
+    RTMainViewController* mainVC=[RTMainViewController shareMainViewControllor];
+    //    [self presentModalViewController:mainVC animated:YES];
+    [self presentViewController:mainVC animated:YES completion:nil];
+
+}
 -(void)logIn{
     
-    RTMainViewController* mainVC=[RTMainViewController shareMainViewControllor];
-//    [self presentModalViewController:mainVC animated:YES];
-    [self presentViewController:mainVC animated:YES completion:nil];
-    
-    
-    AVUser *user=[AVUser currentUser];
+  
+    [self PushModalToMainView];
 
-    NSLog(@"user1234:%@",user.username);
     
 }
 
