@@ -180,10 +180,23 @@
 }
 
 - (IBAction)cancelAction:(id)sender {
+    UIAlertView *alerView=[[UIAlertView alloc]initWithTitle:@"提醒" message:@"设置未完成，确定要返回？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"继续设置", nil];
+    [alerView show];
+   
     
 }
 
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==0) {
+         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    if (buttonIndex==1) {
+        
+    }
+    
+    
+}
 
 
 -(IBAction)dataChanged:(id)sender

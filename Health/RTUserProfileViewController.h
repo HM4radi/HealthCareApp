@@ -10,7 +10,7 @@
 #import "RTUserInfo.h"
 #import "RTLoginBusiness.h"
 
-@interface RTUserProfileViewController : UIViewController <UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface RTUserProfileViewController : UIViewController <UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate>
 {
     NSArray *genderArray;
 }
