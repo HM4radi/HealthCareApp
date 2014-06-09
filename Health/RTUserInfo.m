@@ -16,6 +16,9 @@
 @dynamic userHeight;
 @dynamic userWeight;
 @dynamic userImage;
+@dynamic pwd;
+@dynamic phone;
+@dynamic email;
 
 
 + (NSString *)parseClassName {

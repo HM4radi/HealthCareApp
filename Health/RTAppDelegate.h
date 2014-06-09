@@ -11,6 +11,7 @@
 #import "WXApi.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "Reachability.h"
+#import "RTLoginBusiness.h"
 
 @interface RTAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 {

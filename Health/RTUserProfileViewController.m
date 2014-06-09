@@ -179,7 +179,7 @@
 {
     UIDatePicker *picker = (UIDatePicker *)sender;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
      NSString *date = [dateFormatter stringFromDate:picker.date];
     self.birthdayInputTextField.text =date;
 
@@ -199,4 +199,12 @@
 //    
 //
 //}
+
+
+
+
+
+
+
+
 @end

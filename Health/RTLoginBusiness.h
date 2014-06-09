@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "RTUserInfo.h"
 
 @interface RTLoginBusiness : NSObject
 {
@@ -31,4 +32,11 @@
 -(void) login:(NSString*) username Pwd:(NSString*)pwd;
 
 -(BOOL) loginIsSucceed:(BOOL)result;
+
+//保存username
+-(BOOL)saveUserBasicInfoLocally:(NSString*) username ;
+-(BOOL)saveUserBasicInfoLocally:(NSString*) username Pwd:(NSString*) pwd;
+-(BOOL)saveUserInfoLocally:(id)userProfilwInfo;
+-(BOOL)checkIfAuto_login;
+
 @end

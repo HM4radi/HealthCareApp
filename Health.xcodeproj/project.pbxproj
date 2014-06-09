@@ -51,7 +51,6 @@
 		04B58A821945678200A4905C /* RTCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A801945678200A4905C /* RTCenterViewController.m */; };
 		04B58A831945678200A4905C /* RTCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B58A811945678200A4905C /* RTCenterViewController.xib */; };
 		04FB29D21940BA7700B96AA7 /* RTUserProfileBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */; };
-		04FB29D51940BB5C00B96AA7 /* RTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB29D41940BB5C00B96AA7 /* RTUser.m */; };
 		04FB29DA1941ACC100B96AA7 /* 2(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D71941ACC100B96AA7 /* 2(1).png */; };
 		04FB29DB1941ACC100B96AA7 /* 3(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D81941ACC100B96AA7 /* 3(1).png */; };
 		04FB29DC1941ACC100B96AA7 /* 1(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D91941ACC100B96AA7 /* 1(1).png */; };
@@ -450,8 +449,6 @@
 		04B58A811945678200A4905C /* RTCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTCenterViewController.xib; sourceTree = "<group>"; };
 		04FB29D01940BA7700B96AA7 /* RTUserProfileBussiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserProfileBussiness.h; sourceTree = "<group>"; };
 		04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserProfileBussiness.m; sourceTree = "<group>"; };
-		04FB29D31940BB5C00B96AA7 /* RTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUser.h; sourceTree = "<group>"; };
-		04FB29D41940BB5C00B96AA7 /* RTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUser.m; sourceTree = "<group>"; };
 		04FB29D71941ACC100B96AA7 /* 2(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2(1).png"; sourceTree = "<group>"; };
 		04FB29D81941ACC100B96AA7 /* 3(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3(1).png"; sourceTree = "<group>"; };
 		04FB29D91941ACC100B96AA7 /* 1(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1(1).png"; sourceTree = "<group>"; };
@@ -933,8 +930,6 @@
 				04205399193EC00700D0C9EE /* AVIllness.m */,
 				04B58A741945659000A4905C /* RTUserInfo.h */,
 				04B58A751945659000A4905C /* RTUserInfo.m */,
-				04FB29D31940BB5C00B96AA7 /* RTUser.h */,
-				04FB29D41940BB5C00B96AA7 /* RTUser.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -2129,7 +2124,6 @@
 				042716F019375CE100FD3EF3 /* RTHumanBodySearchView.m in Sources */,
 				AD6049BD19245CD200A59798 /* ForthViewController.m in Sources */,
 				042716E219375C9D00FD3EF3 /* RTLegDisease.m in Sources */,
-				04FB29D51940BB5C00B96AA7 /* RTUser.m in Sources */,
 				04B58A761945659000A4905C /* RTUserInfo.m in Sources */,
 				0469EB70192886F600388022 /* DPMeterView.m in Sources */,
 				042716E119375C9D00FD3EF3 /* RTHeadDisease.m in Sources */,

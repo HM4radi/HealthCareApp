@@ -8,6 +8,7 @@
 
 #import "RTLoginViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RTUSERInfo.h"
 
 #define ANIMATION_DURATION 0.3f
 
@@ -341,5 +342,6 @@ static  RTLoginViewController *thisController=nil;
     }
     
 }
+
 
 @end

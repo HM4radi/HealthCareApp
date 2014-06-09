@@ -7,13 +7,14 @@
 //
 
 #import <AVOSCloud/AVOSCloud.h>
-#import "RTUser.h"
+
 @interface RTUserProfileBussiness : NSObject
 
 @property (strong,nonatomic)AVUser *user;
-@property (nonatomic,strong)RTUser *rtUser;
+
 
 -(BOOL)loadUserProfile;
 -(id)queryUserProfile;
+
 
 @end

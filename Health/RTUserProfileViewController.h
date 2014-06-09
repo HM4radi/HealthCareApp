@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTUserInfo.h"
+#import "RTLoginBusiness.h"
 
 @interface RTUserProfileViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *next;
@@ -50,5 +52,10 @@
 -(IBAction)dataChanged:(id)sender;
 -(IBAction)doneDateEditing:(id)sender;
 @property (strong, nonatomic) IBOutlet UIToolbar *accessoryViewForDateInput;
+
+
+
+-(BOOL)saveOnAVOSCloud;
+
 
 @end

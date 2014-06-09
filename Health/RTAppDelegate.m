@@ -9,7 +9,7 @@
 
 #import "RTAppDelegate.h"
 #import "AVIllness.h"
-#import "RTUser.h"
+
 #import "RTUserProfileViewController.h"
 #import "RTUserInfo.h"
 #import "RTSterCounter.h"
@@ -29,6 +29,8 @@ static UIWindow *thiswindow=nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    RTLoginBusiness *loginBusiness=[[RTLoginBusiness alloc]init];
     //AVOS  TestObject
     AVObject *testObject = [AVObject objectWithClassName:@"TestObject"];
     [testObject setObject:@"bar" forKey:@"foo"];
@@ -40,8 +42,8 @@ static UIWindow *thiswindow=nil;
     
     
     //判断是否存在当前用户
-    AVUser *current=[AVUser currentUser];
-    if (current!=nil) {
+   
+    if (loginBusiness.checkIfAuto_login) {
         UIViewController *Main=[RTMainViewController shareMainViewControllor];
         self.window.rootViewController =Main;
     }

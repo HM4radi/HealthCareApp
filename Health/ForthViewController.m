@@ -52,7 +52,10 @@
    
     [[RTMainViewController shareMainViewControllor] logout];
    
-        
+    //将自动登录设置为0
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    [mySettingData setBool:NO forKey:@"auto_login"];
+    
 
     
 }

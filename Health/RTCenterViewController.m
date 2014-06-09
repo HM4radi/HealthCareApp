@@ -136,7 +136,9 @@
     {
         AVQuery *infoQuery=[RTUserInfo query];
         //[infoQuery selectKeys:@[@"name", @"info"]];
-        [infoQuery whereKey:@"username" equalTo:@"shirui"];
+        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+        [infoQuery whereKey:@"username" equalTo:[mySettingData objectForKey:@"CurrentUserName"]];
+       NSLog(@"NSUserDefault user_name=%@", [mySettingData objectForKey:@"CurrentUserName"]);
         [infoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 // The find succeeded.
