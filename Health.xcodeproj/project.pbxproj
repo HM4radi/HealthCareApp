@@ -215,6 +215,7 @@
 		AD2293C51934CD5100796CA2 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD2293C41934CD5100796CA2 /* background.jpg */; };
 		AD318700194408BF0039B702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3186FF194408BF0039B702 /* Reachability.m */; };
 		AD318706194450E60039B702 /* RTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AD318705194450E60039B702 /* RTUserInfo.m */; };
+		AD31870A194552490039B702 /* RTSterCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD318709194552490039B702 /* RTSterCounter.m */; };
 		AD3FCA3A193451DA00ECEA4B /* pills.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD3FCA39193451DA00ECEA4B /* pills.jpg */; };
 		AD46FB0B1934286300F19BC4 /* RTPillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD46FB091934286300F19BC4 /* RTPillsViewController.m */; };
 		AD46FB0C1934286300F19BC4 /* RTPillsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD46FB0A1934286300F19BC4 /* RTPillsViewController.xib */; };
@@ -611,6 +612,8 @@
 		AD3186FF194408BF0039B702 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AD318704194450E60039B702 /* RTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserInfo.h; sourceTree = "<group>"; };
 		AD318705194450E60039B702 /* RTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserInfo.m; sourceTree = "<group>"; };
+		AD318708194552490039B702 /* RTSterCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSterCounter.h; sourceTree = "<group>"; };
+		AD318709194552490039B702 /* RTSterCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSterCounter.m; sourceTree = "<group>"; };
 		AD3FCA39193451DA00ECEA4B /* pills.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pills.jpg; sourceTree = "<group>"; };
 		AD46FB081934286300F19BC4 /* RTPillsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPillsViewController.h; sourceTree = "<group>"; };
 		AD46FB091934286300F19BC4 /* RTPillsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPillsViewController.m; sourceTree = "<group>"; };
@@ -1199,6 +1202,15 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
+		AD3187071945521E0039B702 /* StepCounter */ = {
+			isa = PBXGroup;
+			children = (
+				AD318708194552490039B702 /* RTSterCounter.h */,
+				AD318709194552490039B702 /* RTSterCounter.m */,
+			);
+			name = StepCounter;
+			sourceTree = "<group>";
+		};
 		AD46FB12193431E500F19BC4 /* PillsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1496,6 +1508,7 @@
 		ADAA5E2A192355BE0040ED10 /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AD3187071945521E0039B702 /* StepCounter */,
 				ADEF87CE192DF87F0057DCB0 /* ChartView */,
 				AD4AC134192CCF5D006E6898 /* TableViewCell */,
 				AD4AC130192C53D1006E6898 /* PICircularProgressView */,
@@ -2117,6 +2130,7 @@
 				ADAA5DDC192341090040ED10 /* main.m in Sources */,
 				AD0DA0391935C06800A9846E /* RTMsgViewController.m in Sources */,
 				042716E319375C9D00FD3EF3 /* RTArmDisease.m in Sources */,
+				AD31870A194552490039B702 /* RTSterCounter.m in Sources */,
 				ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */,
 				042716E619375C9D00FD3EF3 /* RTHandDisease.m in Sources */,
 				AD318700194408BF0039B702 /* Reachability.m in Sources */,

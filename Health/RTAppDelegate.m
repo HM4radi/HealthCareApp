@@ -11,7 +11,7 @@
 #import "AVIllness.h"
 #import "Reachability.h"
 #import "RTUserInfo.h"
-
+#import "RTSterCounter.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
 @implementation RTAppDelegate
@@ -49,6 +49,11 @@
     self.internetReachability = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
     //开始监听，会启动一个run loop
     [self.internetReachability startNotifier];
+    
+    
+    //计步器
+    RTSterCounter *stepCounter=[RTSterCounter sharedRTSterCounter];
+    [stepCounter startCounting];
     
     return YES;
 }
