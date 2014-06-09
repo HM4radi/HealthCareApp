@@ -33,8 +33,7 @@
     [super viewDidLoad];
     [self.navigationbar setFrame:CGRectMake(0, 0, 320, 64)];
     self.navigationbar.translucent=YES;
-//    self.navLabel.frame=CGRectMake(100,32,120,20);
-//    self.navLabel1.frame=CGRectMake(100,32,120,20);
+
     UIScrollView* scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
     [self.view addSubview:scrollView];
     progressView=[[PICircularProgressView alloc]initWithFrame:CGRectMake(60, 6, 200, 200)];

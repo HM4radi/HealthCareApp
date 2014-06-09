@@ -15,5 +15,4 @@
 @property(nonatomic,strong)NSString* info;
 +(id)diseaseNewDisease:(NSString*)info name:(NSString*)name;
 
-
 @end

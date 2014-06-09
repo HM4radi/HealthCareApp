@@ -35,8 +35,6 @@
     self.isSucceed=[AVUser logInWithUsername:username password:pwd error:&error];
     if (self.isSucceed!=nil && self.isSucceed) {
         [self loginIsSucceed:YES];
-        
-        
     }
     else {
         [self loginIsSucceed:NO];

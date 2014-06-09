@@ -16,7 +16,6 @@
     newDoctor.info=category;
     newDoctor.name=name;
     return newDoctor;
-    
 }
 
 @end

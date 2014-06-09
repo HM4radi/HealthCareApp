@@ -9,31 +9,22 @@
 
 #import "RTAppDelegate.h"
 #import "AVIllness.h"
+#import "Reachability.h"
+#import "RTUserInfo.h"
 
-//#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
 @implementation RTAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //AVOS  TestObject
-    AVObject *testObject = [AVObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    [testObject save];
-    
-    
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     
     self.viewController=[[RTLoginViewController alloc] initWithNibName:@"RTLoginViewController" bundle:nil];
     
     self.window.rootViewController = self.viewController;
-    
-    
-  
-    
     
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
@@ -49,9 +40,45 @@
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //AVOS subclass register
     [AVIllness registerSubclass];
+    [RTUserInfo registerSubclass];
    
+    //网络连接监测
+    self.isReachable = YES;
+    self.beenReachable=YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.internetReachability = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
+    //开始监听，会启动一个run loop
+    [self.internetReachability startNotifier];
     
     return YES;
+}
+
+-(void)reachabilityChanged:(NSNotification *)note
+{
+    Reachability *curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    
+    //对连接改变做出响应处理动作
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    //如果没有连接到网络就弹出提醒实况
+    
+    if(status == NotReachable)
+    {
+        if (self.isReachable) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接异常" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+            self.isReachable = NO;
+        }
+        return;
+    }
+    if (status==ReachableViaWiFi||status==ReachableViaWWAN) {
+        
+        if (!self.isReachable) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接信息" message:@"网络连接恢复" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+            self.isReachable = YES;
+        }
+    }
 }
 
 // 微信分享

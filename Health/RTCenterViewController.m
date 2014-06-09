@@ -7,6 +7,7 @@
 //
 
 #import "RTCenterViewController.h"
+#import "RTUserInfo.h"
 
 @interface RTCenterViewController ()
 
@@ -24,13 +25,30 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+//    //网络状态监听
+//    
+//    RTAppDelegate* appDlg = (RTAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    if(appDlg.isReachable)
+//    {
+//        NSLog(@"网络已连接");//执行网络正常时的代码
+//    }
+//    else
+//    {
+//        NSLog(@"网络连接异常");//执行网络异常时的代码
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接异常" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alert show];
+//    }
+    
     self.shape1View.progressTintColor = [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:113.0/255.0 alpha:1.0];
     
     self.shape2View.progressTintColor =[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
     
-       self.shape3View.progressTintColor = [UIColor colorWithRed:225.0/255.0 green:240.0/255.0 blue:109.0/255.0 alpha:1.0];
+    self.shape3View.progressTintColor = [UIColor colorWithRed:225.0/255.0 green:240.0/255.0 blue:109.0/255.0 alpha:1.0];
     
-       self.shape4View.progressTintColor = [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+    self.shape4View.progressTintColor = [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+    
 }
 
 - (void)viewDidLoad
@@ -46,17 +64,16 @@
     [self.view insertSubview:self.scrollView belowSubview:self.navBar];
     self.scrollView.contentSize=CGSizeMake(self.view.frame.size.width, self.view.frame.size.height-self.navBar.frame.size.height-40);
     
-    UIImageView * portraitView = [[UIImageView alloc]initWithFrame:CGRectMake(110, 40, 100, 100)];
+    portraitView = [[UIImageView alloc]initWithFrame:CGRectMake(110, 50, 100, 100)];
     [portraitView.layer setCornerRadius:CGRectGetHeight(portraitView.bounds)/2];
     portraitView.layer.borderColor = [UIColor blueColor].CGColor;
     //portraitView.layer.borderWidth = 0.5;
     [portraitView.layer setMasksToBounds:YES];
-    [portraitView setImage:[UIImage imageNamed:@"1.jpg"]];
+    //[portraitView setImage:[UIImage imageNamed:@"1.jpg"]];
     [self.scrollView addSubview:portraitView];
 
     //血糖
     [self.shape1View setMeterType:DPMeterTypeLinearHorizontal];
-//    self.shape1View.progressTintColor = [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:113.0/255.0 alpha:1.0];
     self.shape1View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     [self.shape1View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape1View.bounds cornerRadius:0.f].CGPath];
     [self.shape1View.layer setBorderWidth:0.0f];
@@ -65,8 +82,6 @@
     
     //血压——高压
     [self.shape2View setMeterType:DPMeterTypeLinearHorizontal];
-//    self.shape2View.progressTintColor =[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
-    
     self.shape2View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     
     [self.shape2View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape2View.bounds cornerRadius:0.f].CGPath];
@@ -77,7 +92,7 @@
 
     //血压-低压
     [self.shape3View setMeterType:DPMeterTypeLinearHorizontal];
-//    self.shape3View.progressTintColor = [UIColor colorWithRed:225.0/255.0 green:240.0/255.0 blue:109.0/255.0 alpha:1.0];
+
     self.shape3View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     [self.shape3View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape3View.bounds cornerRadius:0.f].CGPath];
     [self.shape3View.layer setBorderWidth:0.0f];
@@ -86,7 +101,6 @@
     
     //血氧
     [self.shape4View setMeterType:DPMeterTypeLinearHorizontal];
-//    self.shape4View.progressTintColor = [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
     self.shape4View.trackTintColor = [UIColor colorWithRed:222/255.f green:222/255.f blue:222/255.f alpha:1.f];
     [self.shape4View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape4View.bounds cornerRadius:0.f].CGPath];
     [self.shape4View.layer setBorderWidth:0.0f];
@@ -108,6 +122,43 @@
     self.pillsView.userInteractionEnabled=YES;
     UITapGestureRecognizer *tapGesture5=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClick5:)];
     [self.pillsView addGestureRecognizer:tapGesture5];
+    
+    
+    [self initData];
+}
+
+- (void)initData{
+
+    RTAppDelegate* appDlg = (RTAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appDlg.isReachable)
+    {
+        AVQuery *infoQuery=[RTUserInfo query];
+        //[infoQuery selectKeys:@[@"name", @"info"]];
+        [infoQuery whereKey:@"username" equalTo:@"shirui"];
+        [infoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                RTUserInfo *user=[objects objectAtIndex:0];
+                self.heightLabel.text=[NSString stringWithFormat:@"%.0f",user.userHeight];
+                self.weightLabel.text=[NSString stringWithFormat:@"%.0f",user.userWeight];
+                float h=user.userHeight;
+                float w=user.userWeight;
+                float bmi=w/(h*h/10000);
+                self.BMILabel.text=[NSString stringWithFormat:@"%.1f",bmi];
+                AVFile *imageFile=user.userImage;
+                NSData *imageData=[imageFile getData];
+                [portraitView setImage:[UIImage imageWithData:imageData]];
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
+    else
+    {
+        NSLog(@"网络未连接");//执行网络异常时的代码
+        
+    }
 }
 
 - (void)updateProgressWithDelta:(CGFloat)delta shapeView:(DPMeterView*)shapeView animated:(BOOL)animated

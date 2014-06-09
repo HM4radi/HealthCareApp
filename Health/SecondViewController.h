@@ -22,15 +22,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *TitleLabel;
 
-
-
-
-
-
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedBtn;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 
 @property (retain, nonatomic) IBOutlet UISearchBar *searchbar;
 
@@ -42,10 +36,7 @@
 
 - (void)followScrollView:(UIView*)scrollableView;
 
-
 @property (strong, nonatomic) IBOutlet UIView *searchView;
-
-
 
 - (IBAction)showToSearchBar:(id)sender;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *showSearchBarBtn;

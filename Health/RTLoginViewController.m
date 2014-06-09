@@ -167,7 +167,6 @@
     [_account_box.layer addAnimation:group forKey:nil];
     
     
-    
     [_moveDownGroup setCenter:CGPointMake(_moveDownGroup.center.x, _moveDownGroup.center.y+_account_box.frame.size.height)];
     
 }

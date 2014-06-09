@@ -213,6 +213,8 @@
 		AD12F6CB192634B400921894 /* userinfo_relationship_editprofilebutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD12F635192634B400921894 /* userinfo_relationship_editprofilebutton_background.png */; };
 		AD12F88F1926516D00921894 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD12F88E1926516D00921894 /* Images.xcassets */; };
 		AD2293C51934CD5100796CA2 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD2293C41934CD5100796CA2 /* background.jpg */; };
+		AD318700194408BF0039B702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3186FF194408BF0039B702 /* Reachability.m */; };
+		AD318706194450E60039B702 /* RTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AD318705194450E60039B702 /* RTUserInfo.m */; };
 		AD3FCA3A193451DA00ECEA4B /* pills.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD3FCA39193451DA00ECEA4B /* pills.jpg */; };
 		AD46FB0B1934286300F19BC4 /* RTPillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD46FB091934286300F19BC4 /* RTPillsViewController.m */; };
 		AD46FB0C1934286300F19BC4 /* RTPillsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD46FB0A1934286300F19BC4 /* RTPillsViewController.xib */; };
@@ -605,6 +607,10 @@
 		AD12F635192634B400921894 /* userinfo_relationship_editprofilebutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userinfo_relationship_editprofilebutton_background.png; sourceTree = "<group>"; };
 		AD12F88E1926516D00921894 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AD2293C41934CD5100796CA2 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		AD3186FE194408BF0039B702 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AD3186FF194408BF0039B702 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		AD318704194450E60039B702 /* RTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserInfo.h; sourceTree = "<group>"; };
+		AD318705194450E60039B702 /* RTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserInfo.m; sourceTree = "<group>"; };
 		AD3FCA39193451DA00ECEA4B /* pills.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pills.jpg; sourceTree = "<group>"; };
 		AD46FB081934286300F19BC4 /* RTPillsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPillsViewController.h; sourceTree = "<group>"; };
 		AD46FB091934286300F19BC4 /* RTPillsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPillsViewController.m; sourceTree = "<group>"; };
@@ -907,6 +913,8 @@
 				042053A0193F1D3500D0C9EE /* testModal */,
 				04205398193EC00700D0C9EE /* AVIllness.h */,
 				04205399193EC00700D0C9EE /* AVIllness.m */,
+				AD318704194450E60039B702 /* RTUserInfo.h */,
+				AD318705194450E60039B702 /* RTUserInfo.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1182,6 +1190,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		AD3186FD194408990039B702 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				AD3186FE194408BF0039B702 /* Reachability.h */,
+				AD3186FF194408BF0039B702 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		AD46FB12193431E500F19BC4 /* PillsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1407,6 +1424,7 @@
 		ADAA5DD5192341090040ED10 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				AD3186FD194408990039B702 /* Reachability */,
 				042053B11940790F00D0C9EE /* UserProfile */,
 				042716CB19375C7F00FD3EF3 /* Utilities */,
 				ADAA5DDE192341090040ED10 /* RTAppDelegate.h */,
@@ -2089,6 +2107,7 @@
 				AD48102A1924BDFC0081DAFA /* RNGridMenu.m in Sources */,
 				ADEF87DA192DF8F20057DCB0 /* BEMLine.m in Sources */,
 				0420539A193EC00700D0C9EE /* AVIllness.m in Sources */,
+				AD318706194450E60039B702 /* RTUserInfo.m in Sources */,
 				042716E519375C9D00FD3EF3 /* RTAbdomenDisease.m in Sources */,
 				0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */,
 				AD48102D1924BE690081DAFA /* RNFrostedSidebar.m in Sources */,
@@ -2100,6 +2119,7 @@
 				042716E319375C9D00FD3EF3 /* RTArmDisease.m in Sources */,
 				ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */,
 				042716E619375C9D00FD3EF3 /* RTHandDisease.m in Sources */,
+				AD318700194408BF0039B702 /* Reachability.m in Sources */,
 				ADAA5E06192343590040ED10 /* FirstViewController.mm in Sources */,
 				042716FD19375D0200FD3EF3 /* RTSndMedicationViewController.m in Sources */,
 				AD46FB0B1934286300F19BC4 /* RTPillsViewController.m in Sources */,
