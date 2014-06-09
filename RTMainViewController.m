@@ -322,6 +322,8 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
     // Dispose of any resources that can be recreated.
 }
 
+
+
 -(void)logout
 {
     

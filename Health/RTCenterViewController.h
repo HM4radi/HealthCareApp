@@ -7,20 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "RTfoodViewController.h"
 #import "FirstViewController.h"
 #import "RTPillsViewController.h"
 #import "DPMeterView.h"
 #import "UIBezierPath+BasicShapes.h"
+#import "RTAppDelegate.h"
+
+
 @interface RTCenterViewController : UIViewController{
     RTfoodViewController *foodViewController;
     FirstViewController *firstViewController;
     RTPillsViewController *pillsViewController;
+    UIImageView * portraitView;
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
-
-@property (strong, nonatomic) IBOutlet UIView *baseView;
 
 @property (strong, nonatomic) IBOutlet UIView *sportView;
 
@@ -37,5 +40,9 @@
 @property (strong, nonatomic) IBOutlet DPMeterView *shape3View;
 @property (strong, nonatomic) IBOutlet DPMeterView *shape4View;
 @property (weak, nonatomic) IBOutlet UILabel *navLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *CalorieLabel;
+@property (weak, nonatomic) IBOutlet UILabel *heightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *BMILabel;
 
 @end

@@ -45,6 +45,11 @@
 		0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469EB6F192886F600388022 /* UIBezierPath+BasicShapes.m */; };
 		0469EB741928871D00388022 /* locationMark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB731928871D00388022 /* locationMark.jpg */; };
 		0469EB761928876100388022 /* compose_privatebutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB751928876100388022 /* compose_privatebutton_background.png */; };
+		04B58A761945659000A4905C /* RTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A751945659000A4905C /* RTUserInfo.m */; };
+		04B58A7A1945666B00A4905C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A791945666B00A4905C /* Reachability.m */; };
+		04B58A7E194566B200A4905C /* RTSterCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A7D194566B200A4905C /* RTSterCounter.m */; };
+		04B58A821945678200A4905C /* RTCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A801945678200A4905C /* RTCenterViewController.m */; };
+		04B58A831945678200A4905C /* RTCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B58A811945678200A4905C /* RTCenterViewController.xib */; };
 		04FB29D21940BA7700B96AA7 /* RTUserProfileBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */; };
 		04FB29D51940BB5C00B96AA7 /* RTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB29D41940BB5C00B96AA7 /* RTUser.m */; };
 		04FB29DA1941ACC100B96AA7 /* 2(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D71941ACC100B96AA7 /* 2(1).png */; };
@@ -280,8 +285,6 @@
 		AD6049BD19245CD200A59798 /* ForthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6049BB19245CD200A59798 /* ForthViewController.m */; };
 		AD6049BE19245CD200A59798 /* ForthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6049BC19245CD200A59798 /* ForthViewController.xib */; };
 		AD9A389719362A5600A8EFFB /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9A389619362A5600A8EFFB /* login.png */; };
-		ADA987331933107300B98092 /* RTCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA987311933107300B98092 /* RTCenterViewController.m */; };
-		ADA987341933107300B98092 /* RTCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA987321933107300B98092 /* RTCenterViewController.xib */; };
 		ADA9873F1933794400B98092 /* RTfoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA9873D1933794400B98092 /* RTfoodViewController.m */; };
 		ADA987401933794400B98092 /* RTfoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA9873E1933794400B98092 /* RTfoodViewController.xib */; };
 		ADA9874219337D0A00B98092 /* walking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADA9874119337D0A00B98092 /* walking.jpg */; };
@@ -436,6 +439,15 @@
 		0469EB6F192886F600388022 /* UIBezierPath+BasicShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+BasicShapes.m"; sourceTree = "<group>"; };
 		0469EB731928871D00388022 /* locationMark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = locationMark.jpg; sourceTree = "<group>"; };
 		0469EB751928876100388022 /* compose_privatebutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_privatebutton_background.png; sourceTree = "<group>"; };
+		04B58A741945659000A4905C /* RTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserInfo.h; sourceTree = "<group>"; };
+		04B58A751945659000A4905C /* RTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserInfo.m; sourceTree = "<group>"; };
+		04B58A781945666B00A4905C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		04B58A791945666B00A4905C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		04B58A7C194566B200A4905C /* RTSterCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSterCounter.h; sourceTree = "<group>"; };
+		04B58A7D194566B200A4905C /* RTSterCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSterCounter.m; sourceTree = "<group>"; };
+		04B58A7F1945678200A4905C /* RTCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCenterViewController.h; sourceTree = "<group>"; };
+		04B58A801945678200A4905C /* RTCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCenterViewController.m; sourceTree = "<group>"; };
+		04B58A811945678200A4905C /* RTCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTCenterViewController.xib; sourceTree = "<group>"; };
 		04FB29D01940BA7700B96AA7 /* RTUserProfileBussiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserProfileBussiness.h; sourceTree = "<group>"; };
 		04FB29D11940BA7700B96AA7 /* RTUserProfileBussiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserProfileBussiness.m; sourceTree = "<group>"; };
 		04FB29D31940BB5C00B96AA7 /* RTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUser.h; sourceTree = "<group>"; };
@@ -723,9 +735,6 @@
 		AD6049BB19245CD200A59798 /* ForthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthViewController.m; sourceTree = "<group>"; };
 		AD6049BC19245CD200A59798 /* ForthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForthViewController.xib; sourceTree = "<group>"; };
 		AD9A389619362A5600A8EFFB /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
-		ADA987301933107300B98092 /* RTCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCenterViewController.h; sourceTree = "<group>"; };
-		ADA987311933107300B98092 /* RTCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCenterViewController.m; sourceTree = "<group>"; };
-		ADA987321933107300B98092 /* RTCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTCenterViewController.xib; sourceTree = "<group>"; };
 		ADA9873C1933794400B98092 /* RTfoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTfoodViewController.h; sourceTree = "<group>"; };
 		ADA9873D1933794400B98092 /* RTfoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTfoodViewController.m; sourceTree = "<group>"; };
 		ADA9873E1933794400B98092 /* RTfoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTfoodViewController.xib; sourceTree = "<group>"; };
@@ -922,6 +931,8 @@
 				042053A0193F1D3500D0C9EE /* testModal */,
 				04205398193EC00700D0C9EE /* AVIllness.h */,
 				04205399193EC00700D0C9EE /* AVIllness.m */,
+				04B58A741945659000A4905C /* RTUserInfo.h */,
+				04B58A751945659000A4905C /* RTUserInfo.m */,
 				04FB29D31940BB5C00B96AA7 /* RTUser.h */,
 				04FB29D41940BB5C00B96AA7 /* RTUser.m */,
 			);
@@ -998,6 +1009,24 @@
 				0469EB731928871D00388022 /* locationMark.jpg */,
 			);
 			name = image;
+			sourceTree = "<group>";
+		};
+		04B58A771945665B00A4905C /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				04B58A781945666B00A4905C /* Reachability.h */,
+				04B58A791945666B00A4905C /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		04B58A7B194566A100A4905C /* StepCounter */ = {
+			isa = PBXGroup;
+			children = (
+				04B58A7C194566B200A4905C /* RTSterCounter.h */,
+				04B58A7D194566B200A4905C /* RTSterCounter.m */,
+			);
+			name = StepCounter;
 			sourceTree = "<group>";
 		};
 		04FB29D61941ACB300B96AA7 /* images */ = {
@@ -1357,10 +1386,10 @@
 		ADA9872F1933102400B98092 /* CenterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04B58A7F1945678200A4905C /* RTCenterViewController.h */,
+				04B58A801945678200A4905C /* RTCenterViewController.m */,
+				04B58A811945678200A4905C /* RTCenterViewController.xib */,
 				ADA9873519332A9C00B98092 /* image */,
-				ADA987301933107300B98092 /* RTCenterViewController.h */,
-				ADA987311933107300B98092 /* RTCenterViewController.m */,
-				ADA987321933107300B98092 /* RTCenterViewController.xib */,
 				AD46FB13193431FD00F19BC4 /* FoodView */,
 				AD46FB12193431E500F19BC4 /* PillsView */,
 			);
@@ -1434,6 +1463,7 @@
 		ADAA5DD5192341090040ED10 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				04B58A771945665B00A4905C /* Reachability */,
 				042053B11940790F00D0C9EE /* UserProfile */,
 				042716CB19375C7F00FD3EF3 /* Utilities */,
 				ADAA5DDE192341090040ED10 /* RTAppDelegate.h */,
@@ -1505,6 +1535,7 @@
 		ADAA5E2A192355BE0040ED10 /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04B58A7B194566A100A4905C /* StepCounter */,
 				ADEF87CE192DF87F0057DCB0 /* ChartView */,
 				AD4AC134192CCF5D006E6898 /* TableViewCell */,
 				AD4AC130192C53D1006E6898 /* PICircularProgressView */,
@@ -1950,7 +1981,6 @@
 				ADCC7A501929AF64005B00B4 /* login_textfield_more@2x.png in Resources */,
 				ADCC7A7F192A03C1005B00B4 /* 1.jpg in Resources */,
 				AD542610193715E4005F10F4 /* zy.jpg in Resources */,
-				ADA987341933107300B98092 /* RTCenterViewController.xib in Resources */,
 				AD12F69E192634B400921894 /* settings_security_icon.png in Resources */,
 				ADCC7A441929AF64005B00B4 /* login_btn_blue_press.png in Resources */,
 				AD12F644192634B400921894 /* compose_camerabutton_background.png in Resources */,
@@ -1984,6 +2014,7 @@
 				ADCC7A521929AF64005B00B4 /* login_textfield_top@2x.png in Resources */,
 				AD12F687192634B400921894 /* navigationbar_title_highlighted@2x.png in Resources */,
 				AD542603193715E4005F10F4 /* jhc.jpg in Resources */,
+				04B58A831945678200A4905C /* RTCenterViewController.xib in Resources */,
 				AD12F6C8192634B400921894 /* toolbar_refresh_highlighted.png in Resources */,
 				AD12F694192634B400921894 /* settingButtonNormal.png in Resources */,
 				AD12F681192634B400921894 /* navigationbar_language_highlighted.png in Resources */,
@@ -2091,6 +2122,7 @@
 				042716FF19375D0200FD3EF3 /* RTDiseaseViewController.m in Sources */,
 				042716E719375C9D00FD3EF3 /* RTNeckDisease.m in Sources */,
 				042716EE19375CE100FD3EF3 /* SecondViewController.m in Sources */,
+				04B58A7A1945666B00A4905C /* Reachability.m in Sources */,
 				ADCC7A181929ACDC005B00B4 /* RTLoginViewController.m in Sources */,
 				042053AC193F25A800D0C9EE /* RTRegistBussiness.m in Sources */,
 				0469EB691928862300388022 /* GYBTableViewController.m in Sources */,
@@ -2098,6 +2130,7 @@
 				AD6049BD19245CD200A59798 /* ForthViewController.m in Sources */,
 				042716E219375C9D00FD3EF3 /* RTLegDisease.m in Sources */,
 				04FB29D51940BB5C00B96AA7 /* RTUser.m in Sources */,
+				04B58A761945659000A4905C /* RTUserInfo.m in Sources */,
 				0469EB70192886F600388022 /* DPMeterView.m in Sources */,
 				042716E119375C9D00FD3EF3 /* RTHeadDisease.m in Sources */,
 				AD6049B819245C2500A59798 /* ThirdViewController.m in Sources */,
@@ -2107,6 +2140,7 @@
 				042053AF193F25B800D0C9EE /* RTLoginBusiness.m in Sources */,
 				AD46FB10193431CE00F19BC4 /* RTPillsTableViewCell.m in Sources */,
 				0469EB5C192885A500388022 /* GYBDetailViewController.m in Sources */,
+				04B58A821945678200A4905C /* RTCenterViewController.m in Sources */,
 				ADCC7A751929F875005B00B4 /* RTShareMsg.m in Sources */,
 				04FB29D21940BA7700B96AA7 /* RTUserProfileBussiness.m in Sources */,
 				0469EB671928862300388022 /* GYBTableViewCell.m in Sources */,
@@ -2114,7 +2148,6 @@
 				AD5425BC1936C374005F10F4 /* RTCollectionViewCell.m in Sources */,
 				AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */,
 				04FE00751928AADD002FB4E1 /* RTGYBNaviViewController.m in Sources */,
-				ADA987331933107300B98092 /* RTCenterViewController.m in Sources */,
 				ADCC7A691929E5A5005B00B4 /* RTRegisterViewController.m in Sources */,
 				ADAA5DE0192341090040ED10 /* RTAppDelegate.m in Sources */,
 				ADAA5E01192341200040ED10 /* RTMainViewController.m in Sources */,
@@ -2129,6 +2162,7 @@
 				042716E819375C9D00FD3EF3 /* RTMedication.m in Sources */,
 				ADAA5DDC192341090040ED10 /* main.m in Sources */,
 				AD0DA0391935C06800A9846E /* RTMsgViewController.m in Sources */,
+				04B58A7E194566B200A4905C /* RTSterCounter.m in Sources */,
 				042716E319375C9D00FD3EF3 /* RTArmDisease.m in Sources */,
 				ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */,
 				042716E619375C9D00FD3EF3 /* RTHandDisease.m in Sources */,

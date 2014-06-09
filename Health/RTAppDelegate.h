@@ -10,6 +10,7 @@
 #import "RTLoginViewController.h"
 #import "WXApi.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "Reachability.h"
 
 @interface RTAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 {
@@ -17,6 +18,9 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic) Reachability *internetReachability;
+@property (nonatomic) BOOL isReachable;
+@property (nonatomic) BOOL beenReachable;
 
 +(id)shareWindow;
 

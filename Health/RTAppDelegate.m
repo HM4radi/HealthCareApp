@@ -11,7 +11,8 @@
 #import "AVIllness.h"
 #import "RTUser.h"
 #import "RTUserProfileViewController.h"
-
+#import "RTUserInfo.h"
+#import "RTSterCounter.h"
 //#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
 @implementation RTAppDelegate
@@ -39,18 +40,18 @@ static UIWindow *thiswindow=nil;
     
     
     //判断是否存在当前用户
-//    AVUser *current=[AVUser currentUser];
-//    if (current!=nil) {
-//        self.window.rootViewController =[RTMainViewController shareMainViewControllor];
-//    }
-//    else
-//    {
-//        self.window.rootViewController =[RTLoginViewController shareLoginControllor];
-//
-//    }
+    AVUser *current=[AVUser currentUser];
+    if (current!=nil) {
+        self.window.rootViewController =[RTMainViewController shareMainViewControllor];
+    }
+    else
+    {
+        self.window.rootViewController =[RTLoginViewController shareLoginControllor];
 
-    self.window.rootViewController=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
-    
+    }
+//
+//    self.window.rootViewController=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
+//    
 //
     
     
@@ -73,10 +74,52 @@ static UIWindow *thiswindow=nil;
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //AVOS subclass register
     [AVIllness registerSubclass];
-   
+    [RTUserInfo registerSubclass];
+    
+    //网络连接监测
+    self.isReachable = YES;
+    self.beenReachable=YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.internetReachability = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
+    //开始监听，会启动一个run loop
+    [self.internetReachability startNotifier];
+    
+    
+    //计步器
+    RTSterCounter *stepCounter=[RTSterCounter sharedRTSterCounter];
+    [stepCounter startCounting];
     
     return YES;
 }
+
+-(void)reachabilityChanged:(NSNotification *)note
+{
+    Reachability *curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    
+    //对连接改变做出响应处理动作
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    //如果没有连接到网络就弹出提醒实况
+    
+    if(status == NotReachable)
+    {
+        if (self.isReachable) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接异常" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+            self.isReachable = NO;
+        }
+        return;
+    }
+    if (status==ReachableViaWiFi||status==ReachableViaWWAN) {
+        
+        if (!self.isReachable) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络连接信息" message:@"网络连接恢复" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+            self.isReachable = YES;
+        }
+    }
+}
+
 
 // 微信分享
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
