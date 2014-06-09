@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RTUserProfileViewController : UIViewController
+@interface RTUserProfileViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *next;
 - (IBAction)nextStep:(id)sender;
 

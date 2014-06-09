@@ -39,7 +39,7 @@
     [self.settingInfoView addSubview:self.step1View];
     
     self.birthdayInputTextField.inputView=self.dataPicker;
-    self.birthdayInputTextField.inputAccessoryView=self.inputAccessoryView;
+    self.birthdayInputTextField.inputAccessoryView=self.accessoryViewForDateInput;
     
     
 }
@@ -178,9 +178,25 @@
 -(IBAction)dataChanged:(id)sender
 {
     UIDatePicker *picker = (UIDatePicker *)sender;
-    
-    self.birthdayInputTextField.text = [NSString stringWithFormat:@"%@", picker.date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yy-MM-dd"];
+     NSString *date = [dateFormatter stringFromDate:picker.date];
+    self.birthdayInputTextField.text =date;
 
 
 }
+
+-(IBAction)doneDateEditing:(id)sender
+{
+    [self.birthdayInputTextField resignFirstResponder];
+
+}
+
+//-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
+//{
+//    [textField resignFirstResponder];    //主要是[receiver resignFirstResponder]在哪调用就能把receiver对应的键盘往下收
+//    return YES;
+//    
+//
+//}
 @end

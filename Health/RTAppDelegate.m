@@ -39,17 +39,17 @@ static UIWindow *thiswindow=nil;
     
     
     //判断是否存在当前用户
-    AVUser *current=[AVUser currentUser];
-    if (current!=nil) {
-        self.window.rootViewController =[RTMainViewController shareMainViewControllor];
-    }
-    else
-    {
-        self.window.rootViewController =[RTLoginViewController shareLoginControllor];
+//    AVUser *current=[AVUser currentUser];
+//    if (current!=nil) {
+//        self.window.rootViewController =[RTMainViewController shareMainViewControllor];
+//    }
+//    else
+//    {
+//        self.window.rootViewController =[RTLoginViewController shareLoginControllor];
+//
+//    }
 
-    }
-
-//    [[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
+    self.window.rootViewController=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
     
 //
     
