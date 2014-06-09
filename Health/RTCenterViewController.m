@@ -27,6 +27,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
+//    [self initData];
 //    //网络状态监听
 //    
 //    RTAppDelegate* appDlg = (RTAppDelegate *)[[UIApplication sharedApplication] delegate];

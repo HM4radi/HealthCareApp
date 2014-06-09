@@ -32,8 +32,8 @@
 -(void)login:(NSString *)username Pwd:(NSString *)pwd
 {
     NSError *error;
-    self.isSucceed=[AVUser logInWithUsername:username password:pwd error:&error];
-    if (self.isSucceed!=nil && self.isSucceed) {
+    AVUser *loginUser=[AVUser logInWithUsername:username password:pwd error:&error];
+    if (loginUser!=nil) {
         [self loginIsSucceed:YES];
         
         
@@ -55,13 +55,14 @@
     
     if (result) {
         self.feedback=@"登录成功";
+        self.isSucceed=YES;
       
     }
     else
     {
     
         self.feedback=@"登录失败，";
-      
+        self.isSucceed=NO;
     
     }
     return result;

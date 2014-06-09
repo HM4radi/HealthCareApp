@@ -135,11 +135,10 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
     viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
     viewController.view.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height- 50);
     
-    if (index==1) {
-       
-    }
+   
     
     [self.view insertSubview:viewController.view belowSubview:_tabbar];
+    
     
 }
 
@@ -175,6 +174,13 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
     RTGYBNaviViewController *thd=[[RTGYBNaviViewController alloc]init];
     
     RTCenterViewController *center=[[RTCenterViewController alloc]init];
+    
+    [self addChildViewController:center];
+    [self addChildViewController:second];
+    [self addChildViewController:forth];
+    [self addChildViewController:thd];
+    [self addChildViewController:msg];
+    
     
     
     tabBarItems = [NSArray arrayWithObjects:
@@ -330,9 +336,12 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
     UIWindow* window=[RTAppDelegate shareWindow];
     if (window.rootViewController==[RTMainViewController shareMainViewControllor]) {
         window.rootViewController=[RTLoginViewController shareLoginControllor];
+        singleInstanceOfRTMainViewController=nil;
     }
     else{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
+          singleInstanceOfRTMainViewController=nil;
+        
     }
 
 }

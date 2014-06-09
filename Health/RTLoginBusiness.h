@@ -20,7 +20,8 @@
 @property (nonatomic,strong)NSString *phone;
 @property (nonatomic,strong)NSString *email;
 @property (nonatomic,strong)NSString *feedback;
-@property  BOOL isSucceed;
+@property (nonatomic,weak)AVUser *isSucceedUserLogin;
+@property BOOL isSucceed;
 
 
 -(void) loginInbackground:(NSString*) username Pwd:(NSString*)pwd;

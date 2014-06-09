@@ -42,7 +42,8 @@ static UIWindow *thiswindow=nil;
     //判断是否存在当前用户
     AVUser *current=[AVUser currentUser];
     if (current!=nil) {
-        self.window.rootViewController =[RTMainViewController shareMainViewControllor];
+        UIViewController *Main=[RTMainViewController shareMainViewControllor];
+        self.window.rootViewController =Main;
     }
     else
     {
@@ -55,16 +56,10 @@ static UIWindow *thiswindow=nil;
 //
     
     
-    
-    
-  
-    
-    
-    
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     
     //self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+  
     
     //AVOS
     
@@ -77,7 +72,7 @@ static UIWindow *thiswindow=nil;
     [RTUserInfo registerSubclass];
     
     //网络连接监测
-    self.isReachable = YES;
+    self.isReachable=YES;
     self.beenReachable=YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     self.internetReachability = [Reachability reachabilityWithHostName:@"www.baidu.com"] ;
@@ -89,6 +84,12 @@ static UIWindow *thiswindow=nil;
     RTSterCounter *stepCounter=[RTSterCounter sharedRTSterCounter];
     [stepCounter startCounting];
     
+    
+    
+    
+    
+    
+      [self.window makeKeyAndVisible];
     return YES;
 }
 
