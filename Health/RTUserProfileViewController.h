@@ -10,7 +10,12 @@
 #import "RTUserInfo.h"
 #import "RTLoginBusiness.h"
 
-@interface RTUserProfileViewController : UIViewController <UITextFieldDelegate>
+@interface RTUserProfileViewController : UIViewController <UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+{
+    NSArray *genderArray;
+}
+
+
 @property (strong, nonatomic) IBOutlet UIButton *next;
 - (IBAction)nextStep:(id)sender;
 
@@ -43,6 +48,8 @@
 - (IBAction)formerStep:(id)sender;
 @property (strong, nonatomic) IBOutlet UIDatePicker *dataPicker;
 
+
+
 @property (strong, nonatomic) IBOutlet UITextField *birthdayInputTextField;
 
 
@@ -53,9 +60,14 @@
 -(IBAction)doneDateEditing:(id)sender;
 @property (strong, nonatomic) IBOutlet UIToolbar *accessoryViewForDateInput;
 
+@property (strong, nonatomic) IBOutlet UITextField *genderInputField;
+
+@property (strong, nonatomic) IBOutlet UITextField *weightInputField;
+@property (strong, nonatomic) IBOutlet UITextField *heightInputField;
 
 
 -(BOOL)saveOnAVOSCloud;
 
+@property (strong, nonatomic) IBOutlet UIPickerView *genderPicker;
 
 @end

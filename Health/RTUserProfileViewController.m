@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    genderArray=[[NSArray alloc]initWithObjects:@"男",@"女",nil];
     // Do any additional setup after loading the view from its nib.
     self.formerStepBtn.hidden=YES;
     self.formerStepBtn.enabled=NO;
@@ -40,6 +42,10 @@
     
     self.birthdayInputTextField.inputView=self.dataPicker;
     self.birthdayInputTextField.inputAccessoryView=self.accessoryViewForDateInput;
+    
+    self.genderInputField.inputView=self.genderPicker;
+    self.genderInputField.inputAccessoryView=self.accessoryViewForDateInput;
+    
     
     
 }
@@ -179,7 +185,7 @@
 {
     UIDatePicker *picker = (UIDatePicker *)sender;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
      NSString *date = [dateFormatter stringFromDate:picker.date];
     self.birthdayInputTextField.text =date;
 
@@ -188,23 +194,62 @@
 
 -(IBAction)doneDateEditing:(id)sender
 {
-    [self.birthdayInputTextField resignFirstResponder];
+    if ([self.birthdayInputTextField isFirstResponder]) {
+        [self.birthdayInputTextField resignFirstResponder];
+    }
+    if ([self.genderInputField isFirstResponder]) {
+        [self.genderInputField resignFirstResponder];
+    }
 
 }
 
-//-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
-//{
-//    [textField resignFirstResponder];    //主要是[receiver resignFirstResponder]在哪调用就能把receiver对应的键盘往下收
-//    return YES;
-//    
-//
-//}
+
+
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];    //主要是[receiver resignFirstResponder]在哪调用就能把receiver对应的键盘往下收
+    return YES;
+    
+
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  
+  [textField resignFirstResponder];
+    return YES;
+}
 
 
 
+-(BOOL)saveOnAVOSCloud
+{
 
+    return YES;
+}
 
+#pragma -mark  UIPickView delegate method for genderInputField.inputView
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
 
+}
 
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [genderArray count];
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+   
+    return [genderArray objectAtIndex:row];
+}
 
+/*choose com is component,row's function*/
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+    NSString *selectedGender=[genderArray objectAtIndex:row];
+    self.genderInputField.text=selectedGender;
+}
 @end

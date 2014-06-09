@@ -41,7 +41,7 @@ static UIWindow *thiswindow=nil;
     self.window =[RTAppDelegate shareWindow];
     
     
-    //判断是否存在当前用户
+//判断是否存在当前用户
    
     if (loginBusiness.checkIfAuto_login) {
         UIViewController *Main=[RTMainViewController shareMainViewControllor];
@@ -54,7 +54,7 @@ static UIWindow *thiswindow=nil;
     }
 //
 //    self.window.rootViewController=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
-//    
+//
 //
     
     
