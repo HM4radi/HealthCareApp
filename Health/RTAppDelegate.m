@@ -9,11 +9,22 @@
 
 #import "RTAppDelegate.h"
 #import "AVIllness.h"
+#import "RTUser.h"
+#import "RTUserProfileViewController.h"
 
 //#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
 @implementation RTAppDelegate
 
+static UIWindow *thiswindow=nil;
++(id)shareWindow
+{
+
+    if (thiswindow==nil) {
+        thiswindow=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    return thiswindow;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -24,12 +35,25 @@
     
     
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window =[RTAppDelegate shareWindow];
     
     
-    self.viewController=[[RTLoginViewController alloc] initWithNibName:@"RTLoginViewController" bundle:nil];
+    //判断是否存在当前用户
+//    AVUser *current=[AVUser currentUser];
+//    if (current!=nil) {
+//        self.window.rootViewController =[RTMainViewController shareMainViewControllor];
+//    }
+//    else
+//    {
+//        self.window.rootViewController =[RTLoginViewController shareLoginControllor];
+//
+//    }
+
+    self.window.rootViewController=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
     
-    self.window.rootViewController = self.viewController;
+//
+    
+    
     
     
   

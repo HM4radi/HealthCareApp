@@ -12,11 +12,12 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 @interface RTAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
-
+{
+    UIWindow *thiswindow;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UIViewController *viewController;
 
-
++(id)shareWindow;
 
 @end

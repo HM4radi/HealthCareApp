@@ -10,6 +10,7 @@
 #import "tabbarView.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "RTLoginViewController.h"
+#import "RTAppDelegate.h"
 
 
 
@@ -323,7 +324,15 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
 
 -(void)logout
 {
+    
+    UIWindow* window=[RTAppDelegate shareWindow];
+    if (window.rootViewController==[RTMainViewController shareMainViewControllor]) {
+        window.rootViewController=[RTLoginViewController shareLoginControllor];
+    }
+    else{
     [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 
