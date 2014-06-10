@@ -177,7 +177,6 @@
     [_mapView setShowsUserLocation:NO];
     _mapView.delegate = nil;
     self.mapView = nil;
-    
     [super dealloc];
 }
 

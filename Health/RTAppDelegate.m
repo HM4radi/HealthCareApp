@@ -9,12 +9,11 @@
 
 #import "RTAppDelegate.h"
 #import "AVIllness.h"
-
 #import "RTUserProfileViewController.h"
 #import "RTUserInfo.h"
-#import "RTSterCounter.h"
-//#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
+#import "RTStepCounter.h"
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0]
+
 @implementation RTAppDelegate
 
 static UIWindow *thiswindow=nil;
@@ -35,9 +34,7 @@ static UIWindow *thiswindow=nil;
     AVObject *testObject = [AVObject objectWithClassName:@"TestObject"];
     [testObject setObject:@"bar" forKey:@"foo"];
     [testObject save];
-    
-    
-    
+  
     self.window =[RTAppDelegate shareWindow];
     
     
@@ -52,16 +49,8 @@ static UIWindow *thiswindow=nil;
         self.window.rootViewController =[RTLoginViewController shareLoginControllor];
 
     }
-//
-//    self.window.rootViewController=[[RTUserProfileViewController alloc]initWithNibName:@"RTUserProfileViewController" bundle:nil] ;
-//
-//
-    
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
-    
-    //self.window.backgroundColor = [UIColor whiteColor];
-  
     
     //AVOS
     
@@ -83,15 +72,10 @@ static UIWindow *thiswindow=nil;
     
     
     //计步器
-    RTSterCounter *stepCounter=[RTSterCounter sharedRTSterCounter];
+    RTStepCounter *stepCounter=[RTStepCounter sharedRTSterCounter];
     [stepCounter startCounting];
     
-    
-    
-    
-    
-    
-      [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -133,7 +117,7 @@ static UIWindow *thiswindow=nil;
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL isSuc = [WXApi handleOpenURL:url delegate:self];
-    NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
+    //NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
     return  isSuc;
 }
 
@@ -148,11 +132,13 @@ static UIWindow *thiswindow=nil;
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"AppTerminate");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

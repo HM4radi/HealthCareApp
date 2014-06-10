@@ -125,8 +125,14 @@
     
     if (_showText && _textColor)
     {
-        int _goal=[[goal substringFromIndex:3] intValue];
-        NSString *progressString = [NSString stringWithFormat:@"%.0f", _progress*_goal];
+        float _goal=[[goal substringFromIndex:3] floatValue];
+        NSString *progressString;
+        if ((self.type==0)||self.type==2) {
+            progressString = [NSString stringWithFormat:@"%.0f", _progress*_goal];
+        }else if (self.type==1){
+            progressString = [NSString stringWithFormat:@"%.2f", _progress*_goal];
+        }
+        
         
         CGFloat fontSize = radius*0.8;
         CGFloat fontSize2 = radius*0.13;
@@ -324,6 +330,12 @@
     _progressBottomGradientColor = progressBottomGradientColor;
     
     [self setNeedsDisplay];
+}
+
+- (void)setType:(int)type
+{
+    _type = type;
+    
 }
 
 @end

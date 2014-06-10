@@ -17,7 +17,6 @@
     if (self) {
         // Initialization code
         [self setFrame:frame];
-//        [self setBackgroundColor:[UIColor blueColor]];
         [self layoutView];
     }
     return self;
@@ -25,7 +24,7 @@
 
 -(void)layoutView
 {
-    _tabbarView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tabbar_0"]];
+    _tabbarView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tabbar_5"]];
     [_tabbarView setFrame:CGRectMake(0, 9, _tabbarView.bounds.size.width, 51)];
     [_tabbarView setUserInteractionEnabled:YES];
     
@@ -86,7 +85,6 @@
 {
         
     UIButton *btn = (UIButton *)sender;
-    //NSLog(@"%li",(long)btn.tag);
     switch (btn.tag) {
         case 101:
         {
@@ -116,6 +114,7 @@
 
 -(void)btn2Click:(id)sender
 {
+    [_tabbarView setImage:[UIImage imageNamed:@"tabbar_5"]];
     [self.delegate touchCenterBtn];
 }
 

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PICircularProgressView : UIView
+@interface PICircularProgressView : UIView{
+
+}
 
 @property (nonatomic) double progress;
 
@@ -31,4 +33,5 @@
 @property (nonatomic, strong) UIColor *progressBottomGradientColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *goal;
+@property (nonatomic)int type;
 @end

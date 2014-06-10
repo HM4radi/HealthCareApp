@@ -1,26 +1,27 @@
 //
-//  RTSterCounter.m
+//  RTStepCounter.m
 //  Health
 //
-//  Created by GeoBeans on 14-6-9.
+//  Created by GeoBeans on 14-6-10.
 //  Copyright (c) 2014年 RADI Team. All rights reserved.
 //
 
-#import "RTSterCounter.h"
+#import "RTStepCounter.h"
 
-@implementation RTSterCounter
+@implementation RTStepCounter
 @synthesize step;
 @synthesize status;
 @synthesize speed;
 
-+ (RTSterCounter*)sharedRTSterCounter{
-
-    static RTSterCounter* sharedRTSterCounter=nil;
++ (RTStepCounter*)sharedRTSterCounter{
+    
+    static RTStepCounter* sharedRTSterCounter=nil;
     
     @synchronized(self)
     {
-        if (!sharedRTSterCounter)
-            sharedRTSterCounter = [[RTSterCounter alloc] init];
+        if (!sharedRTSterCounter){
+            sharedRTSterCounter = [[RTStepCounter alloc] init];
+        }
         return sharedRTSterCounter;
     }
 }
@@ -58,8 +59,7 @@
                      [error show];
                  }
                  else {
-                     
-                     self.step = [NSString stringWithFormat:@"步數: %ld", (long)numberOfSteps];
+                     self.step = [NSString stringWithFormat:@"%ld", (long)numberOfSteps];
                  }
              });
          }];

@@ -33,8 +33,6 @@
     [super viewDidLoad];
     [self.navigationbar setFrame:CGRectMake(0, 0, 320, 64)];
     self.navigationbar.translucent=YES;
-//    self.navLabel.frame=CGRectMake(100,32,120,20);
-//    self.navLabel1.frame=CGRectMake(100,32,120,20);
     UIScrollView* scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
     [self.view addSubview:scrollView];
     progressView=[[PICircularProgressView alloc]initWithFrame:CGRectMake(60, 6, 200, 200)];
@@ -94,6 +92,10 @@
     
     currentAnno=[[QPointAnnotation alloc]init];
     [self addLineAnno];
+    
+    //stepCounter
+    stepCounter=[RTStepCounter sharedRTSterCounter];
+    [stepCounter addObserver:self forKeyPath:@"step" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 }
 
 
@@ -101,28 +103,27 @@
 - (void)viewClick:(UITapGestureRecognizer *)gesture
 {
     if (tag==0) {
+        progressView.type=0;
         UIColor *col1=[UIColor colorWithRed:15.0/255.0 green:97.0/255.0 blue:189.0/255.0 alpha:1.0];
         UIColor *col2=[UIColor colorWithRed:114.0/255.0 green:174.0/255.0 blue:235.0/255.0 alpha:1.0];
-        [self setupPregressView:@"步   数" goal:@"目标:10000" complete:9000 withTopColor:col1 AndBottomColor:col2];
+        [self setupPregressView:@"步   数" goal:@"目标:5000" complete:[stepCounter.step floatValue] withTopColor:col1 AndBottomColor:col2];
         tag++;
     }else if (tag==1){
-        
+        progressView.type=1;
         UIColor *col2=[UIColor colorWithRed:183.0/255.0 green:242.0/255.0 blue:151.0/255.0 alpha:1.0];
         UIColor *col1=[UIColor colorWithRed:0.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1.0];
-
-        [self setupPregressView:@"里   程" goal:@"目标:10" complete:7 withTopColor:col1 AndBottomColor:col2];
+        [self setupPregressView:@"里   程" goal:@"目标:9.4" complete:6.2 withTopColor:col1 AndBottomColor:col2];
         tag++;
     }else if (tag==2){
+        progressView.type=2;
         UIColor *col1=[UIColor colorWithRed:255.0/255.0 green:136/255.0 blue:49/255.0 alpha:1.0];
         UIColor *col2=[UIColor colorWithRed:244.0/255.0 green:237.0/255.0 blue:138.0/255.0 alpha:1.0];
-
-        [self setupPregressView:@"卡路里" goal:@"目标:300" complete:240 withTopColor:col1 AndBottomColor:col2];
+        [self setupPregressView:@"卡路里" goal:@"目标:300" complete:236 withTopColor:col1 AndBottomColor:col2];
         tag=0;
     }
-    
 }
 
-- (void)setupPregressView:(NSString *)title goal:(NSString *)goal complete:(int)_complete withTopColor:(UIColor*)color1 AndBottomColor:(UIColor*)color2
+- (void)setupPregressView:(NSString *)title goal:(NSString *)goal complete:(float)_complete withTopColor:(UIColor*)color1 AndBottomColor:(UIColor*)color2
 {
     progressNow=0;
     progressView.title=title;
@@ -130,27 +131,42 @@
     complete=_complete;
     progressView.progressTopGradientColor=color1;
     progressView.progressBottomGradientColor=color2;
+    NSString *finishAnimat;
+    finishAnimat=@"notFinished";
     
     for (int i=0; i<=100*complete/[[progressView.goal substringFromIndex:3] floatValue]; i++) {
-        [self performSelector:@selector(setProgress) withObject:nil afterDelay:0.005*i];
+        if (100*complete/[[progressView.goal substringFromIndex:3] floatValue]-i<1) {
+            finishAnimat=@"finished";
+        }
+        [self performSelector:@selector(setProgress:) withObject:finishAnimat afterDelay:0.005*i];
     }
 }
 
-- (void)setProgress{
-    
+- (void)setProgress:(NSString *)finish{
+    float goal=[[progressView.goal substringFromIndex:3] floatValue];
     progressView.progress=(progressNow++)/100;
-//    if (progressNow==100*complete/[[progressView.goal substringFromIndex:3] floatValue]+1) {
-//        progressNow=0;
-//    }
+    if ([finish isEqual:@"finished"]) {
+        progressView.progress=float(complete)/goal;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     
     UIColor *col1=[UIColor colorWithRed:255.0/255.0 green:136/255.0 blue:49/255.0 alpha:1.0];
     UIColor *col2=[UIColor colorWithRed:244.0/255.0 green:237.0/255.0 blue:138.0/255.0 alpha:1.0];
+    progressView.type=2;
+    [self setupPregressView:@"卡路里" goal:@"目标:300" complete:236 withTopColor:col1 AndBottomColor:col2];
 
-    [self setupPregressView:@"卡路里" goal:@"目标:300" complete:240 withTopColor:col1 AndBottomColor:col2];
+}
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+
+    if ([keyPath isEqual:@"step"]) {
+        if (progressView.type==0) {
+            float goal=[[progressView.goal substringFromIndex:3] floatValue];
+            progressView.progress=float([stepCounter.step floatValue])/goal;
+        }
+    }
 }
 
 //*********************tableView********************//

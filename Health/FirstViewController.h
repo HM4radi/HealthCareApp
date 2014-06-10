@@ -11,6 +11,7 @@
 #import "RTTableViewCell.h"
 #import "RTMapView.h"
 #import "BEMSimpleLineGraphView.h"
+#import "RTStepCounter.h"
 
 @interface FirstViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,BEMSimpleLineGraphDelegate>
 {
@@ -18,7 +19,7 @@
     PICircularProgressView *progressView;
     
     float progressNow;
-    int complete;
+    float complete;
     int tag;
     NSMutableArray *recordArray;
     RTMapView* _mapView;
@@ -30,6 +31,7 @@
     int routeCount;
     int currentIndex;
     QPointAnnotation* currentAnno;
+    RTStepCounter *stepCounter;
 }
 
 @property (retain, nonatomic) IBOutlet UINavigationBar *navigationbar;

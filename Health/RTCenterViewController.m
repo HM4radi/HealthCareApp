@@ -135,10 +135,8 @@
     if(appDlg.isReachable)
     {
         AVQuery *infoQuery=[RTUserInfo query];
-        //[infoQuery selectKeys:@[@"name", @"info"]];
         NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
         [infoQuery whereKey:@"username" equalTo:[mySettingData objectForKey:@"CurrentUserName"]];
-         NSLog(@"NSUserDefault user_name=%@", [mySettingData objectForKey:@"CurrentUserName"]);
         [infoQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 // The find succeeded.

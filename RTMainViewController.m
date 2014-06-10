@@ -84,8 +84,7 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
 -(void)viewWillAppear:(BOOL)animated
 {
 //    [self CheckCurrentUserAndLoadViewControllor];
-    
-
+ 
 
 }
 - (void)viewDidLoad
@@ -110,8 +109,8 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
     [self touchCenterBtn];
     
     //for center button
-    RNLongPressGestureRecognizer *longPress = [[RNLongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    [self.view addGestureRecognizer:longPress];
+//    RNLongPressGestureRecognizer *longPress = [[RNLongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+//    [self.view addGestureRecognizer:longPress];
     
     [self CheckUserProfileIfSetted];
    
@@ -145,7 +144,6 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
 
 -(void)touchCenterBtn
 {
-    NSLog(@"touch center button");
     //[self showGrid];
     UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
     [currentView removeFromSuperview];
@@ -164,14 +162,12 @@ static RTMainViewController* singleInstanceOfRTMainViewController=nil;
 {
     NSArray* tabBarItems = nil;
     
-    //FirstViewController *first = [[FirstViewController alloc]init];
     RTMsgViewController *msg=[[RTMsgViewController alloc]init];
     
     SecondViewController *second = [[SecondViewController alloc]init];
     
     ForthViewController *forth = [[ForthViewController alloc]init];
-//    ThirdViewController *thd=[[ThirdViewController alloc]init];
-//
+
     RTGYBNaviViewController *thd=[[RTGYBNaviViewController alloc]init];
     
     RTCenterViewController *center=[[RTCenterViewController alloc]init];
