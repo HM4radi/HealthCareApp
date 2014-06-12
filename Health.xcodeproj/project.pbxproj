@@ -221,6 +221,8 @@
 		AD12F6CB192634B400921894 /* userinfo_relationship_editprofilebutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD12F635192634B400921894 /* userinfo_relationship_editprofilebutton_background.png */; };
 		AD12F88F1926516D00921894 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD12F88E1926516D00921894 /* Images.xcassets */; };
 		AD2293C51934CD5100796CA2 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD2293C41934CD5100796CA2 /* background.jpg */; };
+		AD3C8D3E1947F44D00357DA0 /* RTSportPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3C8D3C1947F44D00357DA0 /* RTSportPlanViewController.m */; };
+		AD3C8D3F1947F44D00357DA0 /* RTSportPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD3C8D3D1947F44D00357DA0 /* RTSportPlanViewController.xib */; };
 		AD3FCA3A193451DA00ECEA4B /* pills.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD3FCA39193451DA00ECEA4B /* pills.jpg */; };
 		AD46FB0B1934286300F19BC4 /* RTPillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD46FB091934286300F19BC4 /* RTPillsViewController.m */; };
 		AD46FB0C1934286300F19BC4 /* RTPillsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD46FB0A1934286300F19BC4 /* RTPillsViewController.xib */; };
@@ -626,6 +628,9 @@
 		AD12F635192634B400921894 /* userinfo_relationship_editprofilebutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userinfo_relationship_editprofilebutton_background.png; sourceTree = "<group>"; };
 		AD12F88E1926516D00921894 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AD2293C41934CD5100796CA2 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		AD3C8D3B1947F44D00357DA0 /* RTSportPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSportPlanViewController.h; sourceTree = "<group>"; };
+		AD3C8D3C1947F44D00357DA0 /* RTSportPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSportPlanViewController.m; sourceTree = "<group>"; };
+		AD3C8D3D1947F44D00357DA0 /* RTSportPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTSportPlanViewController.xib; sourceTree = "<group>"; };
 		AD3FCA39193451DA00ECEA4B /* pills.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pills.jpg; sourceTree = "<group>"; };
 		AD46FB081934286300F19BC4 /* RTPillsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPillsViewController.h; sourceTree = "<group>"; };
 		AD46FB091934286300F19BC4 /* RTPillsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPillsViewController.m; sourceTree = "<group>"; };
@@ -1543,6 +1548,9 @@
 				ADAA5E03192343590040ED10 /* FirstViewController.h */,
 				ADAA5E04192343590040ED10 /* FirstViewController.mm */,
 				ADAA5E05192343590040ED10 /* FirstViewController.xib */,
+				AD3C8D3B1947F44D00357DA0 /* RTSportPlanViewController.h */,
+				AD3C8D3C1947F44D00357DA0 /* RTSportPlanViewController.m */,
+				AD3C8D3D1947F44D00357DA0 /* RTSportPlanViewController.xib */,
 			);
 			name = FirstViewController;
 			sourceTree = "<group>";
@@ -1849,6 +1857,7 @@
 				AD0DA0511935C35700A9846E /* tabbar_mainbtn@2x.png in Resources */,
 				AD542600193715E4005F10F4 /* dtf.jpg in Resources */,
 				AD12F64C192634B400921894 /* compose_locatebutton_background_succeeded.png in Resources */,
+				AD3C8D3F1947F44D00357DA0 /* RTSportPlanViewController.xib in Resources */,
 				AD12F68E192634B400921894 /* profile_pop_background.png in Resources */,
 				ADAA5E02192341200040ED10 /* RTMainViewController.xib in Resources */,
 				ADCC7A6A1929E5A6005B00B4 /* RTRegisterViewController.xib in Resources */,
@@ -2146,6 +2155,7 @@
 				04B58A821945678200A4905C /* RTCenterViewController.m in Sources */,
 				ADCC7A751929F875005B00B4 /* RTShareMsg.m in Sources */,
 				04FB29D21940BA7700B96AA7 /* RTUserProfileBussiness.m in Sources */,
+				AD3C8D3E1947F44D00357DA0 /* RTSportPlanViewController.m in Sources */,
 				0469EB671928862300388022 /* GYBTableViewCell.m in Sources */,
 				042716FB19375D0200FD3EF3 /* RTSndDoctorDetailViewController.m in Sources */,
 				AD5425BC1936C374005F10F4 /* RTCollectionViewCell.m in Sources */,

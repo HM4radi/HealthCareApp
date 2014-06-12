@@ -53,18 +53,26 @@
     UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
     [imgview setImage:[UIImage imageNamed:@"back-master.png"]];
     [self.view insertSubview:imgview aboveSubview:self.navigationbar];
-    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
-    [imgview addGestureRecognizer:backGesture1];
+    UITapGestureRecognizer *backGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
+    [imgview addGestureRecognizer:backGesture];
     imgview.userInteractionEnabled=YES;
     
     //返回按钮2
     UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
     [imgview1 setImage:[UIImage imageNamed:@"back-master.png"]];
     [self.detailView insertSubview:imgview1 aboveSubview:self.detailNavBar];
-    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack2)];
-    [imgview1 addGestureRecognizer:backGesture2];
+    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack2)];
+    [imgview1 addGestureRecognizer:backGesture1];
     imgview1.userInteractionEnabled=YES;
 
+    //添加按钮2
+    UIImageView *imgview2=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
+    [imgview2 setImage:[UIImage imageNamed:@"add-master.png"]];
+    [self.view insertSubview:imgview2 aboveSubview:self.navigationbar];
+    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addPlan)];
+    [imgview2 addGestureRecognizer:backGesture2];
+    imgview2.userInteractionEnabled=YES;
+    
     
     //add tableView
     [self.tableView setDelegate:self];
@@ -96,6 +104,17 @@
     //stepCounter
     stepCounter=[RTStepCounter sharedRTSterCounter];
     [stepCounter addObserver:self forKeyPath:@"step" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+}
+
+
+- (void)addPlan{
+    if (!sportPlanVC) {
+        sportPlanVC=[[RTSportPlanViewController alloc]init];
+    }
+
+    sportPlanVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+
+    [self presentViewController:sportPlanVC animated:YES completion:nil];
 }
 
 

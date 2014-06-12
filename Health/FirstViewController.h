@@ -12,6 +12,7 @@
 #import "RTMapView.h"
 #import "BEMSimpleLineGraphView.h"
 #import "RTStepCounter.h"
+#import "RTSportPlanViewController.h"
 
 @interface FirstViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,BEMSimpleLineGraphDelegate>
 {
@@ -32,6 +33,8 @@
     int currentIndex;
     QPointAnnotation* currentAnno;
     RTStepCounter *stepCounter;
+    
+    RTSportPlanViewController *sportPlanVC;
 }
 
 @property (retain, nonatomic) IBOutlet UINavigationBar *navigationbar;

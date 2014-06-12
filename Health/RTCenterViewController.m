@@ -165,19 +165,19 @@
 
 - (void)updateProgressWithDelta:(CGFloat)delta shapeView:(DPMeterView*)shapeView animated:(BOOL)animated
 {
-        if (delta < 0) {
-            [shapeView minus:fabs(delta) animated:animated];
-        } else {
-            [shapeView add:fabs(delta) animated:animated];
-        }
+    if (delta < 0) {
+        [shapeView minus:fabs(delta) animated:animated];
+    } else {
+        [shapeView add:fabs(delta) animated:animated];
+    }
 }
 
 - (void)viewClick1:(UITapGestureRecognizer *)gesture
 {
     
 }
-- (void)viewClick2:(UITapGestureRecognizer *)gesture
 
+- (void)viewClick2:(UITapGestureRecognizer *)gesture
 {
     if (!firstViewController) {
         firstViewController=[[FirstViewController alloc]init];
@@ -209,7 +209,6 @@
                     animations:^{ [self.view addSubview:foodViewController.view];  }
                     completion:NULL];
     [UIView commitAnimations];
-
 }
 
 

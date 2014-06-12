@@ -86,7 +86,7 @@
     imgview2.userInteractionEnabled=YES;
     
     //确认按钮4
-    UIImageView *imgview3=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 20)];
+    UIImageView *imgview3=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
     [imgview3 setImage:[UIImage imageNamed:@"add-master.png"]];
     [self.addView insertSubview:imgview3 aboveSubview:self.addNavBar];
     UITapGestureRecognizer *backGesture4=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchFinish)];
