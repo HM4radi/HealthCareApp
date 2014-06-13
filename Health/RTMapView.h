@@ -10,16 +10,20 @@
 #import "QMapKit.h"
 #import "QAppKeyCheck.h"
 
-@interface RTMapView : UIView<QAppKeyCheckDelegate,QMapViewDelegate>
+@interface RTMapView : UIView<QAppKeyCheckDelegate,QMapViewDelegate,UIGestureRecognizerDelegate>
 {
     IBOutlet QMapView* _mapView;
     NSMutableArray *route;
-    
+    //BOOL selecting;
 }
 
 @property(nonatomic, retain) QAppKeyCheck* appKeyCheck;
 @property(nonatomic, retain)IBOutlet QMapView* mapView;
+@property (nonatomic, retain) NSMutableArray *route;
+@property (nonatomic)BOOL selecting;
 - (void)addPointAnno:(QPointAnnotation*) pointAnno;
 - (void)removePointAnno:(QPointAnnotation*) pointAnno;
 - (void)addPolyline:(CLLocationCoordinate2D[])polylineArray withcount:(int)count;
+- (CLLocationCoordinate2D)convertPoint:(CGPoint)point;
+- (void)setSelecting:(BOOL)selecting;
 @end

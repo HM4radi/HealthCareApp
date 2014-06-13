@@ -51,11 +51,12 @@
     
     if (!timePicker) {
         timePicker=[[UIDatePicker alloc]initWithFrame:CGRectMake(0,30,320,100)];
-        [timePicker setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
         [timePicker setDate:[NSDate date] animated:YES];
-        //[timePicker setMaximumDate:[NSDate date]];
-        
         timePicker.tag=0;
+        dateFormatter1=[[NSDateFormatter alloc]init];
+        [dateFormatter1 setDateFormat:@"HH:mm"];
+        dateFormatter2=[[NSDateFormatter alloc]init];
+        [dateFormatter2 setDateFormat:@"HH小时mm分"];
     }
     if (!typePicker) {
         typePicker=[[UIPickerView alloc]initWithFrame:CGRectMake(0,30,320,100)];
@@ -74,21 +75,41 @@
         _mapView= [[RTMapView alloc] initWithFrame:CGRectMake(0, 220, 320, 308)];
         [self.view addSubview:_mapView];
     }
+    
+    //返回按钮
+    UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
+    [imgview1 setImage:[UIImage imageNamed:@"back-master.png"]];
+    [self.NavBar addSubview:imgview1];
+    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
+    [imgview1 addGestureRecognizer:backGesture1];
+    imgview1.userInteractionEnabled=YES;
+    
+    self.selectRoute.tag=0;
 }
 
+- (IBAction)selectRoute:(id)sender {
+    if (self.selectRoute.tag==0) {
+        [self.selectRoute setTitle:@"停止选择路线" forState:UIControlStateNormal];
+        _mapView.selecting=YES;
+        self.selectRoute.tag=1;
+    }else if (self.selectRoute.tag==1){
+        [self.selectRoute setTitle:@"开始选择路线" forState:UIControlStateNormal];
+        _mapView.selecting=NO;
+        self.selectRoute.tag=0;
+    }
+}
 - (void)showSelectView:(UITapGestureRecognizer *)sender{
     if ([sender view].tag==1) {
-        if (timePicker.tag==1) {
+        if (timePicker.tag!=0) {
             [timePicker removeFromSuperview];
             timePicker.tag=0;
         }
         actionView.title=@"请选择运动项目\n\n\n\n\n\n\n\n\n\n\n\n\n";
         [actionView addSubview:typePicker];
-        [actionView showInView:self.view];
         typePicker.tag=1;
     }
     else if ([sender view].tag==2) {
-        if (typePicker.tag==1) {
+        if (typePicker.tag!=0) {
             [typePicker removeFromSuperview];
             typePicker.tag=0;
         }
@@ -97,7 +118,6 @@
         if (timePicker.tag==0) {
             [actionView addSubview:timePicker];
         }
-        [actionView showInView:self.view];
         timePicker.tag=1;
     }
     else if ([sender view].tag==3) {
@@ -110,8 +130,26 @@
         if (timePicker.tag==0) {
             [actionView addSubview:timePicker];
         }
-        [actionView showInView:self.view];
-        timePicker.tag=1;
+        timePicker.tag=2;
+    }
+    [actionView showInView:_mapView];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        if (typePicker.tag!=0) {
+            self.typeLabel.text=selectedType;
+        }
+        else if (timePicker.tag!=0){
+            if (timePicker.tag==1) {
+                NSString *dtString=[dateFormatter1 stringFromDate:[timePicker date]];
+                self.startTimeLabel.text=dtString;
+            }else if (timePicker.tag==2){
+                NSString *dtString=[dateFormatter2 stringFromDate:[timePicker date]];
+                self.lastTimeLabel.text=dtString;
+            }
+            
+        }
     }
 }
 
@@ -134,10 +172,16 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    if (component == 0)
-        NSLog(@"didselect");
+    
+    selectedType=[sportType objectAtIndex:row];
 }
 
+
+- (void)touchBack{
+    _mapView=nil;
+    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {

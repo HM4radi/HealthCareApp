@@ -115,6 +115,8 @@
     sportPlanVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 
     [self presentViewController:sportPlanVC animated:YES completion:nil];
+    
+    sportPlanVC=nil;
 }
 
 

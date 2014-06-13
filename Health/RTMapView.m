@@ -11,8 +11,7 @@
 
 @implementation RTMapView
 @synthesize mapView = _mapView;
-
-
+@synthesize selecting=_selecting;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -22,18 +21,50 @@
         [self KeyCheck];
         _mapView = [[QMapView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [self addSubview:_mapView];
+        _mapView.userInteractionEnabled=YES;
         _mapView.delegate = self;
-        
+        route=[[NSMutableArray alloc]init];
         //[_mapView setShowsUserLocation:YES];
-        
-        //[self addPointAnno];
+        self.selecting=NO;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
+        if (![tapGesture respondsToSelector:@selector(locationInView:)]) {
+            [tapGesture release];
+            tapGesture = nil;
+        }else {
+            tapGesture.delegate = self;
+            tapGesture.numberOfTapsRequired = 1; // The default value is 1.
+            tapGesture.numberOfTouchesRequired = 1; // The default value is 1.
+            [_mapView addGestureRecognizer:tapGesture];
+        }
     }
     return self;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    
+    if (self.selecting) {
+        CGPoint pt=[touch locationInView:[touch view]];
+        QPointAnnotation* annotation = [[QPointAnnotation alloc]init];
+        CLLocationCoordinate2D p=[_mapView convertPoint:pt toCoordinateFromView:[touch view]];
+        [annotation setCoordinate:p];
+        NSString *coordinate=NSStringFromCGPoint(CGPointMake(p.longitude, p.latitude));
+        [route addObject:coordinate];
+        [_mapView addAnnotation:annotation];
+    }
+    return YES;
+}
+
+- (void)setSelecting:(BOOL)selecting{
+    
+    _selecting=selecting;
+    
+    if (_selecting){
+        [route removeAllObjects];
+    }
+}
+
 /**************************KeyCheck****************************/
 - (void)KeyCheck{
-    
     QAppKeyCheck* check = [[QAppKeyCheck alloc] init];
     [check start:@"JIEBZ-CM2WQ-HX75D-GCMMT-RM5IZ-2DB7E" withDelegate:self];
     self.appKeyCheck = check;
@@ -79,6 +110,13 @@
     NSLog(@"%@",error);
 }
 
+/**************************坐标转换****************************/
+
+- (CLLocationCoordinate2D)convertPoint:(CGPoint)point{
+  
+    return [_mapView convertPoint:point toCoordinateFromView:_mapView];
+}
+
 /**************************线状标注****************************/
 
 - (void)addPolyline:(CLLocationCoordinate2D[])polylineArray withcount:(int)count{
@@ -108,7 +146,6 @@
     
     _mapView.region = QCoordinateRegionMake(CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2),
                                             QCoordinateSpanMake((xMax-xMin), (yMax-yMin)));
-
 }
 
 -(QOverlayView*)mapView:(QMapView *)mapView viewForOverlay:(id<QOverlay>)overlay
@@ -130,7 +167,6 @@
 
 - (void)addPointAnno:(QPointAnnotation*) pointAnno{
     [_mapView addAnnotation:pointAnno];
-    
 }
 
 - (void)removePointAnno:(QPointAnnotation*) pointAnno{
@@ -161,6 +197,7 @@
 	}
 	return nil;
 }
+
 
 - (void)viewDidUnload
 {
@@ -199,7 +236,7 @@
     [image drawInRect:CGRectMake(0,0,image.size.width/2,image.size.height/2)];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    NSLog(@"%lrli",mach_absolute_time()-start);
+    //NSLog(@"%lrli",mach_absolute_time()-start);
     
 }
 
