@@ -57,14 +57,6 @@
 		04FE00761928AADD002FB4E1 /* RTGYBNaviViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FE00741928AADD002FB4E1 /* RTGYBNaviViewController.xib */; };
 		AD0DA0391935C06800A9846E /* RTMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0DA0371935C06800A9846E /* RTMsgViewController.m */; };
 		AD0DA03A1935C06800A9846E /* RTMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0381935C06800A9846E /* RTMsgViewController.xib */; };
-		AD0DA0481935C35700A9846E /* tabbar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA03C1935C35700A9846E /* tabbar_0.png */; };
-		AD0DA0491935C35700A9846E /* tabbar_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA03D1935C35700A9846E /* tabbar_0@2x.png */; };
-		AD0DA04A1935C35700A9846E /* tabbar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA03E1935C35700A9846E /* tabbar_1.png */; };
-		AD0DA04B1935C35700A9846E /* tabbar_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA03F1935C35700A9846E /* tabbar_1@2x.png */; };
-		AD0DA04C1935C35700A9846E /* tabbar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0401935C35700A9846E /* tabbar_3.png */; };
-		AD0DA04D1935C35700A9846E /* tabbar_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0411935C35700A9846E /* tabbar_3@2x.png */; };
-		AD0DA04E1935C35700A9846E /* tabbar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0421935C35700A9846E /* tabbar_4.png */; };
-		AD0DA04F1935C35700A9846E /* tabbar_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0431935C35700A9846E /* tabbar_4@2x.png */; };
 		AD0DA0501935C35700A9846E /* tabbar_mainbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0441935C35700A9846E /* tabbar_mainbtn.png */; };
 		AD0DA0511935C35700A9846E /* tabbar_mainbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0451935C35700A9846E /* tabbar_mainbtn@2x.png */; };
 		AD0DA0521935C35700A9846E /* tabbar_mainbtn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0461935C35700A9846E /* tabbar_mainbtn_bg.png */; };
@@ -311,6 +303,16 @@
 		ADAA5E06192343590040ED10 /* FirstViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E04192343590040ED10 /* FirstViewController.mm */; };
 		ADAA5E07192343590040ED10 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAA5E05192343590040ED10 /* FirstViewController.xib */; };
 		ADAA5E0F192343880040ED10 /* tabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA5E0E192343880040ED10 /* tabbarView.m */; };
+		ADAB191F194A8ED20081C8FA /* tabbar_0.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB1915194A8ED20081C8FA /* tabbar_0.png */; };
+		ADAB1920194A8ED20081C8FA /* tabbar_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB1916194A8ED20081C8FA /* tabbar_0@2x.png */; };
+		ADAB1921194A8ED20081C8FA /* tabbar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB1917194A8ED20081C8FA /* tabbar_1.png */; };
+		ADAB1922194A8ED20081C8FA /* tabbar_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB1918194A8ED20081C8FA /* tabbar_1@2x.png */; };
+		ADAB1923194A8ED20081C8FA /* tabbar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB1919194A8ED20081C8FA /* tabbar_2.png */; };
+		ADAB1924194A8ED20081C8FA /* tabbar_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB191A194A8ED20081C8FA /* tabbar_2@2x.png */; };
+		ADAB1925194A8ED20081C8FA /* tabbar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB191B194A8ED20081C8FA /* tabbar_3.png */; };
+		ADAB1926194A8ED20081C8FA /* tabbar_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB191C194A8ED20081C8FA /* tabbar_3@2x.png */; };
+		ADAB1927194A8ED20081C8FA /* tabbar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB191D194A8ED20081C8FA /* tabbar_4.png */; };
+		ADAB1928194A8ED20081C8FA /* tabbar_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAB191E194A8ED20081C8FA /* tabbar_4@2x.png */; };
 		ADCC7A181929ACDC005B00B4 /* RTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCC7A161929ACDC005B00B4 /* RTLoginViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		ADCC7A191929ACDC005B00B4 /* RTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADCC7A171929ACDC005B00B4 /* RTLoginViewController.xib */; };
 		ADCC7A3B1929AF64005B00B4 /* login_avatar_default.png in Resources */ = {isa = PBXBuildFile; fileRef = ADCC7A1E1929AF64005B00B4 /* login_avatar_default.png */; };
@@ -462,14 +464,6 @@
 		AD0DA0361935C06800A9846E /* RTMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMsgViewController.h; sourceTree = "<group>"; };
 		AD0DA0371935C06800A9846E /* RTMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMsgViewController.m; sourceTree = "<group>"; };
 		AD0DA0381935C06800A9846E /* RTMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTMsgViewController.xib; sourceTree = "<group>"; };
-		AD0DA03C1935C35700A9846E /* tabbar_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_0.png; sourceTree = "<group>"; };
-		AD0DA03D1935C35700A9846E /* tabbar_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_0@2x.png"; sourceTree = "<group>"; };
-		AD0DA03E1935C35700A9846E /* tabbar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_1.png; sourceTree = "<group>"; };
-		AD0DA03F1935C35700A9846E /* tabbar_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_1@2x.png"; sourceTree = "<group>"; };
-		AD0DA0401935C35700A9846E /* tabbar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_3.png; sourceTree = "<group>"; };
-		AD0DA0411935C35700A9846E /* tabbar_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_3@2x.png"; sourceTree = "<group>"; };
-		AD0DA0421935C35700A9846E /* tabbar_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_4.png; sourceTree = "<group>"; };
-		AD0DA0431935C35700A9846E /* tabbar_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_4@2x.png"; sourceTree = "<group>"; };
 		AD0DA0441935C35700A9846E /* tabbar_mainbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_mainbtn.png; sourceTree = "<group>"; };
 		AD0DA0451935C35700A9846E /* tabbar_mainbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mainbtn@2x.png"; sourceTree = "<group>"; };
 		AD0DA0461935C35700A9846E /* tabbar_mainbtn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_mainbtn_bg.png; sourceTree = "<group>"; };
@@ -772,6 +766,16 @@
 		ADAA5E05192343590040ED10 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		ADAA5E0D192343880040ED10 /* tabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tabbarView.h; sourceTree = "<group>"; };
 		ADAA5E0E192343880040ED10 /* tabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tabbarView.m; sourceTree = "<group>"; };
+		ADAB1915194A8ED20081C8FA /* tabbar_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_0.png; sourceTree = "<group>"; };
+		ADAB1916194A8ED20081C8FA /* tabbar_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_0@2x.png"; sourceTree = "<group>"; };
+		ADAB1917194A8ED20081C8FA /* tabbar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_1.png; sourceTree = "<group>"; };
+		ADAB1918194A8ED20081C8FA /* tabbar_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_1@2x.png"; sourceTree = "<group>"; };
+		ADAB1919194A8ED20081C8FA /* tabbar_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_2.png; sourceTree = "<group>"; };
+		ADAB191A194A8ED20081C8FA /* tabbar_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_2@2x.png"; sourceTree = "<group>"; };
+		ADAB191B194A8ED20081C8FA /* tabbar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_3.png; sourceTree = "<group>"; };
+		ADAB191C194A8ED20081C8FA /* tabbar_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_3@2x.png"; sourceTree = "<group>"; };
+		ADAB191D194A8ED20081C8FA /* tabbar_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_4.png; sourceTree = "<group>"; };
+		ADAB191E194A8ED20081C8FA /* tabbar_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_4@2x.png"; sourceTree = "<group>"; };
 		ADCC7A151929ACDC005B00B4 /* RTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLoginViewController.h; sourceTree = "<group>"; };
 		ADCC7A161929ACDC005B00B4 /* RTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLoginViewController.m; sourceTree = "<group>"; };
 		ADCC7A171929ACDC005B00B4 /* RTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTLoginViewController.xib; sourceTree = "<group>"; };
@@ -1076,16 +1080,18 @@
 		AD0DA03B1935C35700A9846E /* tabbarimage */ = {
 			isa = PBXGroup;
 			children = (
+				ADAB1915194A8ED20081C8FA /* tabbar_0.png */,
+				ADAB1916194A8ED20081C8FA /* tabbar_0@2x.png */,
+				ADAB1917194A8ED20081C8FA /* tabbar_1.png */,
+				ADAB1918194A8ED20081C8FA /* tabbar_1@2x.png */,
+				ADAB1919194A8ED20081C8FA /* tabbar_2.png */,
+				ADAB191A194A8ED20081C8FA /* tabbar_2@2x.png */,
+				ADAB191B194A8ED20081C8FA /* tabbar_3.png */,
+				ADAB191C194A8ED20081C8FA /* tabbar_3@2x.png */,
+				ADAB191D194A8ED20081C8FA /* tabbar_4.png */,
+				ADAB191E194A8ED20081C8FA /* tabbar_4@2x.png */,
 				AD70D1961946DE0800F6D118 /* tabbar_5.png */,
 				AD70D1971946DE0800F6D118 /* tabbar_5@2x.png */,
-				AD0DA03C1935C35700A9846E /* tabbar_0.png */,
-				AD0DA03D1935C35700A9846E /* tabbar_0@2x.png */,
-				AD0DA03E1935C35700A9846E /* tabbar_1.png */,
-				AD0DA03F1935C35700A9846E /* tabbar_1@2x.png */,
-				AD0DA0401935C35700A9846E /* tabbar_3.png */,
-				AD0DA0411935C35700A9846E /* tabbar_3@2x.png */,
-				AD0DA0421935C35700A9846E /* tabbar_4.png */,
-				AD0DA0431935C35700A9846E /* tabbar_4@2x.png */,
 				AD0DA0441935C35700A9846E /* tabbar_mainbtn.png */,
 				AD0DA0451935C35700A9846E /* tabbar_mainbtn@2x.png */,
 				AD0DA0461935C35700A9846E /* tabbar_mainbtn_bg.png */,
@@ -1828,6 +1834,7 @@
 				AD12F66C192634B400921894 /* messages_photo_image_mask.png in Resources */,
 				AD12F639192634B400921894 /* avatar_enterprise_vip.png in Resources */,
 				AD12F642192634B400921894 /* blueArrow@2x.png in Resources */,
+				ADAB1928194A8ED20081C8FA /* tabbar_4@2x.png in Resources */,
 				AD12F6A2192634B400921894 /* tabbar_background.png in Resources */,
 				AD12F68B192634B400921894 /* popover_button@2x.png in Resources */,
 				042716EF19375CE100FD3EF3 /* SecondViewController.xib in Resources */,
@@ -1858,25 +1865,25 @@
 				AD542600193715E4005F10F4 /* dtf.jpg in Resources */,
 				AD12F64C192634B400921894 /* compose_locatebutton_background_succeeded.png in Resources */,
 				AD3C8D3F1947F44D00357DA0 /* RTSportPlanViewController.xib in Resources */,
+				ADAB1922194A8ED20081C8FA /* tabbar_1@2x.png in Resources */,
 				AD12F68E192634B400921894 /* profile_pop_background.png in Resources */,
 				ADAA5E02192341200040ED10 /* RTMainViewController.xib in Resources */,
 				ADCC7A6A1929E5A6005B00B4 /* RTRegisterViewController.xib in Resources */,
 				AD12F65E192634B400921894 /* grayArrow.png in Resources */,
 				AD12F67A192634B400921894 /* navigationbar_floating_bar.png in Resources */,
+				ADAB1927194A8ED20081C8FA /* tabbar_4.png in Resources */,
 				AD12F674192634B400921894 /* navigationbar_back_highlighted.png in Resources */,
 				AD12F675192634B400921894 /* navigationbar_background@2x.png in Resources */,
-				AD0DA0491935C35700A9846E /* tabbar_0@2x.png in Resources */,
+				ADAB1923194A8ED20081C8FA /* tabbar_2.png in Resources */,
 				AD12F640192634B400921894 /* blackArrow@2x.png in Resources */,
 				AD12F6A3192634B400921894 /* tabbar_discover.png in Resources */,
 				042716FE19375D0200FD3EF3 /* RTSndMedicationViewController.xib in Resources */,
 				AD12F6AE192634B400921894 /* text_badge.png in Resources */,
 				ADCC7A191929ACDC005B00B4 /* RTLoginViewController.xib in Resources */,
-				AD0DA04B1935C35700A9846E /* tabbar_1@2x.png in Resources */,
 				ADCC7A451929AF64005B00B4 /* login_btn_blue_press@2x.png in Resources */,
 				04FB29DB1941ACC100B96AA7 /* 3(1).png in Resources */,
 				AD12F655192634B400921894 /* compose_toolbar_background.png in Resources */,
 				AD12F6BC192634B400921894 /* timeline_retweet_count_icon@2x.png in Resources */,
-				AD0DA04A1935C35700A9846E /* tabbar_1.png in Resources */,
 				AD12F6B7192634B400921894 /* timeline_membership_icon@2x.png in Resources */,
 				AD0DA05C1935C57700A9846E /* add-master.png in Resources */,
 				AD12F6A7192634B400921894 /* tabbar_message_center.png in Resources */,
@@ -1903,14 +1910,12 @@
 				AD542612193716AC005F10F4 /* yxqy.jpg in Resources */,
 				AD12F649192634B400921894 /* compose_emoticonbutton_background_highlighted.png in Resources */,
 				AD12F647192634B400921894 /* compose_clearbutton_background_highlighted.png in Resources */,
-				AD0DA04C1935C35700A9846E /* tabbar_3.png in Resources */,
 				AD480F781924A64F0081DAFA /* profile@2x.png in Resources */,
 				AD12F691192634B400921894 /* profile_pop_button_background_top.png in Resources */,
 				AD12F695192634B400921894 /* settings_about_icon.png in Resources */,
 				AD12F68A192634B400921894 /* popover_button.png in Resources */,
 				AD12F645192634B400921894 /* compose_camerabutton_background_highlighted.png in Resources */,
 				AD12F6C7192634B400921894 /* toolbar_refresh.png in Resources */,
-				AD0DA04E1935C35700A9846E /* tabbar_4.png in Resources */,
 				AD12F689192634B400921894 /* popover_background_selected@2x.png in Resources */,
 				AD542601193715E4005F10F4 /* gm.jpg in Resources */,
 				ADCC7A491929AF64005B00B4 /* login_dropdown_bg@2x.png in Resources */,
@@ -1944,6 +1949,7 @@
 				AD12F6A5192634B400921894 /* tabbar_home.png in Resources */,
 				AD12F66A192634B400921894 /* login_signinbutton_background.png in Resources */,
 				AD12F6B1192634B400921894 /* timeline_comment_count_icon.png in Resources */,
+				ADAB1924194A8ED20081C8FA /* tabbar_2@2x.png in Resources */,
 				AD542602193715E4005F10F4 /* hs.jpg in Resources */,
 				AD12F6C6192634B400921894 /* toolbar_more_highlighted.png in Resources */,
 				AD12F65C192634B400921894 /* empty_retweet.png in Resources */,
@@ -1962,6 +1968,7 @@
 				AD12F63B192634B400921894 /* avatar_vgirl@2x.png in Resources */,
 				AD12F6AD192634B400921894 /* tabbar_slider.png in Resources */,
 				ADCC7A401929AF64005B00B4 /* login_bg.jpg in Resources */,
+				ADAB1921194A8ED20081C8FA /* tabbar_1.png in Resources */,
 				AD12F64D192634B400921894 /* compose_locatebutton_background_succeeded_highlighted.png in Resources */,
 				AD12F6C0192634B400921894 /* toolbar_background.png in Resources */,
 				AD4810341924BF430081DAFA /* TencentStreetView.bundle in Resources */,
@@ -1976,6 +1983,7 @@
 				AD12F6AB192634B400921894 /* tabbar_profile.png in Resources */,
 				04FB29DC1941ACC100B96AA7 /* 1(1).png in Resources */,
 				AD12F678192634B400921894 /* navigationbar_compose.png in Resources */,
+				ADAB1925194A8ED20081C8FA /* tabbar_3.png in Resources */,
 				ADCC7A3B1929AF64005B00B4 /* login_avatar_default.png in Resources */,
 				AD0DA0601935C57700A9846E /* health-master1.png in Resources */,
 				AD12F6CB192634B400921894 /* userinfo_relationship_editprofilebutton_background.png in Resources */,
@@ -2001,12 +2009,10 @@
 				AD542609193715E4005F10F4 /* sc.jpg in Resources */,
 				AD12F6B9192634B400921894 /* timeline_new_status_background@2x.png in Resources */,
 				AD46FB11193431CE00F19BC4 /* RTPillsTableViewCell.xib in Resources */,
-				AD0DA04D1935C35700A9846E /* tabbar_3@2x.png in Resources */,
 				ADA9874A19338F5300B98092 /* kugua.jpg in Resources */,
 				0469EB741928871D00388022 /* locationMark.jpg in Resources */,
 				ADCC7A481929AF64005B00B4 /* login_dropdown_bg.png in Resources */,
 				ADAA5E07192343590040ED10 /* FirstViewController.xib in Resources */,
-				AD0DA04F1935C35700A9846E /* tabbar_4@2x.png in Resources */,
 				ADCC7A471929AF64005B00B4 /* login_dropdown_avatar_border@2x.png in Resources */,
 				AD12F6B4192634B400921894 /* timeline_like_count_icon@2x.png in Resources */,
 				ADE39B891923A78600E4278B /* cube.png in Resources */,
@@ -2039,8 +2045,8 @@
 				AD12F683192634B400921894 /* navigationbar_messages.png in Resources */,
 				AD480F62192497CC0081DAFA /* Window Background@2x.png in Resources */,
 				AD12F638192634B400921894 /* avatar_default_small@2x.png in Resources */,
+				ADAB191F194A8ED20081C8FA /* tabbar_0.png in Resources */,
 				AD12F6A9192634B400921894 /* tabbar_more.png in Resources */,
-				AD0DA0481935C35700A9846E /* tabbar_0.png in Resources */,
 				ADCC7A421929AF64005B00B4 /* login_btn_blue_nor.png in Resources */,
 				AD12F673192634B400921894 /* navigationbar_back.png in Resources */,
 				AD12F697192634B400921894 /* settings_browsemode_icon.png in Resources */,
@@ -2057,6 +2063,7 @@
 				AD480F711924A64F0081DAFA /* burger.png in Resources */,
 				042053B61940793500D0C9EE /* RTUserProfileViewController.xib in Resources */,
 				AD12F68F192634B400921894 /* profile_pop_button_background_bottom.png in Resources */,
+				ADAB1926194A8ED20081C8FA /* tabbar_3@2x.png in Resources */,
 				AD12F669192634B400921894 /* login_background.png in Resources */,
 				ADCC7A531929AF64005B00B4 /* login_textfield.png in Resources */,
 				AD12F663192634B400921894 /* like_left_button_background.png in Resources */,
@@ -2067,6 +2074,7 @@
 				04FB29DA1941ACC100B96AA7 /* 2(1).png in Resources */,
 				AD0DA0661935C62100A9846E /* greenline.png in Resources */,
 				AD0DA0611935C57700A9846E /* pills-master.png in Resources */,
+				ADAB1920194A8ED20081C8FA /* tabbar_0@2x.png in Resources */,
 				AD12F6C2192634B400921894 /* toolbar_comment_highlighted.png in Resources */,
 				0469EB5D192885A500388022 /* GYBDetailViewController.xib in Resources */,
 				ADE39B871923A78600E4278B /* block.png in Resources */,

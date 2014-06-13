@@ -42,9 +42,9 @@
     self.sportTimeView.userInteractionEnabled=YES;
     
     UITapGestureRecognizer *Gesture3=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showSelectView:)];
-    [self.sportSpeedView addGestureRecognizer:Gesture3];
+    [self.sportLastView addGestureRecognizer:Gesture3];
     [Gesture3 view].tag=3;
-    self.sportSpeedView.userInteractionEnabled=YES;
+    self.sportLastView.userInteractionEnabled=YES;
  
     
     sportType=[[NSMutableArray alloc]initWithObjects:@"跑步",@"步行",@"骑行",@"爬楼梯",@"乒乓球",@"羽毛球",@"篮球",@"足球",@"网球",@"健身操",@"游泳",  nil];
@@ -53,7 +53,7 @@
         timePicker=[[UIDatePicker alloc]initWithFrame:CGRectMake(0,30,320,100)];
         [timePicker setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
         [timePicker setDate:[NSDate date] animated:YES];
-        [timePicker setMaximumDate:[NSDate date]];
+        //[timePicker setMaximumDate:[NSDate date]];
         
         timePicker.tag=0;
     }
@@ -68,6 +68,11 @@
         actionView = [[UIActionSheet alloc] initWithTitle:@"请选择运动项目\n\n\n\n\n\n\n\n\n\n\n\n\n" delegate:self  cancelButtonTitle:@"取消" destructiveButtonTitle:@"完成" otherButtonTitles:nil, nil];
         actionView.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
         [actionView setBounds:CGRectMake(0,0,100,200)];
+    }
+    
+    if (!_mapView) {
+        _mapView= [[RTMapView alloc] initWithFrame:CGRectMake(0, 220, 320, 308)];
+        [self.view addSubview:_mapView];
     }
 }
 
@@ -108,7 +113,6 @@
         [actionView showInView:self.view];
         timePicker.tag=1;
     }
-   
 }
 
 //*********************pickerView********************//

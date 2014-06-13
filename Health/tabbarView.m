@@ -24,7 +24,7 @@
 
 -(void)layoutView
 {
-    _tabbarView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tabbar_5"]];
+    _tabbarView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tabbar_2"]];
     [_tabbarView setFrame:CGRectMake(0, 9, _tabbarView.bounds.size.width, 51)];
     [_tabbarView setUserInteractionEnabled:YES];
     
@@ -114,7 +114,7 @@
 
 -(void)btn2Click:(id)sender
 {
-    [_tabbarView setImage:[UIImage imageNamed:@"tabbar_5"]];
+    [_tabbarView setImage:[UIImage imageNamed:@"tabbar_2"]];
     [self.delegate touchCenterBtn];
 }
 
