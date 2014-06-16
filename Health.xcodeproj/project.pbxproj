@@ -244,6 +244,8 @@
 		AD4810611924BFC10081DAFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810601924BFC10081DAFA /* OpenGLES.framework */; };
 		AD4810631924BFC90081DAFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810621924BFC90081DAFA /* SystemConfiguration.framework */; };
 		AD4810671924C0930081DAFA /* RTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4810661924C0930081DAFA /* RTMapView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AD4A30E1194D9CE80078ABFB /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = AD4A30E0194D9CE80078ABFB /* ok.png */; };
+		AD4A30E4194DADE60078ABFB /* RTPlanData.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4A30E3194DADE60078ABFB /* RTPlanData.m */; };
 		AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC132192C53D1006E6898 /* PICircularProgressView.m */; };
 		AD4AC138192CCF9D006E6898 /* RTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC136192CCF9D006E6898 /* RTTableViewCell.m */; };
 		AD4AC139192CCF9D006E6898 /* RTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4AC137192CCF9D006E6898 /* RTTableViewCell.xib */; };
@@ -691,6 +693,9 @@
 		AD4810621924BFC90081DAFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AD4810651924C0930081DAFA /* RTMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMapView.h; sourceTree = "<group>"; };
 		AD4810661924C0930081DAFA /* RTMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMapView.m; sourceTree = "<group>"; };
+		AD4A30E0194D9CE80078ABFB /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
+		AD4A30E2194DADE60078ABFB /* RTPlanData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPlanData.h; sourceTree = "<group>"; };
+		AD4A30E3194DADE60078ABFB /* RTPlanData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPlanData.m; sourceTree = "<group>"; };
 		AD4AC131192C53D1006E6898 /* PICircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PICircularProgressView.h; sourceTree = "<group>"; };
 		AD4AC132192C53D1006E6898 /* PICircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PICircularProgressView.m; sourceTree = "<group>"; };
 		AD4AC135192CCF9D006E6898 /* RTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTableViewCell.h; sourceTree = "<group>"; };
@@ -1004,6 +1009,7 @@
 		0469EB72192886FF00388022 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				AD4A30E0194D9CE80078ABFB /* ok.png */,
 				0427170119375D1E00FD3EF3 /* white.jpg */,
 				0427170219375D1E00FD3EF3 /* renti(1)_meitu_1 (1).jpg */,
 				0427170319375D1E00FD3EF3 /* renti(1).jpg */,
@@ -1557,6 +1563,8 @@
 				AD3C8D3B1947F44D00357DA0 /* RTSportPlanViewController.h */,
 				AD3C8D3C1947F44D00357DA0 /* RTSportPlanViewController.m */,
 				AD3C8D3D1947F44D00357DA0 /* RTSportPlanViewController.xib */,
+				AD4A30E2194DADE60078ABFB /* RTPlanData.h */,
+				AD4A30E3194DADE60078ABFB /* RTPlanData.m */,
 			);
 			name = FirstViewController;
 			sourceTree = "<group>";
@@ -1835,6 +1843,7 @@
 				AD12F639192634B400921894 /* avatar_enterprise_vip.png in Resources */,
 				AD12F642192634B400921894 /* blueArrow@2x.png in Resources */,
 				ADAB1928194A8ED20081C8FA /* tabbar_4@2x.png in Resources */,
+				AD4A30E1194D9CE80078ABFB /* ok.png in Resources */,
 				AD12F6A2192634B400921894 /* tabbar_background.png in Resources */,
 				AD12F68B192634B400921894 /* popover_button@2x.png in Resources */,
 				042716EF19375CE100FD3EF3 /* SecondViewController.xib in Resources */,
@@ -2168,6 +2177,7 @@
 				042716FB19375D0200FD3EF3 /* RTSndDoctorDetailViewController.m in Sources */,
 				AD5425BC1936C374005F10F4 /* RTCollectionViewCell.m in Sources */,
 				AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */,
+				AD4A30E4194DADE60078ABFB /* RTPlanData.m in Sources */,
 				04FE00751928AADD002FB4E1 /* RTGYBNaviViewController.m in Sources */,
 				ADCC7A691929E5A5005B00B4 /* RTRegisterViewController.m in Sources */,
 				ADAA5DE0192341090040ED10 /* RTAppDelegate.m in Sources */,

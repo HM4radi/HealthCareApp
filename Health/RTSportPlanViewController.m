@@ -84,20 +84,47 @@
     [imgview1 addGestureRecognizer:backGesture1];
     imgview1.userInteractionEnabled=YES;
     
+    //确认按钮
+    UIImageView *imgview2=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
+    [imgview2 setImage:[UIImage imageNamed:@"ok.png"]];
+    [self.NavBar addSubview:imgview2];
+    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchOK)];
+    [imgview2 addGestureRecognizer:backGesture2];
+    imgview2.userInteractionEnabled=YES;
+
+    
     self.selectRoute.tag=0;
+    
+    self.removeBtn.hidden=YES;
+    
+    routeCoord=[[NSArray alloc]init];
+    
+    //plandata
+    planData=[RTPlanData shareInstance];
 }
+
 
 - (IBAction)selectRoute:(id)sender {
     if (self.selectRoute.tag==0) {
-        [self.selectRoute setTitle:@"停止选择路线" forState:UIControlStateNormal];
+        [self.selectRoute setTitle:@"完成选择路线" forState:UIControlStateNormal];
         _mapView.selecting=YES;
         self.selectRoute.tag=1;
+        self.removeBtn.hidden=NO;
     }else if (self.selectRoute.tag==1){
         [self.selectRoute setTitle:@"开始选择路线" forState:UIControlStateNormal];
         _mapView.selecting=NO;
         self.selectRoute.tag=0;
+        self.removeBtn.hidden=YES;
+        if (_mapView.routeCoord) {
+            routeCoord=_mapView.routeCoord;
+        }
     }
 }
+
+- (IBAction)removeBtn:(id)sender {
+    [_mapView removeLastPoint];
+}
+
 - (void)showSelectView:(UITapGestureRecognizer *)sender{
     if ([sender view].tag==1) {
         if (timePicker.tag!=0) {
@@ -144,11 +171,12 @@
             if (timePicker.tag==1) {
                 NSString *dtString=[dateFormatter1 stringFromDate:[timePicker date]];
                 self.startTimeLabel.text=dtString;
+                planData.startTime=dtString;
             }else if (timePicker.tag==2){
                 NSString *dtString=[dateFormatter2 stringFromDate:[timePicker date]];
                 self.lastTimeLabel.text=dtString;
-            }
-            
+                planData.lastTime=dtString;
+            }            
         }
     }
 }
@@ -163,7 +191,6 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     
     return [sportType count];
-
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -176,8 +203,13 @@
     selectedType=[sportType objectAtIndex:row];
 }
 
-
 - (void)touchBack{
+    _mapView=nil;
+    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)touchOK{
     _mapView=nil;
     self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="NavBar" destination="Uvq-9h-1pl" id="AoR-Qq-gpm"/>
                 <outlet property="lastTimeLabel" destination="FWX-D6-8TU" id="S2F-wp-Rav"/>
+                <outlet property="removeBtn" destination="O9j-aO-Gzc" id="BqZ-ZK-rX7"/>
                 <outlet property="selectRoute" destination="ecE-VY-rtf" id="9nl-uy-av2"/>
                 <outlet property="sportLastView" destination="TaU-NO-SAG" id="MxD-e9-Hi2"/>
                 <outlet property="sportTimeView" destination="rEP-U1-sf6" id="dTs-kC-jCr"/>
@@ -135,6 +136,15 @@
                     <state key="normal" title="开始选择路线"/>
                     <connections>
                         <action selector="selectRoute:" destination="-1" eventType="touchUpInside" id="rBu-WH-TCd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O9j-aO-Gzc">
+                    <rect key="frame" x="270" y="193" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="移除"/>
+                    <connections>
+                        <action selector="removeBtn:" destination="-1" eventType="touchUpInside" id="rww-Ge-Ayz"/>
                     </connections>
                 </button>
             </subviews>

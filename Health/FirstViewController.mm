@@ -104,6 +104,9 @@
     //stepCounter
     stepCounter=[RTStepCounter sharedRTSterCounter];
     [stepCounter addObserver:self forKeyPath:@"step" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    
+    //plandata
+    planData=[RTPlanData shareInstance];
 }
 
 
@@ -335,10 +338,8 @@
     } completion:^(BOOL finished){
         self.labelValues.hidden=YES;
         self.labelValues.alpha = 1.0;
-        self.labelDates.alpha = 1.0;
-        
+        self.labelDates.alpha = 1.0;        
     }];
-    
 }
 
 -(void)addLineAnno{
@@ -379,10 +380,8 @@
 -(void)addPointAnno:(CLLocationCoordinate2D)point{
     
     [currentAnno setCoordinate:point];
-    [currentAnno setTitle:@"银科大厦"];
-    [currentAnno setSubtitle:@"北京市区海淀区苏州街银科大厦"];
+    [currentAnno setTitle:@"途经点"];
     [_mapView addPointAnno:currentAnno];
-
 }
 
 

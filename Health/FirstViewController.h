@@ -13,7 +13,7 @@
 #import "BEMSimpleLineGraphView.h"
 #import "RTStepCounter.h"
 #import "RTSportPlanViewController.h"
-
+#import "RTPlanData.h"
 @interface FirstViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,BEMSimpleLineGraphDelegate>
 {
     UINavigationItem *navigationItem;
@@ -35,6 +35,7 @@
     RTStepCounter *stepCounter;
     
     RTSportPlanViewController *sportPlanVC;
+    RTPlanData *planData;
 }
 
 @property (retain, nonatomic) IBOutlet UINavigationBar *navigationbar;

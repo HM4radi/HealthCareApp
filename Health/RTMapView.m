@@ -12,6 +12,7 @@
 @implementation RTMapView
 @synthesize mapView = _mapView;
 @synthesize selecting=_selecting;
+@synthesize routeCoord;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -24,6 +25,7 @@
         _mapView.userInteractionEnabled=YES;
         _mapView.delegate = self;
         route=[[NSMutableArray alloc]init];
+        routeCoord=[[NSMutableArray alloc]init];
         //[_mapView setShowsUserLocation:YES];
         self.selecting=NO;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
@@ -47,9 +49,12 @@
         QPointAnnotation* annotation = [[QPointAnnotation alloc]init];
         CLLocationCoordinate2D p=[_mapView convertPoint:pt toCoordinateFromView:[touch view]];
         [annotation setCoordinate:p];
+        [annotation setTitle:[NSString stringWithFormat:@"途经点%d",[route count]+1]];
         NSString *coordinate=NSStringFromCGPoint(CGPointMake(p.longitude, p.latitude));
-        [route addObject:coordinate];
+        [routeCoord addObject:coordinate];
+        [route addObject:annotation];
         [_mapView addAnnotation:annotation];
+        [annotation release];
     }
     return YES;
 }
@@ -59,7 +64,26 @@
     _selecting=selecting;
     
     if (_selecting){
-        [route removeAllObjects];
+        if ([route count]>0) {
+            for (QPointAnnotation* annotation in route){
+                [_mapView removeAnnotation:annotation];
+                [annotation release];
+            }
+            [routeCoord removeAllObjects];
+            [route removeAllObjects];
+        }
+    }
+}
+
+- (void)removeLastPoint{
+    if ([routeCoord count]>0) {
+        QPointAnnotation* _annotation=[route lastObject];
+        if (_annotation) {
+            [routeCoord removeLastObject];
+            [route removeLastObject];
+            [_mapView removeAnnotation:_annotation];
+            [_annotation dealloc];
+        }
     }
 }
 
@@ -107,7 +131,7 @@
 
 - (void)mapView:(QMapView *)mapView didFailToLocateUserWithError:(NSError *)error
 {
-    NSLog(@"%@",error);
+    //NSLog(@"%@",error);
 }
 
 /**************************坐标转换****************************/
@@ -180,14 +204,14 @@
 	if ([annotation isKindOfClass:[QPointAnnotation class]]) {
         static NSString* reuseIdentifier = @"annotation";
         
-        QPinAnnotationView* newAnnotation = (QPinAnnotationView*)[_mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+//        QPinAnnotationView* newAnnotation = (QPinAnnotationView*)[_mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
         
-        if (nil == newAnnotation) {
-            newAnnotation = [[QPinAnnotationView alloc]
+        //if (nil == newAnnotation) {
+            QPinAnnotationView* newAnnotation = [[QPinAnnotationView alloc]
                              initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
             
             [newAnnotation autorelease];
-        }
+        //}
         
 		newAnnotation.pinColor = QPinAnnotationColorRed;
 		newAnnotation.animatesDrop = YES;
@@ -229,7 +253,7 @@
 	[alertView release];
     mach_timebase_info_data_t info;
     mach_timebase_info(&info);
-    uint64_t start = mach_absolute_time();
+    //uint64_t start = mach_absolute_time();
     UIImage * image = [UIImage imageNamed:@"pin_yellow.png"];
     //    image.
     UIGraphicsBeginImageContext(CGSizeMake(image.size.width/2,image.size.height/2));

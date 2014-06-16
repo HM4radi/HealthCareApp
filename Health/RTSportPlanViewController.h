@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RTMapView.h"
+#import "RTPlanData.h"
 
 @interface RTSportPlanViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,UIActionSheetDelegate>{
     NSMutableArray *sportType;
@@ -22,6 +23,9 @@
     
     NSDateFormatter *dateFormatter1;
     NSDateFormatter *dateFormatter2;
+    
+    NSArray *routeCoord;
+    RTPlanData *planData;
 }
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *NavBar;
@@ -34,5 +38,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectRoute;
+@property (weak, nonatomic) IBOutlet UIButton *removeBtn;
 
 @end

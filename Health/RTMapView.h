@@ -14,16 +14,17 @@
 {
     IBOutlet QMapView* _mapView;
     NSMutableArray *route;
-    //BOOL selecting;
+    NSMutableArray *routeCoord;
 }
 
 @property(nonatomic, retain) QAppKeyCheck* appKeyCheck;
 @property(nonatomic, retain)IBOutlet QMapView* mapView;
-@property (nonatomic, retain) NSMutableArray *route;
+@property (nonatomic, retain) NSMutableArray *routeCoord;
 @property (nonatomic)BOOL selecting;
 - (void)addPointAnno:(QPointAnnotation*) pointAnno;
 - (void)removePointAnno:(QPointAnnotation*) pointAnno;
 - (void)addPolyline:(CLLocationCoordinate2D[])polylineArray withcount:(int)count;
 - (CLLocationCoordinate2D)convertPoint:(CGPoint)point;
 - (void)setSelecting:(BOOL)selecting;
+- (void)removeLastPoint;
 @end
