@@ -19,7 +19,7 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic) Reachability *internetReachability;
+@property (strong, nonatomic) Reachability *internetReachability;
 @property (nonatomic) BOOL isReachable;
 @property (nonatomic) BOOL beenReachable;
 

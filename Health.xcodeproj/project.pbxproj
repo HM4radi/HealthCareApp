@@ -55,6 +55,8 @@
 		04FB29DC1941ACC100B96AA7 /* 1(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 04FB29D91941ACC100B96AA7 /* 1(1).png */; };
 		04FE00751928AADD002FB4E1 /* RTGYBNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE00731928AADD002FB4E1 /* RTGYBNaviViewController.m */; };
 		04FE00761928AADD002FB4E1 /* RTGYBNaviViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FE00741928AADD002FB4E1 /* RTGYBNaviViewController.xib */; };
+		AD088134195084EC00124A0B /* RTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD088132195084EC00124A0B /* RTDetailViewController.m */; };
+		AD088135195084EC00124A0B /* RTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD088133195084EC00124A0B /* RTDetailViewController.xib */; };
 		AD0DA0391935C06800A9846E /* RTMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0DA0371935C06800A9846E /* RTMsgViewController.m */; };
 		AD0DA03A1935C06800A9846E /* RTMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0381935C06800A9846E /* RTMsgViewController.xib */; };
 		AD0DA0501935C35700A9846E /* tabbar_mainbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0DA0441935C35700A9846E /* tabbar_mainbtn.png */; };
@@ -243,7 +245,7 @@
 		AD48105F1924BFBA0081DAFA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD48105E1924BFBA0081DAFA /* CoreText.framework */; };
 		AD4810611924BFC10081DAFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810601924BFC10081DAFA /* OpenGLES.framework */; };
 		AD4810631924BFC90081DAFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4810621924BFC90081DAFA /* SystemConfiguration.framework */; };
-		AD4810671924C0930081DAFA /* RTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4810661924C0930081DAFA /* RTMapView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AD4810671924C0930081DAFA /* RTMapView.mm in Sources */ = {isa = PBXBuildFile; fileRef = AD4810661924C0930081DAFA /* RTMapView.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AD4A30E1194D9CE80078ABFB /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = AD4A30E0194D9CE80078ABFB /* ok.png */; };
 		AD4A30E4194DADE60078ABFB /* RTPlanData.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4A30E3194DADE60078ABFB /* RTPlanData.m */; };
 		AD4AC133192C53D1006E6898 /* PICircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4AC132192C53D1006E6898 /* PICircularProgressView.m */; };
@@ -463,6 +465,9 @@
 		04FE00741928AADD002FB4E1 /* RTGYBNaviViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTGYBNaviViewController.xib; sourceTree = "<group>"; };
 		18288DC4D62C4FAABD5DEDCD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF992E255A471E9113D3CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		AD088131195084EC00124A0B /* RTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDetailViewController.h; sourceTree = "<group>"; };
+		AD088132195084EC00124A0B /* RTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDetailViewController.m; sourceTree = "<group>"; };
+		AD088133195084EC00124A0B /* RTDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTDetailViewController.xib; sourceTree = "<group>"; };
 		AD0DA0361935C06800A9846E /* RTMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMsgViewController.h; sourceTree = "<group>"; };
 		AD0DA0371935C06800A9846E /* RTMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMsgViewController.m; sourceTree = "<group>"; };
 		AD0DA0381935C06800A9846E /* RTMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTMsgViewController.xib; sourceTree = "<group>"; };
@@ -692,7 +697,7 @@
 		AD4810601924BFC10081DAFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		AD4810621924BFC90081DAFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AD4810651924C0930081DAFA /* RTMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMapView.h; sourceTree = "<group>"; };
-		AD4810661924C0930081DAFA /* RTMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMapView.m; sourceTree = "<group>"; };
+		AD4810661924C0930081DAFA /* RTMapView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RTMapView.mm; sourceTree = "<group>"; };
 		AD4A30E0194D9CE80078ABFB /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		AD4A30E2194DADE60078ABFB /* RTPlanData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPlanData.h; sourceTree = "<group>"; };
 		AD4A30E3194DADE60078ABFB /* RTPlanData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPlanData.m; sourceTree = "<group>"; };
@@ -1063,6 +1068,35 @@
 			name = "Custom Cell";
 			sourceTree = "<group>";
 		};
+		AD08813619508E6400124A0B /* sportDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				AD088131195084EC00124A0B /* RTDetailViewController.h */,
+				AD088132195084EC00124A0B /* RTDetailViewController.m */,
+				AD088133195084EC00124A0B /* RTDetailViewController.xib */,
+			);
+			name = sportDetailView;
+			sourceTree = "<group>";
+		};
+		AD08813719508E9300124A0B /* sportPlanView */ = {
+			isa = PBXGroup;
+			children = (
+				AD3C8D3B1947F44D00357DA0 /* RTSportPlanViewController.h */,
+				AD3C8D3C1947F44D00357DA0 /* RTSportPlanViewController.m */,
+				AD3C8D3D1947F44D00357DA0 /* RTSportPlanViewController.xib */,
+			);
+			name = sportPlanView;
+			sourceTree = "<group>";
+		};
+		AD08813819508EB600124A0B /* planData */ = {
+			isa = PBXGroup;
+			children = (
+				AD4A30E2194DADE60078ABFB /* RTPlanData.h */,
+				AD4A30E3194DADE60078ABFB /* RTPlanData.m */,
+			);
+			name = planData;
+			sourceTree = "<group>";
+		};
 		AD0DA0351935C03100A9846E /* MessageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1352,7 +1386,7 @@
 			children = (
 				AD48102E1924BEEA0081DAFA /* MapResource */,
 				AD4810651924C0930081DAFA /* RTMapView.h */,
-				AD4810661924C0930081DAFA /* RTMapView.m */,
+				AD4810661924C0930081DAFA /* RTMapView.mm */,
 			);
 			name = MapView;
 			sourceTree = "<group>";
@@ -1481,11 +1515,11 @@
 		ADAA5DD5192341090040ED10 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				ADAA5DDE192341090040ED10 /* RTAppDelegate.h */,
+				ADAA5DDF192341090040ED10 /* RTAppDelegate.m */,
 				04B58A771945665B00A4905C /* Reachability */,
 				042053B11940790F00D0C9EE /* UserProfile */,
 				042716CB19375C7F00FD3EF3 /* Utilities */,
-				ADAA5DDE192341090040ED10 /* RTAppDelegate.h */,
-				ADAA5DDF192341090040ED10 /* RTAppDelegate.m */,
 				ADCC7A6D1929F84B005B00B4 /* ShareMessage */,
 				ADCC7A141929AC5D005B00B4 /* LoginView */,
 				AD4810641924C0450081DAFA /* MapView */,
@@ -1553,18 +1587,16 @@
 		ADAA5E2A192355BE0040ED10 /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
-				04B58A7B194566A100A4905C /* StepCounter */,
-				ADEF87CE192DF87F0057DCB0 /* ChartView */,
-				AD4AC134192CCF5D006E6898 /* TableViewCell */,
-				AD4AC130192C53D1006E6898 /* PICircularProgressView */,
 				ADAA5E03192343590040ED10 /* FirstViewController.h */,
 				ADAA5E04192343590040ED10 /* FirstViewController.mm */,
 				ADAA5E05192343590040ED10 /* FirstViewController.xib */,
-				AD3C8D3B1947F44D00357DA0 /* RTSportPlanViewController.h */,
-				AD3C8D3C1947F44D00357DA0 /* RTSportPlanViewController.m */,
-				AD3C8D3D1947F44D00357DA0 /* RTSportPlanViewController.xib */,
-				AD4A30E2194DADE60078ABFB /* RTPlanData.h */,
-				AD4A30E3194DADE60078ABFB /* RTPlanData.m */,
+				04B58A7B194566A100A4905C /* StepCounter */,
+				AD4AC134192CCF5D006E6898 /* TableViewCell */,
+				AD08813619508E6400124A0B /* sportDetailView */,
+				AD08813719508E9300124A0B /* sportPlanView */,
+				AD4AC130192C53D1006E6898 /* PICircularProgressView */,
+				AD08813819508EB600124A0B /* planData */,
+				ADEF87CF192DF8F20057DCB0 /* ChartView */,
 			);
 			name = FirstViewController;
 			sourceTree = "<group>";
@@ -1703,15 +1735,7 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
-		ADEF87CE192DF87F0057DCB0 /* ChartView */ = {
-			isa = PBXGroup;
-			children = (
-				ADEF87CF192DF8F20057DCB0 /* Classes */,
-			);
-			name = ChartView;
-			sourceTree = "<group>";
-		};
-		ADEF87CF192DF8F20057DCB0 /* Classes */ = {
+		ADEF87CF192DF8F20057DCB0 /* ChartView */ = {
 			isa = PBXGroup;
 			children = (
 				ADEF87D0192DF8F20057DCB0 /* BEMAnimations.h */,
@@ -1723,6 +1747,7 @@
 				ADEF87D6192DF8F20057DCB0 /* BEMSimpleLineGraphView.h */,
 				ADEF87D7192DF8F20057DCB0 /* BEMSimpleLineGraphView.m */,
 			);
+			name = ChartView;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -2044,6 +2069,7 @@
 				04B58A831945678200A4905C /* RTCenterViewController.xib in Resources */,
 				AD12F6C8192634B400921894 /* toolbar_refresh_highlighted.png in Resources */,
 				AD12F694192634B400921894 /* settingButtonNormal.png in Resources */,
+				AD088135195084EC00124A0B /* RTDetailViewController.xib in Resources */,
 				AD12F681192634B400921894 /* navigationbar_language_highlighted.png in Resources */,
 				AD480F731924A64F0081DAFA /* gear.png in Resources */,
 				AD12F67F192634B400921894 /* navigationbar_interest_highlighted@2x.png in Resources */,
@@ -2144,7 +2170,7 @@
 				AD4AC138192CCF9D006E6898 /* RTTableViewCell.m in Sources */,
 				AD5425DD193700F7005F10F4 /* RTMsgDetailViewController.m in Sources */,
 				ADEF87D8192DF8F20057DCB0 /* BEMAnimations.m in Sources */,
-				AD4810671924C0930081DAFA /* RTMapView.m in Sources */,
+				AD4810671924C0930081DAFA /* RTMapView.mm in Sources */,
 				ADA9873F1933794400B98092 /* RTfoodViewController.m in Sources */,
 				AD5425E2193703CF005F10F4 /* RTMsgDetailTableViewCell.m in Sources */,
 				042716E019375C9D00FD3EF3 /* RTDoctor.m in Sources */,
@@ -2182,6 +2208,7 @@
 				ADCC7A691929E5A5005B00B4 /* RTRegisterViewController.m in Sources */,
 				ADAA5DE0192341090040ED10 /* RTAppDelegate.m in Sources */,
 				ADAA5E01192341200040ED10 /* RTMainViewController.m in Sources */,
+				AD088134195084EC00124A0B /* RTDetailViewController.m in Sources */,
 				AD48102A1924BDFC0081DAFA /* RNGridMenu.m in Sources */,
 				ADEF87DA192DF8F20057DCB0 /* BEMLine.m in Sources */,
 				0420539A193EC00700D0C9EE /* AVIllness.m in Sources */,

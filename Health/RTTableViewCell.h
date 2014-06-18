@@ -14,9 +14,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
-@property (weak, nonatomic) IBOutlet UILabel *steps;
-@property (weak, nonatomic) IBOutlet UILabel *speed;
+@property (weak, nonatomic) IBOutlet UILabel *type;
+@property (weak, nonatomic) IBOutlet UILabel *strength;
 @property (weak, nonatomic) IBOutlet UILabel *calories;
 @property (weak, nonatomic) IBOutlet UIImageView *portraitView;
+@property (weak, nonatomic) IBOutlet UILabel *title2;
 
 @end

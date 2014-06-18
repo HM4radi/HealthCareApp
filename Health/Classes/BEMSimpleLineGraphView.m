@@ -120,10 +120,10 @@ int currentlyCloser;
     
     // CREATION OF THE LINE AND BOTTOM AND TOP FILL
     
-    float xDot1; // Postion on the X-axis of the first dot.
-    float yDot1; // Postion on the Y-axis of the first dot.
-    float xDot2; // Postion on the X-axis of the next dot.
-    float yDot2; // Postion on the Y-axis of the next dot.
+    float xDot1=0; // Postion on the X-axis of the first dot.
+    float yDot1=0; // Postion on the Y-axis of the first dot.
+    float xDot2=0; // Postion on the X-axis of the next dot.
+    float yDot2=0; // Postion on the Y-axis of the next dot.
     
     for (UIView *subview in [self subviews]) {
         if ([subview isKindOfClass:[BEMLine class]])

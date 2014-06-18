@@ -9,11 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @interface RTPlanData : NSObject
-@property (nonatomic,strong) NSString *startTime;
-@property (nonatomic,strong) NSString *lastTime;
+{
+    NSMutableArray *sportGeoPointDescription;
+}
+@property (nonatomic,strong) NSDate *startTime;
+@property (nonatomic,strong) NSDate *lastTime;
+@property (nonatomic,strong) NSDate *endTime;
 @property (nonatomic,strong) NSString *sportType;
-@property (nonatomic) float colories;
-@property (nonatomic,strong) NSString *location;
-
+@property (nonatomic,strong) NSNumber *calories;
+@property (nonatomic,strong) NSString *strength;
+@property (nonatomic)BOOL querySuccess;
+@property (nonatomic, strong) NSMutableArray *sportGeoPointDescription;
+@property (nonatomic,strong) NSArray *routeCoord;
+@property (nonatomic) float progress;
 + (RTPlanData*)shareInstance;
+- (void)resetting;
 @end

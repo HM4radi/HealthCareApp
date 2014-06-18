@@ -196,6 +196,7 @@
 {
     
 }
+
 - (void)viewClick4:(UITapGestureRecognizer *)gesture
 {
     if (!foodViewController) {

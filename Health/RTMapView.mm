@@ -9,10 +9,12 @@
 #import "RTMapView.h"
 #import <mach/mach_time.h>
 
+
 @implementation RTMapView
 @synthesize mapView = _mapView;
 @synthesize selecting=_selecting;
 @synthesize routeCoord;
+@synthesize reverseGeocoder=_reverseGeocoder;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -38,6 +40,8 @@
             tapGesture.numberOfTouchesRequired = 1; // The default value is 1.
             [_mapView addGestureRecognizer:tapGesture];
         }
+        
+        planData=[RTPlanData shareInstance];
     }
     return self;
 }
@@ -222,6 +226,37 @@
 	return nil;
 }
 
+/**************************反地理编码****************************/
+
+-(void)returnPlaceName:(NSString*)pt{
+    
+    CGPoint p=CGPointFromString(pt);
+    CLLocationCoordinate2D coor;
+    coor.longitude=p.x;
+    coor.latitude=p.y;
+    
+    QReverseGeocoder* geocode = [[QReverseGeocoder alloc] initWithCoordinate:coor];
+    geocode.delegate = self;
+    self.reverseGeocoder = geocode;
+    [geocode release];
+    
+    [_reverseGeocoder start];
+}
+
+- (void)reverseGeocoder:(QReverseGeocoder *)geocoder didFindPlacemark:(QPlaceMark *)placeMark
+{
+    //查询成功时
+    planData.querySuccess=YES;
+    //planData.location=placeMark.name;
+    [planData.sportGeoPointDescription addObject:placeMark.name];
+}
+
+
+- (void)reverseGeocoder:(QReverseGeocoder *)geocoder didFailWithError:(QErrorCode) error
+{
+    //查询失败时
+    NSLog(@"查询失败");
+}
 
 - (void)viewDidUnload
 {
@@ -237,7 +272,7 @@
     [_mapView release];
     [_mapView setShowsUserLocation:NO];
     _mapView.delegate = nil;
-    self.mapView = nil;
+    //self.mapView = nil;
     [super dealloc];
 }
 
@@ -262,6 +297,24 @@
     UIGraphicsEndImageContext();
     //NSLog(@"%lrli",mach_absolute_time()-start);
     
+}
+
+- (CLLocationCoordinate2D*)convertToCoord2D:(NSArray*)data{
+    
+    int k=[data count];
+    CLLocationCoordinate2D* coord=new CLLocationCoordinate2D[k];
+    
+    for (int i=0; i<k; i++) {
+        CGPoint p=CGPointFromString([data objectAtIndex:i]);
+        coord[i]=CLLocationCoordinate2DMake(p.y,p.x);
+    }
+    
+    return coord;
+}
+
+- (void)setCenterCoord:(CLLocationCoordinate2D)coord{
+    //[_mapView setCenterCoordinate:coord animated:YES];
+    [_mapView setRegion:QCoordinateRegionMake(coord,QCoordinateSpanMake(0.002, 0.002)) animated:YES];
 }
 
 /*

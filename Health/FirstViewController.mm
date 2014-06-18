@@ -14,7 +14,6 @@
 
 @implementation FirstViewController
 @synthesize cellNum;
-@synthesize myGraph;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,7 +22,7 @@
         // Custom initialization
         
         //载入运动次数
-        cellNum=5;
+        cellNum=0;
     }
     return self;
 }
@@ -33,7 +32,7 @@
     [super viewDidLoad];
     [self.navigationbar setFrame:CGRectMake(0, 0, 320, 64)];
     self.navigationbar.translucent=YES;
-    UIScrollView* scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
+    scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
     [self.view addSubview:scrollView];
     progressView=[[PICircularProgressView alloc]initWithFrame:CGRectMake(60, 6, 200, 200)];
     progressView.thicknessRatio=0.08;
@@ -57,14 +56,6 @@
     [imgview addGestureRecognizer:backGesture];
     imgview.userInteractionEnabled=YES;
     
-    //返回按钮2
-    UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview1 setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.detailView insertSubview:imgview1 aboveSubview:self.detailNavBar];
-    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack2)];
-    [imgview1 addGestureRecognizer:backGesture1];
-    imgview1.userInteractionEnabled=YES;
-
     //添加按钮2
     UIImageView *imgview2=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
     [imgview2 setImage:[UIImage imageNamed:@"add-master.png"]];
@@ -73,46 +64,70 @@
     [imgview2 addGestureRecognizer:backGesture2];
     imgview2.userInteractionEnabled=YES;
     
-    
-    //add tableView
-    [self.tableView setDelegate:self];
-	[self.tableView setDataSource:self];
-    [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];//按照cell个数定义高度
-    self.tableView.scrollEnabled=false;
-    self.tableView.separatorColor=[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
-    [scrollView addSubview:self.tableView];
-    recordArray = [NSMutableArray arrayWithObjects:
-                   [NSDictionary dictionaryWithObjectsAndKeys:@"鸟巢", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3",@"speed",@"200",@"calories", nil],
-                   [NSDictionary dictionaryWithObjectsAndKeys:@"天安门", @"location",@"11:00", @"startTime", @"11:30", @"endTime",@"5000",@"steps",@"4.7",@"speed",@"280",@"calories", nil],
-                    [NSDictionary dictionaryWithObjectsAndKeys:@"中科院遥感所", @"location",@"19:00", @"startTime", @"20:30", @"endTime",@"10000",@"steps",@"4.3",@"speed",@"400",@"calories", nil],
-                    [NSDictionary dictionaryWithObjectsAndKeys:@"清华大学", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3",@"speed",@"200",@"calories", nil],
-                    [NSDictionary dictionaryWithObjectsAndKeys:@"天坛", @"location",@"21:00", @"startTime", @"21:30", @"endTime",@"3000",@"steps",@"4.3",@"speed",@"200",@"calories", nil]
-                   ,nil];
-    
-    //add mapView
-    [self.detailNavBar setFrame:CGRectMake(0, 0, 320, 64)];
-    if (!_mapView) {
-        _mapView= [[RTMapView alloc] initWithFrame:CGRectMake(0, 64, 320, 264)];
-        [self.detailView insertSubview:_mapView belowSubview:self.labelValues];
-    }
-    [self loadChartView];
-    self.labelValues.hidden=YES;
-    
-    currentAnno=[[QPointAnnotation alloc]init];
-    [self addLineAnno];
-    
     //stepCounter
     stepCounter=[RTStepCounter sharedRTSterCounter];
     [stepCounter addObserver:self forKeyPath:@"step" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     
     //plandata
     planData=[RTPlanData shareInstance];
+    
+    
+    dateFormatter1=[[NSDateFormatter alloc]init];
+    [dateFormatter1 setDateFormat:@"HH:mm"];
+    dateFormatter2=[[NSDateFormatter alloc]init];
+    [dateFormatter2 setDateFormat:@"H小时m分"];
+    dateFormatter3=[[NSDateFormatter alloc]init];
+    [dateFormatter3 setDateFormat:@"H"];
+    dateFormatter4=[[NSDateFormatter alloc]init];
+    [dateFormatter4 setDateFormat:@"m"];
+    
+    [self tableViewInit];
+}
+
+- (void)tableViewInit{
+    //add tableView
+    recordArray=[[NSMutableArray alloc]init];
+    [self.tableView setDelegate:self];
+	[self.tableView setDataSource:self];
+    self.tableView.scrollEnabled=false;
+    self.tableView.separatorColor=[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+    
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    
+    AVQuery *query=[AVQuery queryWithClassName:@"JKHistorySportPlan"];
+    [query whereKey:@"userObjectId" equalTo:[mySettingData objectForKey:@"CurrentUserName"]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            cellNum=[objects count];
+            
+            for (int i=0; i<cellNum; i++) {
+                NSString *placeName=[[[objects objectAtIndex:i] objectForKey:@"sportGeoPointDescription"] objectAtIndex:0];
+                NSString *startTime=[dateFormatter1 stringFromDate: [[objects objectAtIndex:i] objectForKey:@"startTime"]];
+                NSString *endTime=[dateFormatter1 stringFromDate: [[objects objectAtIndex:i] objectForKey:@"endTime"]];
+                NSString *sportType=[[objects objectAtIndex:i] objectForKey:@"sportType"];
+                NSString *strength=[[objects objectAtIndex:i] objectForKey:@"strength"];
+                NSNumber *calories=[[objects objectAtIndex:i] objectForKey:@"sportCaloriesPlan"];
+                NSString *objectId=[[objects objectAtIndex:i] objectForKey:@"objectId"];
+                [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:placeName, @"location",startTime, @"startTime", endTime, @"endTime",sportType,@"type",strength,@"strength",calories,@"calories",objectId,@"objectId",nil]];
+            }
+            
+            [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];//按照cell个数定义高度
+            scrollView.contentSize=CGSizeMake(self.view.frame.size.width, 226+100*cellNum);
+            [scrollView addSubview:self.tableView];
+        } else {
+            // Log details of the failure
+            NSLog(@"查找错误");
+        }
+    }];
+
 }
 
 
 - (void)addPlan{
     if (!sportPlanVC) {
         sportPlanVC=[[RTSportPlanViewController alloc]init];
+        sportPlanVC.dataDelegate=self;
     }
 
     sportPlanVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -180,7 +195,7 @@
     UIColor *col2=[UIColor colorWithRed:244.0/255.0 green:237.0/255.0 blue:138.0/255.0 alpha:1.0];
     progressView.type=2;
     [self setupPregressView:@"卡路里" goal:@"目标:300" complete:236 withTopColor:col1 AndBottomColor:col2];
-
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -210,16 +225,22 @@
     RTTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
     
 	NSUInteger row=[indexPath row];
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     NSDictionary *dic=[recordArray objectAtIndex:row];
     cell.location.text=[dic objectForKey:@"location"];
     cell.startTime.text=[dic objectForKey:@"startTime"];
     cell.endTime.text=[dic objectForKey:@"endTime"];
-    cell.steps.text=[dic objectForKey:@"steps"];
-    cell.speed.text=[dic objectForKey:@"speed"];
-    cell.calories.text=[dic objectForKey:@"calories"];
+    cell.type.text=[dic objectForKey:@"type"];
+    if ([[dic objectForKey:@"type"] isEqualToString:@"跑步"]||[[dic objectForKey:@"type"] isEqualToString:@"走路"]) {
+        cell.title2.text=@"平均速度";
+    }
+    cell.strength.text=[dic objectForKey:@"strength"];
+    
+    NSNumberFormatter *ft=[[NSNumberFormatter alloc]init];
+    cell.calories.text=[ft stringFromNumber:[dic objectForKey:@"calories"]];
+    ft=nil;
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
 	return cell;
@@ -236,11 +257,11 @@
 }
 
 //行缩进
-
 -(NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSUInteger row = [indexPath row];
     return row;
 }
+
 //改变行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
@@ -248,140 +269,56 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self loadDetailView];
+    NSUInteger row = [indexPath row];
+    [self loadDetailView:row];
     [[tableView cellForRowAtIndexPath:indexPath] setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
+- (void)refreshTableView{
+    [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[planData.sportGeoPointDescription objectAtIndex:0], @"location",[dateFormatter1 stringFromDate: planData.startTime ], @"startTime", [dateFormatter1 stringFromDate: planData.endTime], @"endTime",planData.sportType,@"type",planData.strength,@"strength",planData.calories,@"calories", nil]];
+    cellNum++;
+    [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];
+    [self.tableView reloadData];
+    scrollView.contentSize=CGSizeMake(self.view.frame.size.width, 226+100*cellNum);
+}
+
+- (void)saveDataToAVOS{
+    AVObject *sportPlan=[AVObject objectWithClassName:@"JKHistorySportPlan"];
+    [sportPlan setObject:planData.startTime forKey:@"startTime"];
+    [sportPlan setObject:planData.endTime forKey:@"endTime"];
+    [sportPlan setObject:planData.sportType forKey:@"sportType"];
 }
 
 //*********************detailsView********************//
 
-- (void)loadDetailView{
+- (void)loadDetailView:(NSInteger)row{
 
-    [UIView beginAnimations:@"view flip" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView transitionWithView:self.view
-                      duration:0.2
-                       options:UIViewAnimationOptionTransitionFlipFromRight
-                    animations:^{ [self.view addSubview:self.detailView];  }
-                    completion:NULL];
-    [UIView commitAnimations];
-    //add ChartView
-    
-}
-
-
-
-//*********************chartView********************//
-
-- (void)loadChartView{
-    
-    self.ArrayOfValues = [[NSMutableArray alloc] init];
-    self.ArrayOfDates = [[NSMutableArray alloc] init];
-    
-    [self.detailView insertSubview:self.labelValues aboveSubview:self.myGraph];
-    
-    for (int i=0; i < 24; i++) {
-        [self.ArrayOfValues addObject:[NSNumber numberWithInteger:(20+rand()%30)]]; // Random values for the graph
-        [self.ArrayOfDates addObject:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:i]]]; // Dates for the X-Axis of the graph
-            }
-    
-    //BEMSimpleLineGraphView *myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 328, 320, 200)];
-    myGraph.delegate = self;
-    self.myGraph.frame=CGRectMake(0, 328, 320, 195);
-    // Customization of the graph
-    self.myGraph.enableTouchReport = YES;
-    self.myGraph.colorTop = [UIColor colorWithRed:31.0/255.0 green:187.0/255.0 blue:166.0/255.0 alpha:1.0];
-    self.myGraph.colorBottom = [UIColor colorWithRed:31.0/255.0 green:187.0/255.0 blue:166.0/255.0 alpha:1.0]; // Leaving this not-set on iOS 7 will default to your window's tintColor
-    self.myGraph.colorLine = [UIColor yellowColor];
-    self.myGraph.colorXaxisLabel = [UIColor whiteColor];
-    self.myGraph.widthLine = 3.0;
-    self.myGraph.enableTouchReport = YES;
-    
-}
-
-#pragma mark - SimpleLineGraph Data Source
-
-- (int)numberOfPointsInGraph {
-    return (int)[self.ArrayOfValues count];
-}
-
-- (float)valueForIndex:(NSInteger)index {
-    return [[self.ArrayOfValues objectAtIndex:index] floatValue];
-}
-
-#pragma mark - SimpleLineGraph Delegate
-
-- (int)numberOfGapsBetweenLabels {
-    return 1;
-}
-
-- (NSString *)labelOnXAxisForIndex:(NSInteger)index {
-    return [self.ArrayOfDates objectAtIndex:index];
-}
-
-- (void)didTouchGraphWithClosestIndex:(int)index {
-    self.labelValues.textColor=[UIColor yellowColor];
-    self.labelValues.frame=CGRectMake(self.labelValues.frame.origin.x, 320, self.labelValues.frame.size.width, self.labelValues.frame.size.height);
-    self.labelValues.hidden=NO;
-    self.labelValues.text = [NSString stringWithFormat:@"%@KCal", [self.ArrayOfValues objectAtIndex:index]];
-    
-    if (index!=currentIndex) {
-        [_mapView removePointAnno:currentAnno];
-        [self addPointAnno:route[index]];
+    if(!detailVC){
+        detailVC=[[RTDetailViewController alloc]init];
     }
-    currentIndex=index;
-}
-
-- (void)didReleaseGraphWithClosestIndex:(float)index {
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.labelValues.alpha = 0.0;
-        self.labelDates.alpha = 0.0;
-    } completion:^(BOOL finished){
-        self.labelValues.hidden=YES;
-        self.labelValues.alpha = 1.0;
-        self.labelDates.alpha = 1.0;        
-    }];
-}
-
--(void)addLineAnno{
- 
-    [self initRouteCount];
-    [_mapView addPolyline:route withcount:routeCount];
-}
-
-- (void)initRouteCount{
-    routeCount=24;
-    route=new CLLocationCoordinate2D[routeCount];
-    route[0]=CLLocationCoordinate2DMake(40.0002778,116.3741667);
-    route[1]=CLLocationCoordinate2DMake(40.0033333,116.3745833);
-    route[2]=CLLocationCoordinate2DMake(40.0034056,116.3779722);
-    route[3]=CLLocationCoordinate2DMake(40.0053139,116.3779556);
-    route[4]=CLLocationCoordinate2DMake(40.0055194,116.3865056);
-    route[5]=CLLocationCoordinate2DMake(40.0101472,116.3862889);
-    route[6]=CLLocationCoordinate2DMake(40.0104417,116.3874528);
-    route[7]=CLLocationCoordinate2DMake(40.0104333,116.3904583);
-    route[8]=CLLocationCoordinate2DMake(40.0101917,116.3904583);
-    route[9]=CLLocationCoordinate2DMake(40.0009844,116.3906278);
-    route[10]=CLLocationCoordinate2DMake(40.0009703,116.3902750);
-    route[11]=CLLocationCoordinate2DMake(40.0009406,116.3902306);
-    route[12]=CLLocationCoordinate2DMake(40.0009000,116.3905111);
-    route[13]=CLLocationCoordinate2DMake(40.0009469,116.3902889);
-    route[14]=CLLocationCoordinate2DMake(40.0009458,116.3925000);
-    route[15]=CLLocationCoordinate2DMake(40.0108778,116.3934639);
-    route[16]=CLLocationCoordinate2DMake(40.0144444,116.3935694);
-    route[17]=CLLocationCoordinate2DMake(40.0150861,116.3929917);
-    route[18]=CLLocationCoordinate2DMake(40.0148889,116.3918028);
-    route[19]=CLLocationCoordinate2DMake(40.0151167,116.3897833);
-    route[20]=CLLocationCoordinate2DMake(40.0158250,116.3874417);
-    route[21]=CLLocationCoordinate2DMake(40.0156917,116.3861444);
-    route[22]=CLLocationCoordinate2DMake(40.0151722,116.3845667);
-    route[23]=CLLocationCoordinate2DMake(40.0140667,116.3680944);
-}
-
--(void)addPointAnno:(CLLocationCoordinate2D)point{
     
-    [currentAnno setCoordinate:point];
-    [currentAnno setTitle:@"途经点"];
-    [_mapView addPointAnno:currentAnno];
+    NSDictionary *dic=[recordArray objectAtIndex:row];
+    NSString *objectId=[dic objectForKey:@"objectId"];
+    
+    AVQuery *query=[AVQuery queryWithClassName:@"JKHistorySportPlan"];
+    [query whereKey:@"objectId" equalTo:objectId];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            cellNum=[objects count];
+            
+            planData.routeCoord=[[objects objectAtIndex:0] objectForKey:@"sportGeoPoint"];
+            planData.startTime=[[objects objectAtIndex:0] objectForKey:@"startTime"];
+            planData.endTime=[[objects objectAtIndex:0] objectForKey:@"endTime"];
+            planData.sportType=[[objects objectAtIndex:0] objectForKey:@"sportType"];
+            planData.strength=[[objects objectAtIndex:0] objectForKey:@"strength"];
+            planData.calories=[[objects objectAtIndex:0] objectForKey:@"sportCaloriesPlan"];
+            
+            detailVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;     
+            [self presentViewController:detailVC animated:YES completion:nil];
+            detailVC=nil;
+        }
+    }];
 }
 
 
@@ -397,17 +334,6 @@
     [UIView commitAnimations];
 }
 
-- (void)touchBack2{
-    
-    [UIView beginAnimations:@"view flip" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView transitionWithView:self.view
-                      duration:0.2
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{ [self.detailView removeFromSuperview];  }
-                    completion:NULL];
-    [UIView commitAnimations];
-}
 
 - (void)didReceiveMemoryWarning
 {

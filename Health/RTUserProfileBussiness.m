@@ -23,4 +23,9 @@
     
     return YES;
 }
+
+-(id)queryUserProfile{
+    
+    return nil;
+}
 @end

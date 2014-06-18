@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RTSportPlanViewController">
             <connections>
                 <outlet property="NavBar" destination="Uvq-9h-1pl" id="AoR-Qq-gpm"/>
+                <outlet property="caloriesLabel" destination="L7R-hA-6sr" id="DMF-Xa-fiU"/>
                 <outlet property="lastTimeLabel" destination="FWX-D6-8TU" id="S2F-wp-Rav"/>
                 <outlet property="removeBtn" destination="O9j-aO-Gzc" id="BqZ-ZK-rX7"/>
                 <outlet property="selectRoute" destination="ecE-VY-rtf" id="9nl-uy-av2"/>

@@ -56,7 +56,11 @@
         dateFormatter1=[[NSDateFormatter alloc]init];
         [dateFormatter1 setDateFormat:@"HH:mm"];
         dateFormatter2=[[NSDateFormatter alloc]init];
-        [dateFormatter2 setDateFormat:@"HH小时mm分"];
+        [dateFormatter2 setDateFormat:@"H小时m分"];
+        dateFormatter3=[[NSDateFormatter alloc]init];
+        [dateFormatter3 setDateFormat:@"H"];
+        dateFormatter4=[[NSDateFormatter alloc]init];
+        [dateFormatter4 setDateFormat:@"m"];
     }
     if (!typePicker) {
         typePicker=[[UIPickerView alloc]initWithFrame:CGRectMake(0,30,320,100)];
@@ -97,12 +101,11 @@
     
     self.removeBtn.hidden=YES;
     
-    routeCoord=[[NSArray alloc]init];
-    
     //plandata
     planData=[RTPlanData shareInstance];
+    [planData resetting];
+    finished=NO;
 }
-
 
 - (IBAction)selectRoute:(id)sender {
     if (self.selectRoute.tag==0) {
@@ -110,13 +113,19 @@
         _mapView.selecting=YES;
         self.selectRoute.tag=1;
         self.removeBtn.hidden=NO;
+        planData.querySuccess=NO;
+        
     }else if (self.selectRoute.tag==1){
         [self.selectRoute setTitle:@"开始选择路线" forState:UIControlStateNormal];
         _mapView.selecting=NO;
         self.selectRoute.tag=0;
         self.removeBtn.hidden=YES;
-        if (_mapView.routeCoord) {
-            routeCoord=_mapView.routeCoord;
+        if ([_mapView.routeCoord count]>0) {
+            planData.routeCoord=_mapView.routeCoord;
+            [_mapView addPolyline:[_mapView convertToCoord2D:planData.routeCoord] withcount:[_mapView.routeCoord count]];
+            for (int i=0; i<[planData.routeCoord count];i++ ) {
+                [_mapView returnPlaceName:[planData.routeCoord objectAtIndex:i]];
+            }
         }
     }
 }
@@ -166,23 +175,35 @@
     if (buttonIndex == 0) {
         if (typePicker.tag!=0) {
             self.typeLabel.text=selectedType;
+            planData.sportType=selectedType;
+            planData.strength=[self returnStrength:selectedType];
         }
         else if (timePicker.tag!=0){
             if (timePicker.tag==1) {
                 NSString *dtString=[dateFormatter1 stringFromDate:[timePicker date]];
                 self.startTimeLabel.text=dtString;
-                planData.startTime=dtString;
+                planData.startTime=[timePicker date];
             }else if (timePicker.tag==2){
                 NSString *dtString=[dateFormatter2 stringFromDate:[timePicker date]];
                 self.lastTimeLabel.text=dtString;
-                planData.lastTime=dtString;
-            }            
+                planData.lastTime=[timePicker date];
+            }
         }
     }
 }
 
+- (NSDate*)calEndTime{
+    NSDate *ldate=planData.lastTime;
+    int hour=[[dateFormatter3 stringFromDate:ldate] intValue];
+    int minute=[[dateFormatter4 stringFromDate:ldate] intValue];
+    NSTimeInterval interval=hour*3600+minute*60;
+    NSDate *startdate=planData.startTime;
+    NSDate *date2=[startdate dateByAddingTimeInterval:interval];
+    return date2;
+}
+
 //*********************pickerView********************//
-//  返回两列
+//  返回1列
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
@@ -195,25 +216,105 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
-        return [sportType objectAtIndex:row];
+    return [sportType objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
     selectedType=[sportType objectAtIndex:row];
 }
 
 - (void)touchBack{
-    _mapView=nil;
     self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)touchOK{
-    _mapView=nil;
-    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self isFinishedSelecting]) {
+        NSNumberFormatter *ft=[[NSNumberFormatter alloc]init];
+        planData.calories=[ft numberFromString:self.caloriesLabel.text];
+        ft=nil;
+        planData.endTime=[self calEndTime];
+        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.dataDelegate refreshTableView];
+        [self saveDataToAVOS];
+    }
 }
+
+- (NSString*)returnStrength:(NSString*)type{
+    NSString *strength=nil;
+    
+    if ([type isEqualToString:@"跑步"])
+        strength=@"较强";
+    else if ([type isEqualToString:@"步行"])
+        strength=@"较轻";
+    else if ([type isEqualToString:@"骑行"])
+        strength=@"较强";
+    else if ([type isEqualToString:@"爬楼梯"])
+        strength=@"较轻";
+    else if ([type isEqualToString:@"乒乓球"])
+        strength=@"较轻";
+    else if ([type isEqualToString:@"羽毛球"])
+        strength=@"中等";
+    else if ([type isEqualToString:@"篮球"])
+        strength=@"较强";
+    else if ([type isEqualToString:@"足球"])
+        strength=@"较强";
+    else if ([type isEqualToString:@"网球"])
+        strength=@"较强";
+    else if ([type isEqualToString:@"健身操"])
+        strength=@"中等";
+    else if ([type isEqualToString:@"游泳"])
+        strength=@"较强";
+
+    return strength;
+}
+
+
+- (BOOL)isFinishedSelecting{
+    BOOL f=false;
+    
+    if (planData.startTime&&planData.lastTime&&planData.sportType&&[planData.routeCoord count]>0) {
+        f=YES;
+    }else if (!planData.startTime){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信息不完整" message:@"请选择开始时间" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        alert=nil;
+    }else if (!planData.lastTime){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信息不完整" message:@"请选择持续时间" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        alert=nil;
+    }else if (!planData.sportType){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信息不完整" message:@"请选择运动项目" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        alert=nil;
+    }else if ([planData.routeCoord count]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"信息不完整" message:@"请选择运动路线" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        alert=nil;
+    }
+    return f;
+}
+
+- (void)saveDataToAVOS{
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    
+    AVObject *sportPlan=[AVObject objectWithClassName:@"JKHistorySportPlan"];
+    [sportPlan setObject:planData.startTime forKey:@"startTime"];
+    [sportPlan setObject:planData.endTime forKey:@"endTime"];
+    [sportPlan setObject:planData.sportType forKey:@"sportType"];
+    [sportPlan setObject:planData.routeCoord forKey:@"sportGeoPoint"];
+    [sportPlan setObject:planData.calories forKey:@"sportCaloriesPlan"];
+    [sportPlan setObject:[NSNumber numberWithInt:0] forKey:@"planCompleteProgress"];
+    [sportPlan setObject:planData.sportGeoPointDescription forKey:@"sportGeoPointDescription"];
+    [sportPlan setObject:planData.strength forKey:@"strength"];
+    [sportPlan setObject:[mySettingData objectForKey:@"CurrentUserName"] forKey:@"userObjectId"];
+    [sportPlan saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [sportPlan saveEventually];
+    }];
+    sportPlan=nil;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

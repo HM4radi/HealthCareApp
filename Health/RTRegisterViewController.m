@@ -41,7 +41,7 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)next:(id)sender {
     if (loginNumber.superview==self.view) {
@@ -58,7 +58,7 @@
 {
     
     //add register code
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -12,8 +12,10 @@
 @synthesize startTime;
 @synthesize lastTime;
 @synthesize sportType;
-@synthesize colories;
-@synthesize location;
+@synthesize calories;
+@synthesize sportGeoPointDescription;
+@synthesize progress;
+
 
 
 + (RTPlanData*)shareInstance{
@@ -27,6 +29,23 @@
         }
         return planData;
     }
+}
+
+- (id)init{
+    if(self = [super init]){      
+        sportGeoPointDescription=[[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
+- (void)resetting{
+    self.startTime=nil;
+    self.lastTime=nil;
+    self.endTime=nil;
+    self.sportType=nil;
+    self.calories=nil;
+    self.strength=nil;
+    [self.sportGeoPointDescription removeAllObjects];
 }
 
 
