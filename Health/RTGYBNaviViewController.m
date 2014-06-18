@@ -8,6 +8,7 @@
 
 #import "RTGYBNaviViewController.h"
 #import "GYBTableViewController.h"
+#import "RTFamilyDetailViewController.h"
 
 @interface RTGYBNaviViewController ()
 

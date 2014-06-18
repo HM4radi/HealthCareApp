@@ -35,4 +35,6 @@
 -(void)returnPlaceName:(NSString*)pt;
 - (CLLocationCoordinate2D*)convertToCoord2D:(NSArray*)data;
 - (void)setCenterCoord:(CLLocationCoordinate2D)coord;
+- (void)showLocation;
+- (NSDictionary*)returnLocationInfo;
 @end

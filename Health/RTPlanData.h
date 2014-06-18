@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *sportGeoPointDescription;
 @property (nonatomic,strong) NSArray *routeCoord;
 @property (nonatomic) float progress;
+@property (nonatomic,strong) NSString *objectId;
 + (RTPlanData*)shareInstance;
 - (void)resetting;
 @end

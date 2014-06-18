@@ -95,6 +95,7 @@
     NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
     
     AVQuery *query=[AVQuery queryWithClassName:@"JKHistorySportPlan"];
+    query.limit = 5;
     [query whereKey:@"userObjectId" equalTo:[mySettingData objectForKey:@"CurrentUserName"]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -120,8 +121,9 @@
             NSLog(@"查找错误");
         }
     }];
-
+    query=nil;
 }
+
 
 
 - (void)addPlan{
@@ -275,18 +277,11 @@
 }
 
 - (void)refreshTableView{
-    [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[planData.sportGeoPointDescription objectAtIndex:0], @"location",[dateFormatter1 stringFromDate: planData.startTime ], @"startTime", [dateFormatter1 stringFromDate: planData.endTime], @"endTime",planData.sportType,@"type",planData.strength,@"strength",planData.calories,@"calories", nil]];
+    [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[planData.sportGeoPointDescription objectAtIndex:0], @"location",[dateFormatter1 stringFromDate: planData.startTime ], @"startTime", [dateFormatter1 stringFromDate: planData.endTime], @"endTime",planData.sportType,@"type",planData.strength,@"strength",planData.calories,@"calories",planData.objectId,@"objectId",nil]];
     cellNum++;
     [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];
     [self.tableView reloadData];
     scrollView.contentSize=CGSizeMake(self.view.frame.size.width, 226+100*cellNum);
-}
-
-- (void)saveDataToAVOS{
-    AVObject *sportPlan=[AVObject objectWithClassName:@"JKHistorySportPlan"];
-    [sportPlan setObject:planData.startTime forKey:@"startTime"];
-    [sportPlan setObject:planData.endTime forKey:@"endTime"];
-    [sportPlan setObject:planData.sportType forKey:@"sportType"];
 }
 
 //*********************detailsView********************//

@@ -78,6 +78,14 @@
     if (!_mapView) {
         _mapView= [[RTMapView alloc] initWithFrame:CGRectMake(0, 220, 320, 308)];
         [self.view addSubview:_mapView];
+        
+        //定位按钮
+        UIImageView *imgview3=[[UIImageView alloc]initWithFrame:CGRectMake(270, 248, 40, 40)];
+        [imgview3 setImage:[UIImage imageNamed:@"locate2.png"]];
+        [_mapView addSubview:imgview3];
+        UITapGestureRecognizer *locating=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchLocate)];
+        [imgview3 addGestureRecognizer:locating];
+        imgview3.userInteractionEnabled=YES;
     }
     
     //返回按钮
@@ -95,7 +103,6 @@
     UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchOK)];
     [imgview2 addGestureRecognizer:backGesture2];
     imgview2.userInteractionEnabled=YES;
-
     
     self.selectRoute.tag=0;
     
@@ -105,6 +112,12 @@
     planData=[RTPlanData shareInstance];
     [planData resetting];
     finished=NO;
+    
+
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [_mapView showLocation];
 }
 
 - (IBAction)selectRoute:(id)sender {
@@ -236,7 +249,6 @@
         planData.endTime=[self calEndTime];
         self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self dismissViewControllerAnimated:YES completion:nil];
-        [self.dataDelegate refreshTableView];
         [self saveDataToAVOS];
     }
 }
@@ -311,10 +323,23 @@
     [sportPlan setObject:[mySettingData objectForKey:@"CurrentUserName"] forKey:@"userObjectId"];
     [sportPlan saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [sportPlan saveEventually];
+        if (!error) {
+            planData.objectId=sportPlan.objectId;
+            [self.dataDelegate refreshTableView];
+        }
     }];
     sportPlan=nil;
 }
 
+
+- (void)touchLocate{
+
+    NSDictionary *locInfo=[_mapView returnLocationInfo];
+    CLLocation *loc=[locInfo objectForKey:@"location"];
+    if (loc) {
+        [_mapView setCenterCoord:loc.coordinate];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

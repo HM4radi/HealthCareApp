@@ -15,6 +15,8 @@
 @synthesize selecting=_selecting;
 @synthesize routeCoord;
 @synthesize reverseGeocoder=_reverseGeocoder;
+
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,7 +30,7 @@
         _mapView.delegate = self;
         route=[[NSMutableArray alloc]init];
         routeCoord=[[NSMutableArray alloc]init];
-        //[_mapView setShowsUserLocation:YES];
+        [_mapView setShowsUserLocation:NO];
         self.selecting=NO;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
         if (![tapGesture respondsToSelector:@selector(locationInView:)]) {
@@ -44,6 +46,19 @@
         planData=[RTPlanData shareInstance];
     }
     return self;
+}
+
+- (void)showLocation{
+    [_mapView setShowsUserLocation:YES];
+}
+
+- (NSDictionary*)returnLocationInfo{
+    QUserLocation *location=[_mapView userLocation];
+    NSString *title=location.title;
+    NSString *subtitle=location.subtitle;
+    CLLocation *loc=location.location;
+    NSDictionary *info=[[NSDictionary alloc]initWithObjectsAndKeys:loc,@"location",title,@"title",subtitle,@"subTitle", nil];
+    return info;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
@@ -75,6 +90,7 @@
             }
             [routeCoord removeAllObjects];
             [route removeAllObjects];
+            [planData.sportGeoPointDescription removeAllObjects];
         }
     }
 }
@@ -118,25 +134,25 @@
 /**************************定位功能****************************/
 - (void)mapViewWillStartLocatingUser:(QMapView *)mapView
 {
-    //NSLog(@"startLocation");
+    
 }
 - (void)mapViewDidStopLocatingUser:(QMapView *)mapView
 {
-    //NSLog(@"stopLocation");
+    
 }
+
+
 - (void)mapView:(QMapView *)mapView didUpdateUserLocation:(QUserLocation *)userLocation
 {
-        NSLog(@"userlocation chanage lo=%f,lat= %f",
-              [userLocation location].coordinate.longitude,
-              [userLocation location].coordinate.latitude);
-//    NSString *str=[NSString stringWithFormat:@"lo=%f,lat= %f",[userLocation location].coordinate.longitude,[userLocation location].coordinate.latitude];
-//    [self showAlertView:@"定位结果结果" widthMessage:str];
+    [self setCenterCoord:[_mapView userLocation].coordinate];
 }
+
 
 - (void)mapView:(QMapView *)mapView didFailToLocateUserWithError:(NSError *)error
 {
-    //NSLog(@"%@",error);
+    
 }
+
 
 /**************************坐标转换****************************/
 
@@ -170,10 +186,9 @@
         }
     }
     
-    _mapView.centerCoordinate = CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2);
+    //_mapView.centerCoordinate = CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2);
     
-    _mapView.region = QCoordinateRegionMake(CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2),
-                                            QCoordinateSpanMake((xMax-xMin), (yMax-yMin)));
+    //_mapView.region = QCoordinateRegionMake(CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2),QCoordinateSpanMake((xMax-xMin), (yMax-yMin)));
 }
 
 -(QOverlayView*)mapView:(QMapView *)mapView viewForOverlay:(id<QOverlay>)overlay
@@ -264,7 +279,7 @@
     // e.g. self.myOutlet = nil;
     [_mapView setShowsUserLocation:NO];
     _mapView.delegate = nil;
-    self.mapView = nil;
+    //self._mapView = nil;
 }
 
 - (void)dealloc
@@ -316,6 +331,9 @@
     //[_mapView setCenterCoordinate:coord animated:YES];
     [_mapView setRegion:QCoordinateRegionMake(coord,QCoordinateSpanMake(0.002, 0.002)) animated:YES];
 }
+
+
+
 
 /*
  // Only override drawRect: if you perform custom drawing.

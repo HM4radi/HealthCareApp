@@ -10,7 +10,9 @@
 #import"GYBTableViewCell.h"
 #import "DPMeterView.h"
 #import "UIBezierPath+BasicShapes.h"
-#import "GYBDetailViewController.h"
+
+#import "RTFamilyDetailViewController.h"
+#import "RTDetailViewNewViewController.h"
 
 @interface GYBTableViewController ()
 @property (nonatomic,strong)NSMutableDictionary *listItem;
@@ -42,11 +44,13 @@
    self.listItem = [NSMutableDictionary dictionary];
     
         //初始化nameLabel 状态字典
-       [self.listItem setObject:a forKey:@"father"];
-       [self.listItem setObject:b forKey:@"mother"];
+       [self.listItem setObject:a forKey:@"gyb"];
+       [self.listItem setObject:b forKey:@"shirui"];
        [self.listItem setObject:c forKey:@"son"];
     
     NSLog(@"%@",[self.listItem objectForKey:@"son"]);
+    
+    protaitImageArray=[NSArray arrayWithObjects:@"1.jpg",@"2.jpg", nil];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -62,14 +66,17 @@
 //添加点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GYBDetailViewController *detailViewController=[[GYBDetailViewController alloc]initWithNibName:@"GYBDetailViewController" bundle:nil];
-    detailViewController.navigationItem.title=[self.key objectAtIndex:indexPath.row];
+    RTDetailViewNewViewController *detailViewController=[[RTDetailViewNewViewController alloc]initWithNibName:@"RTDetailViewNewViewController" bundle:nil];
+    detailViewController.navigationItem.title=@"详细信息";
 //
 //
-UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
-                                                                   style:UIBarButtonItemStylePlain target:nil action:nil];
-    detailViewController.navigationItem.backBarButtonItem = backButton;
+   UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                   style:UIBarButtonItemStylePlain
+                               
+                                                              target:nil action:nil];
     
+    detailViewController.navigationItem.backBarButtonItem = backButton;
+    [detailViewController setCurrentSelectedIndex:indexPath.row];
     [self.navigationController pushViewController:detailViewController animated:YES];
 //    NSLog(@"%d",indexPath.row);
     
@@ -117,7 +124,7 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
 {
     
     //初始化key Array
-     self.key = [[NSArray alloc] initWithObjects:@"father",@"mother",@"son",nil];
+     self.key = [[NSArray alloc] initWithObjects:@"gyb",@"shirui",@"son",nil];
     NSLog(@"%@",[self.key objectAtIndex:0]);
     
 }
@@ -176,7 +183,7 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 3;
+    return 2;
 }
 //行缩进
 
@@ -208,7 +215,7 @@ UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     cell.nameLabel.text=[self.key objectAtIndex:row];
-
+    [cell.portait setImage:[UIImage imageNamed:[protaitImageArray objectAtIndex:indexPath.row]]];
     // shape 4 -- 3 Stars
     [cell.statueView setMeterType:DPMeterTypeLinearHorizontal];
     [cell.statueView setShape:[UIBezierPath stars:5 shapeInFrame:cell.statueView.frame].CGPath];

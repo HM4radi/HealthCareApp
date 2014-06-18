@@ -10,6 +10,10 @@
 #import "DPMeterView.h"
 #import "UIBezierPath+BasicShapes.h"
 @interface GYBTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
+{
+    NSArray *protaitImageArray;
+
+}
 //
 //@property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 //@property (strong, nonatomic) IBOutlet UITableView *tableView;
