@@ -101,6 +101,11 @@
                         <color key="textColor" red="0.3921568627" green="0.74509803919999995" blue="0.078431372550000003" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-X6-Yd8">
+                        <rect key="frame" x="86" y="85" width="100" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </progressView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -108,6 +113,7 @@
                 <outlet property="endTime" destination="Wp3-dY-BhM" id="bg2-gc-crb"/>
                 <outlet property="location" destination="gnX-74-xbq" id="eD8-Wo-Ubc"/>
                 <outlet property="portraitView" destination="7dH-Gb-UIW" id="CP7-e9-FF4"/>
+                <outlet property="progressView" destination="rkT-X6-Yd8" id="oeT-zo-Q3N"/>
                 <outlet property="startTime" destination="PRU-mr-LL5" id="2vM-IJ-j2f"/>
                 <outlet property="strength" destination="Kcu-mn-Aqf" id="Pgb-Np-Lep"/>
                 <outlet property="title2" destination="2ab-m2-hqV" id="gyM-5T-SPk"/>

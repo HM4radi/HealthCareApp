@@ -24,21 +24,25 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+- (void)viewWillLayoutSubviews{
     [self.navBar setFrame:CGRectMake(0, 0, 320, 64)];
     self.navBar.translucent=YES;
     [self.addNavBar setFrame:CGRectMake(0, 0, 320, 64)];
     //self.navLabel1.frame=CGRectMake(100,32,120,20);
     self.navLabel2.frame=CGRectMake(100,32,120,20);
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
     recordArray=[[NSMutableArray alloc]init];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    //[self.tableView setFrame:CGRectMake(0, 64, 320, self.view.frame.size.height)];
     self.tableView.backgroundColor=[UIColor clearColor];
-    //add tableView
+    
 
     cellNum=5;
     
@@ -60,42 +64,11 @@
     self.nameField.tag=0;
     self.numField.delegate=self;
     self.numField.tag=1;
-    
-    //返回按钮1
-    UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.view insertSubview:imgview aboveSubview:self.navBar];
-    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
-    [imgview addGestureRecognizer:backGesture1];
-    imgview.userInteractionEnabled=YES;
-    
-    //添加按钮2
-    UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
-    [imgview1 setImage:[UIImage imageNamed:@"add-master.png"]];
-    [self.view insertSubview:imgview1 aboveSubview:self.navBar];
-    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(add)];
-    [imgview1 addGestureRecognizer:backGesture2];
-    imgview1.userInteractionEnabled=YES;
-    
-    //返回按钮3
-    UIImageView *imgview2=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview2 setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.addView insertSubview:imgview2 aboveSubview:self.addNavBar];
-    UITapGestureRecognizer *backGesture3=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchCancel)];
-    [imgview2 addGestureRecognizer:backGesture3];
-    imgview2.userInteractionEnabled=YES;
-    
-    //确认按钮4
-    UIImageView *imgview3=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
-    [imgview3 setImage:[UIImage imageNamed:@"add-master.png"]];
-    [self.addView insertSubview:imgview3 aboveSubview:self.addNavBar];
-    UITapGestureRecognizer *backGesture4=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchFinish)];
-    [imgview3 addGestureRecognizer:backGesture4];
-    imgview3.userInteractionEnabled=YES;
-  
+ 
 }
 
-- (void)touchBack{
+
+- (IBAction)touchBack:(id)sender {
     [UIView beginAnimations:@"view flip" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView transitionWithView:self.view.superview
@@ -105,8 +78,7 @@
                     completion:NULL];
     [UIView commitAnimations];
 }
-
-- (void)add{
+- (IBAction)add:(id)sender {
     [UIView beginAnimations:@"view flip" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView transitionWithView:self.view.superview
@@ -117,7 +89,17 @@
     [UIView commitAnimations];
 }
 
-- (void)touchFinish{
+//- (void)add{
+//    [UIView beginAnimations:@"view flip" context:nil];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView transitionWithView:self.view.superview
+//                      duration:0.2
+//                       options:UIViewAnimationOptionTransitionFlipFromRight
+//                    animations:^{ [self.view addSubview:self.addView];  }
+//                    completion:NULL];
+//    [UIView commitAnimations];
+//}
+- (IBAction)touchFinish:(id)sender {
     if (!currentName||!currentNum||!currentBeforeAfter||!currentHour||!currentMinute) {
         NSString *msg = @"请输入完整信息";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
@@ -137,18 +119,49 @@
         currentHour=nil;
         currentMinute=nil;
         
-    [UIView beginAnimations:@"view flip" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView transitionWithView:self.view.superview
-                      duration:0.2
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{ [self.addView removeFromSuperview];  }
-                    completion:NULL];
-    [UIView commitAnimations];
+        [UIView beginAnimations:@"view flip" context:nil];
+        [UIView setAnimationDuration:0.5];
+        [UIView transitionWithView:self.view.superview
+                          duration:0.2
+                           options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^{ [self.addView removeFromSuperview];  }
+                        completion:NULL];
+        [UIView commitAnimations];
     }
+
 }
 
-- (void)touchCancel{
+//- (void)touchFinish{
+//    if (!currentName||!currentNum||!currentBeforeAfter||!currentHour||!currentMinute) {
+//        NSString *msg = @"请输入完整信息";
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+//                                                        message:msg
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }else
+//    {
+//        [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:currentName, @"name",[NSString stringWithFormat:@"%@:%@",currentHour,currentMinute], @"time", currentBeforeAfter, @"before",currentNum,@"number",@"0",@"complete", nil]];
+//        cellNum++;
+//        [self.tableView reloadData];
+//        currentName=nil;
+//        currentNum=nil;
+//        currentBeforeAfter=nil;
+//        currentHour=nil;
+//        currentMinute=nil;
+//        
+//    [UIView beginAnimations:@"view flip" context:nil];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView transitionWithView:self.view.superview
+//                      duration:0.2
+//                       options:UIViewAnimationOptionTransitionFlipFromLeft
+//                    animations:^{ [self.addView removeFromSuperview];  }
+//                    completion:NULL];
+//    [UIView commitAnimations];
+//    }
+//}
+- (IBAction)touchCancel:(id)sender {
     [UIView beginAnimations:@"view flip" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView transitionWithView:self.view.superview
@@ -157,8 +170,19 @@
                     animations:^{ [self.addView removeFromSuperview];  }
                     completion:NULL];
     [UIView commitAnimations];
-
 }
+
+//- (void)touchCancel{
+//    [UIView beginAnimations:@"view flip" context:nil];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView transitionWithView:self.view.superview
+//                      duration:0.2
+//                       options:UIViewAnimationOptionTransitionFlipFromLeft
+//                    animations:^{ [self.addView removeFromSuperview];  }
+//                    completion:NULL];
+//    [UIView commitAnimations];
+//
+//}
 
 //*********************tableView********************//
 

@@ -10,7 +10,7 @@
 #import "QMapKit.h"
 #import "QAppKeyCheck.h"
 #import "RTPlanData.h"
-
+#import "RTSportRecord.h"
 @interface RTMapView : UIView<QAppKeyCheckDelegate,QMapViewDelegate,UIGestureRecognizerDelegate,QReverseGeocoderDelegate>
 {
     IBOutlet QMapView* _mapView;
@@ -18,14 +18,16 @@
     NSMutableArray *routeCoord;
     QReverseGeocoder* _reverseGeocoder;
     RTPlanData *planData;
+    RTSportRecord *sportRecord;
 }
 
 @property(nonatomic, retain) QAppKeyCheck* appKeyCheck;
 @property(nonatomic, retain)IBOutlet QMapView* mapView;
-@property (nonatomic, retain) NSMutableArray *routeCoord;
-@property (nonatomic)BOOL selecting;
+@property(nonatomic, retain) NSMutableArray *routeCoord;
+@property(nonatomic)BOOL selecting;
 @property(nonatomic, retain) QReverseGeocoder* reverseGeocoder;
-
+@property(nonatomic)BOOL recording;
+@property(nonatomic, retain) UIColor *lineColor;
 - (void)addPointAnno:(QPointAnnotation*) pointAnno;
 - (void)removePointAnno:(QPointAnnotation*) pointAnno;
 - (void)addPolyline:(CLLocationCoordinate2D[])polylineArray withcount:(int)count;

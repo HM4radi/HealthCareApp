@@ -45,7 +45,7 @@
                 [NSDictionary dictionaryWithObjectsAndKeys:@"孕妇健康", @"name",@"yfjk.jpg", @"imagename", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"医学前沿", @"name",@"yxqy.jpg", @"imagename", nil],nil];
     
-    self.collectionView.frame=CGRectMake(0, 64, 320, 504);
+    //self.collectionView.frame=CGRectMake(0, 64, 320, 504);
     self.collectionView.delegate=self;
     self.collectionView.dataSource=self;
     self.collectionView.backgroundColor=[UIColor clearColor];

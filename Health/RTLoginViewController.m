@@ -110,7 +110,6 @@ static  RTLoginViewController *thisController=nil;
 - (IBAction)register:(id)sender {
     RTRegisterViewController* rgtVC=[[RTRegisterViewController alloc] initWithNibName:@"RTRegisterViewController" bundle:nil];
     [self presentViewController:rgtVC animated:YES completion:nil];
-
 }
 
 

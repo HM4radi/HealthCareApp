@@ -13,9 +13,10 @@
 @implementation RTMapView
 @synthesize mapView = _mapView;
 @synthesize selecting=_selecting;
+@synthesize recording=_recording;
 @synthesize routeCoord;
 @synthesize reverseGeocoder=_reverseGeocoder;
-
+@synthesize lineColor;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,9 +33,10 @@
         routeCoord=[[NSMutableArray alloc]init];
         [_mapView setShowsUserLocation:NO];
         self.selecting=NO;
+        self.Recording=NO;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
         if (![tapGesture respondsToSelector:@selector(locationInView:)]) {
-            [tapGesture release];
+            //[tapGesture release];
             tapGesture = nil;
         }else {
             tapGesture.delegate = self;
@@ -44,6 +46,9 @@
         }
         
         planData=[RTPlanData shareInstance];
+        sportRecord=[RTSportRecord shareInstance];
+        
+        lineColor=[[UIColor blueColor] colorWithAlphaComponent:0.5];
     }
     return self;
 }
@@ -73,7 +78,7 @@
         [routeCoord addObject:coordinate];
         [route addObject:annotation];
         [_mapView addAnnotation:annotation];
-        [annotation release];
+        annotation=nil;
     }
     return YES;
 }
@@ -86,13 +91,17 @@
         if ([route count]>0) {
             for (QPointAnnotation* annotation in route){
                 [_mapView removeAnnotation:annotation];
-                [annotation release];
+                //[annotation release];
             }
             [routeCoord removeAllObjects];
             [route removeAllObjects];
             [planData.sportGeoPointDescription removeAllObjects];
         }
     }
+}
+
+- (void)setRecording:(BOOL)recording{
+    _recording=recording;
 }
 
 - (void)removeLastPoint{
@@ -102,7 +111,7 @@
             [routeCoord removeLastObject];
             [route removeLastObject];
             [_mapView removeAnnotation:_annotation];
-            [_annotation dealloc];
+            //[_annotation dealloc];
         }
     }
 }
@@ -112,7 +121,8 @@
     QAppKeyCheck* check = [[QAppKeyCheck alloc] init];
     [check start:@"JIEBZ-CM2WQ-HX75D-GCMMT-RM5IZ-2DB7E" withDelegate:self];
     self.appKeyCheck = check;
-    [check release];
+    //[check release];
+    check=nil;
 }
 
 - (void)notifyAppKeyCheckResult:(QErrorCode)errCode
@@ -166,30 +176,37 @@
 - (void)addPolyline:(CLLocationCoordinate2D[])polylineArray withcount:(int)count{
 
     QPolyline* polyline = [QPolyline polylineWithCoordinates:polylineArray count:count];
-    
+
     [_mapView addOverlay:polyline];
     
-    float xMax=-999999999;
-    float yMax=-999999999;
-    float xMin=999999999;
-    float yMin=999999999;
-    for (int i=0; i<count; i++) {
-        if (polylineArray[i].latitude>xMax) {
-            xMax=polylineArray[i].latitude;
-        }else if (polylineArray[i].latitude<xMin){
-            xMin=polylineArray[i].latitude;
+    polyline=nil;
+    
+    if (_selecting) {
+        float xMax=-999999999;
+        float yMax=-999999999;
+        float xMin=999999999;
+        float yMin=999999999;
+        for (int i=0; i<count; i++) {
+            if (polylineArray[i].latitude>xMax) {
+                xMax=polylineArray[i].latitude;
+            }else if (polylineArray[i].latitude<xMin){
+                xMin=polylineArray[i].latitude;
+            }
+            if (polylineArray[i].longitude>yMax) {
+                yMax=polylineArray[i].longitude;
+            }else if (polylineArray[i].longitude<yMin){
+                yMin=polylineArray[i].longitude;
+            }
         }
-        if (polylineArray[i].longitude>yMax) {
-            yMax=polylineArray[i].longitude;
-        }else if (polylineArray[i].longitude<yMin){
-            yMin=polylineArray[i].longitude;
-        }
+        
+        _mapView.centerCoordinate = CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2);
+        
+        _mapView.region = QCoordinateRegionMake(CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2),QCoordinateSpanMake((xMax-xMin), (yMax-yMin)));
+
     }
-    
-    //_mapView.centerCoordinate = CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2);
-    
-    //_mapView.region = QCoordinateRegionMake(CLLocationCoordinate2DMake((xMax+xMin)/2,(yMax+yMin)/2),QCoordinateSpanMake((xMax-xMin), (yMax-yMin)));
 }
+
+
 
 -(QOverlayView*)mapView:(QMapView *)mapView viewForOverlay:(id<QOverlay>)overlay
 {
@@ -198,13 +215,12 @@
         QPolylineView* polylineView = [[QPolylineView alloc] initWithPolyline:overlay];
         
         polylineView.lineWidth = 5.0;
-		polylineView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+		polylineView.strokeColor = lineColor;
         
-        return [polylineView autorelease];
+        return polylineView;
     }
     
     return nil;
-    
 }
 /**************************点状标注****************************/
 
@@ -229,7 +245,7 @@
             QPinAnnotationView* newAnnotation = [[QPinAnnotationView alloc]
                              initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
             
-            [newAnnotation autorelease];
+            //[newAnnotation autorelease];
         //}
         
 		newAnnotation.pinColor = QPinAnnotationColorRed;
@@ -253,7 +269,8 @@
     QReverseGeocoder* geocode = [[QReverseGeocoder alloc] initWithCoordinate:coor];
     geocode.delegate = self;
     self.reverseGeocoder = geocode;
-    [geocode release];
+    //[geocode release];
+    geocode=nil;
     
     [_reverseGeocoder start];
 }
@@ -262,7 +279,6 @@
 {
     //查询成功时
     planData.querySuccess=YES;
-    //planData.location=placeMark.name;
     [planData.sportGeoPointDescription addObject:placeMark.name];
 }
 
@@ -284,11 +300,11 @@
 
 - (void)dealloc
 {
-    [_mapView release];
+    //[_mapView release];
     [_mapView setShowsUserLocation:NO];
     _mapView.delegate = nil;
     //self.mapView = nil;
-    [super dealloc];
+    //[super dealloc];
 }
 
 - (void)showAlertView:(NSString*)title widthMessage:(NSString*)message
@@ -300,7 +316,7 @@
                                               otherButtonTitles:nil];
     [alertView sizeToFit];
 	[alertView show];
-	[alertView release];
+	//[alertView release];
     mach_timebase_info_data_t info;
     mach_timebase_info(&info);
     //uint64_t start = mach_absolute_time();
@@ -308,7 +324,7 @@
     //    image.
     UIGraphicsBeginImageContext(CGSizeMake(image.size.width/2,image.size.height/2));
     [image drawInRect:CGRectMake(0,0,image.size.width/2,image.size.height/2)];
-    image = UIGraphicsGetImageFromCurrentImageContext();
+    //image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     //NSLog(@"%lrli",mach_absolute_time()-start);
     
@@ -328,12 +344,44 @@
 }
 
 - (void)setCenterCoord:(CLLocationCoordinate2D)coord{
-    //[_mapView setCenterCoordinate:coord animated:YES];
+    
     [_mapView setRegion:QCoordinateRegionMake(coord,QCoordinateSpanMake(0.002, 0.002)) animated:YES];
+
+    if (self.recording) {
+        [self pushRecord:coord];
+    }
 }
 
-
-
+-(void)pushRecord:(CLLocationCoordinate2D)coord{
+    
+    CGPoint p2=CGPointMake(coord.longitude, coord.latitude);
+    NSDate *t2=[NSDate date];
+    
+        if ([sportRecord.realCoordinate count]>0) {
+            NSDate *t1=[sportRecord.realTime lastObject];
+            CGPoint p1=CGPointFromString([sportRecord.realCoordinate lastObject]);
+            double s=sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
+            
+            NSTimeInterval interval=[t2 timeIntervalSinceDate:t1];
+            
+            float speed=30.8*s*3.6*3600/interval;
+            [sportRecord.realSpeed addObject:[NSNumber numberWithFloat:speed]];
+            sportRecord.nowSpeed=speed;
+            sportRecord.nowDistance+=s*3600*30.8;
+            
+        }else{
+            float speed=0;
+            sportRecord.nowSpeed=0;
+            sportRecord.nowDistance+=0;
+            [sportRecord.realSpeed addObject:[NSNumber numberWithFloat:speed]];
+        }
+    
+    NSString *coordinate=NSStringFromCGPoint(CGPointMake(coord.longitude,coord.latitude));
+    [sportRecord.realCoordinate addObject:coordinate];
+    [sportRecord.realTime addObject:t2];
+    [sportRecord.realCalories addObject:[NSNumber numberWithFloat:30.0]];
+    sportRecord.nowCalories=30.0;
+}
 
 /*
  // Only override drawRect: if you perform custom drawing.

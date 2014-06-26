@@ -25,24 +25,23 @@
     return self;
 }
 
+- (void)viewWillLayoutSubviews{
+    [self.navBar setFrame:CGRectMake(0, 0, 320, 64)];
+    //[self.tableView setFrame:CGRectMake(0, 64, 320, 464)];
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.navBar setFrame:CGRectMake(0, 0, 320, 64)];
+
     [self.tableView setDelegate:self];
 	[self.tableView setDataSource:self];
-    [self.tableView setFrame:CGRectMake(0, 64, 320, 464)];//按照cell个数定义高度
-    self.tableView.separatorColor=[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
 
-    //返回按钮1
-    UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.view insertSubview:imgview aboveSubview:self.navBar];
-    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
-    [imgview addGestureRecognizer:backGesture1];
-    imgview.userInteractionEnabled=YES;
-    
+    self.tableView.separatorColor=[UIColor colorWithRed:130.0/255.0 green:190.0/255.0 blue:20.0/255.0 alpha:1.0];
+   
     msgArray=[[NSMutableArray alloc]init];
     msgArray = [NSMutableArray arrayWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"每天十个时刻如何补水最养生", @"title",@"对于喝水，喝多都是渴了就喝，这虽然也没有错，但如果能够掌握住喝水的学问，按照最佳的时间段来喝，那不仅仅能解渴，还能排毒养生防病呢？那么，一天中喝水的最佳时间是什么呢？下面，小编告诉你一天中最该喝水的十个时刻。", @"content",@"hs.jpg", @"imagename", nil],
@@ -53,7 +52,7 @@
                 nil];
 }
 
-- (void)touchBack{
+- (IBAction)touchBack:(id)sender {
     [UIView beginAnimations:@"view flip" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView transitionWithView:self.view.superview

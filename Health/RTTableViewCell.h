@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *portraitView;
 @property (weak, nonatomic) IBOutlet UILabel *title2;
 
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+
 @end

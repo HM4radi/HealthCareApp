@@ -14,6 +14,7 @@
 #import "RTPlanData.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "RTDetailViewController.h"
+#import "RTDoingViewController.h"
 
 @interface FirstViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,refreshData>
 {
@@ -41,6 +42,8 @@
     NSDateFormatter *dateFormatter2;
     NSDateFormatter *dateFormatter3;
     NSDateFormatter *dateFormatter4;
+    
+    RTDoingViewController *doingVC;
 }
 
 - (void)refreshTableView;

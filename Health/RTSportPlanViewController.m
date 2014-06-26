@@ -23,13 +23,18 @@
     return self;
 }
 
+
+- (void)viewWillLayoutSubviews{
+    [self.NavBar setFrame:CGRectMake(0, 0, 320, 64)];
+    self.NavBar.translucent=YES;
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.NavBar setFrame:CGRectMake(0, 0, 320, 64)];
-    self.NavBar.translucent=YES;
-
+    
     UITapGestureRecognizer *Gesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showSelectView:)];
     [self.sportTypeView addGestureRecognizer:Gesture1];
     [Gesture1 view].tag=1;
@@ -88,22 +93,6 @@
         imgview3.userInteractionEnabled=YES;
     }
     
-    //返回按钮
-    UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview1 setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.NavBar addSubview:imgview1];
-    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
-    [imgview1 addGestureRecognizer:backGesture1];
-    imgview1.userInteractionEnabled=YES;
-    
-    //确认按钮
-    UIImageView *imgview2=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
-    [imgview2 setImage:[UIImage imageNamed:@"ok.png"]];
-    [self.NavBar addSubview:imgview2];
-    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchOK)];
-    [imgview2 addGestureRecognizer:backGesture2];
-    imgview2.userInteractionEnabled=YES;
-    
     self.selectRoute.tag=0;
     
     self.removeBtn.hidden=YES;
@@ -130,17 +119,18 @@
         
     }else if (self.selectRoute.tag==1){
         [self.selectRoute setTitle:@"开始选择路线" forState:UIControlStateNormal];
-        _mapView.selecting=NO;
         self.selectRoute.tag=0;
         self.removeBtn.hidden=YES;
         if ([_mapView.routeCoord count]>0) {
             planData.routeCoord=_mapView.routeCoord;
+            
             [_mapView addPolyline:[_mapView convertToCoord2D:planData.routeCoord] withcount:[_mapView.routeCoord count]];
             for (int i=0; i<[planData.routeCoord count];i++ ) {
                 [_mapView returnPlaceName:[planData.routeCoord objectAtIndex:i]];
             }
         }
     }
+    _mapView.selecting=NO;
 }
 
 - (IBAction)removeBtn:(id)sender {
@@ -236,12 +226,17 @@
     selectedType=[sportType objectAtIndex:row];
 }
 
-- (void)touchBack{
+//- (void)touchBack{
+//    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
+- (IBAction)touchCancel:(id)sender {
     self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)touchOK{
+- (IBAction)touchOK:(id)sender {
     if ([self isFinishedSelecting]) {
         NSNumberFormatter *ft=[[NSNumberFormatter alloc]init];
         planData.calories=[ft numberFromString:self.caloriesLabel.text];
@@ -251,7 +246,20 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         [self saveDataToAVOS];
     }
+
 }
+
+//- (void)touchOK{
+//    if ([self isFinishedSelecting]) {
+//        NSNumberFormatter *ft=[[NSNumberFormatter alloc]init];
+//        planData.calories=[ft numberFromString:self.caloriesLabel.text];
+//        ft=nil;
+//        planData.endTime=[self calEndTime];
+//        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//        [self saveDataToAVOS];
+//    }
+//}
 
 - (NSString*)returnStrength:(NSString*)type{
     NSString *strength=nil;
@@ -317,7 +325,8 @@
     [sportPlan setObject:planData.sportType forKey:@"sportType"];
     [sportPlan setObject:planData.routeCoord forKey:@"sportGeoPoint"];
     [sportPlan setObject:planData.calories forKey:@"sportCaloriesPlan"];
-    [sportPlan setObject:[NSNumber numberWithInt:0] forKey:@"planCompleteProgress"];
+    planData.progress=[NSNumber numberWithInt:0];
+    [sportPlan setObject:planData.progress forKey:@"planCompleteProgress"];
     [sportPlan setObject:planData.sportGeoPointDescription forKey:@"sportGeoPointDescription"];
     [sportPlan setObject:planData.strength forKey:@"strength"];
     [sportPlan setObject:[mySettingData objectForKey:@"CurrentUserName"] forKey:@"userObjectId"];

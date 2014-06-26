@@ -27,12 +27,20 @@
     return self;
 }
 
+- (void)viewWillLayoutSubviews{
+    
+    [self.navigationbar setFrame:CGRectMake(0, 0, 320, 64)];
+    self.navigationbar.translucent=YES;
+
+
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationbar setFrame:CGRectMake(0, 0, 320, 64)];
-    self.navigationbar.translucent=YES;
-    scrollView = [ [UIScrollView alloc ] initWithFrame:CGRectMake(0, 64, 320, 468) ];
+    
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, 468)];
     [self.view addSubview:scrollView];
     progressView=[[PICircularProgressView alloc]initWithFrame:CGRectMake(60, 6, 200, 200)];
     progressView.thicknessRatio=0.08;
@@ -40,29 +48,12 @@
     progressView.showShadow=false;
     [scrollView addSubview:progressView];
     scrollView.contentSize=CGSizeMake(self.view.frame.size.width, 226+100*cellNum);
-
+    
     //为progressView 添加点击事件
     progressView.userInteractionEnabled=YES;
     UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClick:)];
     [progressView addGestureRecognizer:tapGesture];
     tag=0;
-    
-    
-    //返回按钮1
-    UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.view insertSubview:imgview aboveSubview:self.navigationbar];
-    UITapGestureRecognizer *backGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
-    [imgview addGestureRecognizer:backGesture];
-    imgview.userInteractionEnabled=YES;
-    
-    //添加按钮2
-    UIImageView *imgview2=[[UIImageView alloc]initWithFrame:CGRectMake(280, 27, 30, 30)];
-    [imgview2 setImage:[UIImage imageNamed:@"add-master.png"]];
-    [self.view insertSubview:imgview2 aboveSubview:self.navigationbar];
-    UITapGestureRecognizer *backGesture2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addPlan)];
-    [imgview2 addGestureRecognizer:backGesture2];
-    imgview2.userInteractionEnabled=YES;
     
     //stepCounter
     stepCounter=[RTStepCounter sharedRTSterCounter];
@@ -96,6 +87,7 @@
     
     AVQuery *query=[AVQuery queryWithClassName:@"JKHistorySportPlan"];
     query.limit = 5;
+    [query addDescendingOrder:@"createdAt"];
     [query whereKey:@"userObjectId" equalTo:[mySettingData objectForKey:@"CurrentUserName"]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -110,7 +102,8 @@
                 NSString *strength=[[objects objectAtIndex:i] objectForKey:@"strength"];
                 NSNumber *calories=[[objects objectAtIndex:i] objectForKey:@"sportCaloriesPlan"];
                 NSString *objectId=[[objects objectAtIndex:i] objectForKey:@"objectId"];
-                [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:placeName, @"location",startTime, @"startTime", endTime, @"endTime",sportType,@"type",strength,@"strength",calories,@"calories",objectId,@"objectId",nil]];
+                NSNumber *progress=[[objects objectAtIndex:i] objectForKey:@"planCompleteProgress"];
+                [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:placeName, @"location",startTime, @"startTime", endTime, @"endTime",sportType,@"type",strength,@"strength",calories,@"calories",objectId,@"objectId",progress,@"progress",nil]];
             }
             
             [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];//按照cell个数定义高度
@@ -124,21 +117,19 @@
     query=nil;
 }
 
-
-
-- (void)addPlan{
+- (IBAction)addPlan:(id)sender {
     if (!sportPlanVC) {
         sportPlanVC=[[RTSportPlanViewController alloc]init];
         sportPlanVC.dataDelegate=self;
     }
-
+    
     sportPlanVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-
+    
     [self presentViewController:sportPlanVC animated:YES completion:nil];
     
     sportPlanVC=nil;
-}
 
+}
 
 //*******************************动态图********************************//
 - (void)viewClick:(UITapGestureRecognizer *)gesture
@@ -234,6 +225,7 @@
     cell.startTime.text=[dic objectForKey:@"startTime"];
     cell.endTime.text=[dic objectForKey:@"endTime"];
     cell.type.text=[dic objectForKey:@"type"];
+    cell.progressView.progress=[[dic objectForKey:@"progress"] floatValue];
     if ([[dic objectForKey:@"type"] isEqualToString:@"跑步"]||[[dic objectForKey:@"type"] isEqualToString:@"走路"]) {
         cell.title2.text=@"平均速度";
     }
@@ -271,13 +263,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[tableView cellForRowAtIndexPath:indexPath] setSelectionStyle:UITableViewCellSelectionStyleGray];
     NSUInteger row = [indexPath row];
     [self loadDetailView:row];
-    [[tableView cellForRowAtIndexPath:indexPath] setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
+
+}
+
+- (void)deselect
+{
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)refreshTableView{
-    [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[planData.sportGeoPointDescription objectAtIndex:0], @"location",[dateFormatter1 stringFromDate: planData.startTime ], @"startTime", [dateFormatter1 stringFromDate: planData.endTime], @"endTime",planData.sportType,@"type",planData.strength,@"strength",planData.calories,@"calories",planData.objectId,@"objectId",nil]];
+    [recordArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[planData.sportGeoPointDescription objectAtIndex:0], @"location",[dateFormatter1 stringFromDate: planData.startTime ], @"startTime", [dateFormatter1 stringFromDate: planData.endTime], @"endTime",planData.sportType,@"type",planData.strength,@"strength",planData.calories,@"calories",planData.objectId,@"objectId",planData.progress,@"progress",nil]];
     cellNum++;
     [self.tableView setFrame:CGRectMake(0, 216, 320, 100*cellNum)];
     [self.tableView reloadData];
@@ -287,10 +286,6 @@
 //*********************detailsView********************//
 
 - (void)loadDetailView:(NSInteger)row{
-
-    if(!detailVC){
-        detailVC=[[RTDetailViewController alloc]init];
-    }
     
     NSDictionary *dic=[recordArray objectAtIndex:row];
     NSString *objectId=[dic objectForKey:@"objectId"];
@@ -308,17 +303,42 @@
             planData.sportType=[[objects objectAtIndex:0] objectForKey:@"sportType"];
             planData.strength=[[objects objectAtIndex:0] objectForKey:@"strength"];
             planData.calories=[[objects objectAtIndex:0] objectForKey:@"sportCaloriesPlan"];
+            planData.progress=[[objects objectAtIndex:0] objectForKey:@"planCompleteProgress"];
             
-            detailVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;     
-            [self presentViewController:detailVC animated:YES completion:nil];
-            detailVC=nil;
+            if (![planData.progress isEqualToNumber:[NSNumber numberWithFloat:0]]) {
+                if(!detailVC){
+                    detailVC=[[RTDetailViewController alloc]init];
+                }
+                detailVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                [self presentViewController:detailVC animated:YES completion:nil];
+                detailVC=nil;
+            }
+            else{
+                if(!doingVC){
+                    doingVC=[[RTDoingViewController alloc]init];
+                }
+                doingVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                [self presentViewController:doingVC animated:YES completion:nil];
+                doingVC=nil;
+            }
         }
     }];
 }
 
 
-- (void)touchBack{
-    
+//- (void)touchBack{
+//    
+//    [UIView beginAnimations:@"view flip" context:nil];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView transitionWithView:self.view.superview
+//                      duration:0.2
+//                       options:UIViewAnimationOptionTransitionFlipFromLeft
+//                    animations:^{ [self.view removeFromSuperview];  }
+//                    completion:NULL];
+//    [UIView commitAnimations];
+//}
+
+- (IBAction)touchBack:(id)sender {
     [UIView beginAnimations:@"view flip" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView transitionWithView:self.view.superview
@@ -327,8 +347,8 @@
                     animations:^{ [self.view removeFromSuperview];  }
                     completion:NULL];
     [UIView commitAnimations];
-}
 
+}
 
 - (void)didReceiveMemoryWarning
 {

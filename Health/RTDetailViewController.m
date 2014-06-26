@@ -24,20 +24,18 @@
     return self;
 }
 
+
+- (void)viewWillLayoutSubviews{
+    [self.navBar setFrame:CGRectMake(0, 0, 320, 64)];
+    self.navBar.translucent=YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView *imgview1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 27, 30, 25)];
-    [imgview1 setImage:[UIImage imageNamed:@"back-master.png"]];
-    [self.view insertSubview:imgview1 aboveSubview:self.navBar];
-    UITapGestureRecognizer *backGesture1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBack)];
-    [imgview1 addGestureRecognizer:backGesture1];
-    imgview1.userInteractionEnabled=YES;
     
-    [self.navBar setFrame:CGRectMake(0, 0, 320, 64)];
-    
-    
+
     planData=[RTPlanData shareInstance];
     
     if ([planData.sportType isEqualToString:@"跑步"]||[planData.sportType isEqualToString:@"步行"]||[planData.sportType isEqualToString:@"骑行"]) {
@@ -66,12 +64,11 @@
     }else if ([planData.routeCoord count]==1){
         [self addPointAnno:route[0]];
         [_mapView setCenterCoord:route[0]];
-
     }
     
 }
 
-- (void)touchBack{
+- (IBAction)touchBack:(id)sender {
     self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
