@@ -38,6 +38,10 @@
 		0469EB71192886F600388022 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469EB6F192886F600388022 /* UIBezierPath+BasicShapes.m */; };
 		0469EB741928871D00388022 /* locationMark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB731928871D00388022 /* locationMark.jpg */; };
 		0469EB761928876100388022 /* compose_privatebutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0469EB751928876100388022 /* compose_privatebutton_background.png */; };
+		0492439E195C6BDC00563BE2 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0492439D195C6BDC00563BE2 /* AVOSCloud.framework */; };
+		049243A0195C6C3300563BE2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0492439F195C6C3300563BE2 /* CoreTelephony.framework */; };
+		049243A2195C6C3D00563BE2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049243A1195C6C3D00563BE2 /* MobileCoreServices.framework */; };
+		049243A4195C6C4800563BE2 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 049243A3195C6C4800563BE2 /* libicucore.dylib */; };
 		04B58A761945659000A4905C /* RTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A751945659000A4905C /* RTUserInfo.m */; };
 		04B58A7A1945666B00A4905C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A791945666B00A4905C /* Reachability.m */; };
 		04B58A821945678200A4905C /* RTCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B58A801945678200A4905C /* RTCenterViewController.m */; };
@@ -275,7 +279,6 @@
 		AD70D1951946A88D00F6D118 /* RTStepCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70D1941946A88D00F6D118 /* RTStepCounter.m */; };
 		AD70D1981946DE0800F6D118 /* tabbar_5.png in Resources */ = {isa = PBXBuildFile; fileRef = AD70D1961946DE0800F6D118 /* tabbar_5.png */; };
 		AD70D1991946DE0800F6D118 /* tabbar_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD70D1971946DE0800F6D118 /* tabbar_5@2x.png */; };
-		AD70E502195BF9C0007D99C1 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD70E501195BF9C0007D99C1 /* AVOSCloud.framework */; };
 		AD9A389719362A5600A8EFFB /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9A389619362A5600A8EFFB /* login.png */; };
 		ADA6C2DE19518FD70037A013 /* locate2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA6C2DC19518FD70037A013 /* locate2.png */; };
 		ADA6C2DF19518FD70037A013 /* locate1.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA6C2DD19518FD70037A013 /* locate1.png */; };
@@ -466,6 +469,10 @@
 		0469EB6F192886F600388022 /* UIBezierPath+BasicShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+BasicShapes.m"; sourceTree = "<group>"; };
 		0469EB731928871D00388022 /* locationMark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = locationMark.jpg; sourceTree = "<group>"; };
 		0469EB751928876100388022 /* compose_privatebutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_privatebutton_background.png; sourceTree = "<group>"; };
+		0492439D195C6BDC00563BE2 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
+		0492439F195C6C3300563BE2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		049243A1195C6C3D00563BE2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		049243A3195C6C4800563BE2 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		04B58A741945659000A4905C /* RTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUserInfo.h; sourceTree = "<group>"; };
 		04B58A751945659000A4905C /* RTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUserInfo.m; sourceTree = "<group>"; };
 		04B58A781945666B00A4905C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -761,7 +768,6 @@
 		AD70D1941946A88D00F6D118 /* RTStepCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTStepCounter.m; sourceTree = "<group>"; };
 		AD70D1961946DE0800F6D118 /* tabbar_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_5.png; sourceTree = "<group>"; };
 		AD70D1971946DE0800F6D118 /* tabbar_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_5@2x.png"; sourceTree = "<group>"; };
-		AD70E501195BF9C0007D99C1 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		AD9A389619362A5600A8EFFB /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		ADA6C2DC19518FD70037A013 /* locate2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate2.png; sourceTree = "<group>"; };
 		ADA6C2DD19518FD70037A013 /* locate1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate1.png; sourceTree = "<group>"; };
@@ -928,6 +934,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4810631924BFC90081DAFA /* SystemConfiguration.framework in Frameworks */,
+				049243A4195C6C4800563BE2 /* libicucore.dylib in Frameworks */,
+				049243A2195C6C3D00563BE2 /* MobileCoreServices.framework in Frameworks */,
+				049243A0195C6C3300563BE2 /* CoreTelephony.framework in Frameworks */,
 				AD4810611924BFC10081DAFA /* OpenGLES.framework in Frameworks */,
 				AD48105F1924BFBA0081DAFA /* CoreText.framework in Frameworks */,
 				AD48105D1924BFB40081DAFA /* MapKit.framework in Frameworks */,
@@ -941,7 +950,7 @@
 				ADAA5DD4192341090040ED10 /* UIKit.framework in Frameworks */,
 				ADAA5DD0192341090040ED10 /* Foundation.framework in Frameworks */,
 				E80D1A9BF67B46B2B42DC619 /* libPods.a in Frameworks */,
-				AD70E502195BF9C0007D99C1 /* AVOSCloud.framework in Frameworks */,
+				0492439E195C6BDC00563BE2 /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,7 +1643,10 @@
 		ADAA5DCE192341090040ED10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AD70E501195BF9C0007D99C1 /* AVOSCloud.framework */,
+				049243A3195C6C4800563BE2 /* libicucore.dylib */,
+				049243A1195C6C3D00563BE2 /* MobileCoreServices.framework */,
+				0492439F195C6C3300563BE2 /* CoreTelephony.framework */,
+				0492439D195C6BDC00563BE2 /* AVOSCloud.framework */,
 				AD4810621924BFC90081DAFA /* SystemConfiguration.framework */,
 				AD4810601924BFC10081DAFA /* OpenGLES.framework */,
 				AD48105E1924BFBA0081DAFA /* CoreText.framework */,
@@ -1913,11 +1925,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADAA5DF8192341090040ED10 /* Build configuration list for PBXNativeTarget "Health" */;
 			buildPhases = (
-				CB7AAE9CA34743AD9A9C7A2B /* Check Pods Manifest.lock */,
 				ADAA5DC8192341090040ED10 /* Sources */,
 				ADAA5DC9192341090040ED10 /* Frameworks */,
 				ADAA5DCA192341090040ED10 /* Resources */,
-				76F0C5BFEA5E485DB483A81C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2299,39 +2309,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		76F0C5BFEA5E485DB483A81C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB7AAE9CA34743AD9A9C7A2B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ADAA5DC8192341090040ED10 /* Sources */ = {

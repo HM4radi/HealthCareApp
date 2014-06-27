@@ -334,7 +334,7 @@
             break;
         case 10004:
            rowcount=[self.filteredAll count];
-
+            return rowcount;
         default:
             rowcount=0;
             break;
